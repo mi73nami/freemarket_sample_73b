@@ -31,7 +31,7 @@
 |image|string|null:false|
 |product_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :produsct
+- belongs_to :product
 
 
 ## categoriesテーブル
@@ -68,8 +68,8 @@
 |birthdate|date|null:false|　(生年月日)
 ### Association
 - has_many :products
-- belongs_to :credit_card
-- belongs_to :ship_address
+- has_one :credit_card
+- has_one :ship_address
 
 
 ## ship_addressesテーブル
@@ -84,8 +84,10 @@
 |apartment_name|string|
 |room_number|string|
 |phone_number|string|
+|user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
+
 
 
 ## credit-cardsテーブル
@@ -95,3 +97,4 @@
 - 多分クレジットカード情報のカラム（カード番号/月/年）追加？ancestry導入後検討
 ### Association
 - belongs_to :user
+
