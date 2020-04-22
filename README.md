@@ -14,7 +14,7 @@
 |shipping_area|string|null:false|　（発送元）
 |shipping_days|integer|null:false| 　（発送までの日数）
 |price|integer|null:false|　（価格）
-|existence|boolean|null:false| (商品が購入済みかどうか）
+|existence|enum|null:false| (商品が購入済みかどうか）
 |user_id|integer|null: false, foreign_key: true|
 |category_id|integer|null: false, foreign_key: true|
 |brand_id|integer|null: false, foreign_key: true|
