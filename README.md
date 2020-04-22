@@ -15,9 +15,9 @@
 |shipping_days|integer|null:false| 　（発送までの日数）
 |price|integer|null:false|　（価格）
 |existence|enum|null:false| (商品が購入済みかどうか）
-|user_id|integer|null: false, foreign_key: true|
-|category_id|integer|null: false, foreign_key: true|
-|brand_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
+|brand_id|references|null: false, foreign_key: true|
 ### Association
 - has_many :product_images
 - belongs_to :brand
@@ -29,7 +29,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null:false|
-|product_id|integer|null: false, foreign_key: true|
+|product_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :product
 
@@ -77,14 +77,14 @@
 |first_name|string|null:false| (氏名)
 |ruby_last_name|string|null:false|　(苗字ひらがな)
 |ruby_first_name|string|null:false|　(名前ひらがな)
-|postal code|integer|null: false| 
+|postal_code|integer|null: false| 
 |prefectures|string|null: false|
 |city|string|null: false|
 |address_detail|string|null: false|
 |apartment_name|string|
 |room_number|string|
 |phone_number|string|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 
