@@ -1,4 +1,26 @@
-%h1 Home#index
-%p Find me in app/views/home/index.html.erb
+.header
+  .header__box
+    .header__box__main
+      = link_to root_path do
+        .header__box__main--icon
+    .header__box__sub
+      .header__box__sub__left
+        .header__box__sub__left--category
+          = link_to "#", class: "categoryBtn", id: "left-category" do
+            = "カテゴリー"
 
-%h1 Ajax#index %p#hoge 赤色になるよ :javascript   $("#hoge").css("color","red")   
+          .visibleTree
+            %ul.firstMenu__parents
+              %li.firstMenu__parents__parent
+                %ul.secondMenu__children                  
+                  %li.secondMenu__children__child
+                    %ul.thirdMenu__grandchildren                       
+                    　%li.thirdMenu__grandchildren__grandchild
+        .header__box__sub__left--brand
+      .header__box__sub__right
+        .header__box__sub__right--log-in
+          ログイン
+        .header__box__sub__right--register-user
+          新規会員登録
+        .header__box__sub__right--log-out
+          マイページ
