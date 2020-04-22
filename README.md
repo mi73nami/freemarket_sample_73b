@@ -1,34 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-あああ
-
-aaaaa
-
-bbbbb
-
 
 ### DB設計
 
@@ -47,26 +18,36 @@ bbbbb
 |user_id|integer|null: false, foreign_key: true|
 |category_id|integer|null: false, foreign_key: true|
 |brand_id|integer|null: false, foreign_key: true|
+### Association
+- has_many :product_images
+- belongs_to :brand
+- belongs_to :category
+- belongs_to :user
 
 
-## product-imagesテーブル
+## product_imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null:false|
 |product_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :produsct
 
 
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null:false|
-
+### Association
+- has_many :products
 
 
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+### Association
+- has_many :products
 
 
 ## usersテーブル
@@ -85,6 +66,10 @@ bbbbb
 |ruby_last_name|string|null:false|　(苗字ひらがな)
 |ruby_first_name|string|null:false|　(名前ひらがな)
 |birthdate|date|null:false|　(生年月日)
+### Association
+- has_many :products
+- belongs_to :credit_card
+- belongs_to :ship_address
 
 
 ## ship_addressesテーブル
@@ -99,6 +84,8 @@ bbbbb
 |apartment_name|string|
 |room_number|string|
 |phone_number|string|
+### Association
+- belongs_to :user
 
 
 ## credit-cardsテーブル
@@ -106,3 +93,5 @@ bbbbb
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 - 多分クレジットカード情報のカラム（カード番号/月/年）追加？ancestry導入後検討
+### Association
+- belongs_to :user
