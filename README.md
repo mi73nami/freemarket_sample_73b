@@ -56,7 +56,7 @@
 |nickname|string|null:false　(ニックネーム)
 |email|string|null: false, uniqueness: true|　(メール)
   - メールアドレスは@とドメインを含む必要がある
-|password|string|null: false, uniqueness: true|　(パスワード)
+|password|string|null: false|　(パスワード)
   - パスワードは7文字以上
   - パスワードは確認用を含めて2回入力する
    要validates
