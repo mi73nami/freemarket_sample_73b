@@ -1,22 +1,22 @@
-.main{
+.products-show-main{
   background-color: #f47c7c;
 
-  .showMain{    
+  .products-show-wrapper{    
     padding: 40px;
     margin: 0 auto;
-    .contentRight{
+    .products-show-contents{
       width: 700px;
       margin: 0 auto;
 
-      .itemBox{
+      .products-show-itemBox{
           background-color: #fff;
           padding: 24px 40px 40px;
-          .itemBox__name{
+          &__title{
             text-align: center;
             font-weight: bold;
             font-size: 24px;
           }
-          .itemBox__body{
+          &__pic{
             margin: 16px 0 0;
             ul{
               display: flex;
@@ -50,7 +50,7 @@
             }
           }
 
-          .itemBox__price{
+          &__price{
             margin: 24px 0 24px;
             text-align: center;
             display: flex;
@@ -60,7 +60,7 @@
               font-weight: bold;
               margin: 0 10px 0 0;
             }
-            .itemBox__price-tax-sipfee{
+            &--tax_sipfee{
               span{
                 font-size: 16px;
                 font-weight: normal;
@@ -68,7 +68,7 @@
             }
           }
 
-        .itemDetail{
+          .products-show-description{
           line-height: 1.5;
           font-size: 18px;
           margin-bottom: 30px;
@@ -76,7 +76,7 @@
 
 
 
-        .table{
+        .products-show-table{
           margin-bottom: 20px;
           table{
             width: 100%;
@@ -111,7 +111,7 @@
 
 
 
-        .optionalArea{
+        .products-show-fav_bad_btn{
           display: flex;
           justify-content: space-between;
           ul{    
@@ -126,7 +126,7 @@
               // i.fa.fa-star{}
             }
           }
-          .optional{
+          .products-show-fav_bad_btn{
             margin: 10px 0 0;
             display: flex;
             .optionalBtn{
@@ -144,24 +144,24 @@
         }
       }
       
-      .commentBox{
+      .products-show-commentBox{
         padding: 24px;
         background-color: #fff;
         margin: 10px 0;
         text-align: center;
-        .new_comment{
+        &__new_comment{
           #comment_body{    
             width: 100%;
             min-height: 104px;
             padding: 10px;}
-            p.noticeMsg{
+            &__noticeMsg{
               padding: 8px;
               font-size: 14px;
               background-color: #f8f8f8;
               margin: 10px 0;
               text-align: left;
             }
-            button.commentBtn{
+            &__commentBtn{
               font-size: 18px;
             line-height: 48px;
             background: #3CCACE;
@@ -176,7 +176,7 @@
         }
       }
 
-      .link-block{
+      .products-show-link-block{
         height: 24px;
         ul.links{
           li{
@@ -196,7 +196,7 @@
         }
       }
 
-      .relatedItems{
+      .products-show-relatedItems{
         clear: both;
         a{
           display: block;
@@ -207,7 +207,6 @@
           font-size: 22px;
           position: relative;
         }
-        .productLists{}
       }
     }
   }
