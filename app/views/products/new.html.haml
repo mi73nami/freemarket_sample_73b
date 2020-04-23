@@ -1,5 +1,18 @@
-.products-new-header
-  = image_tag 'logo/logo.png', class: "products-new-header__logo"
-.products-new-main
-  .products-new-main__form
-.products-new-footer
+.products_new-header
+  = image_tag 'logo/logo.png', class: "products_new-header__logo"
+.products_new-main
+  .products_new-main__form
+    = form_with model: @product_image, local: true, id:"new_image" do |form|
+      .products_new-newimage
+        .products_new-details__headline
+          .products_new-details__headline--title 出品画像
+          .products_new-details__headline--required 必須
+        %p.products_new-details__explanation 最大10枚までアップロードできます
+        .products_new-imagearea
+          = form.label :image, class: 'products_new-imagearea__select' do
+            = icon('fas', 'camera', class: 'products_new-imagearea__select--icon')
+            %p.products_new-imagearea__select--explanation
+              ドラッグアンドドロップ
+              %br またはクリックしてファイルをアップロード
+          = form.file_field :image, style: "display: none;"
+.products_new-footer
