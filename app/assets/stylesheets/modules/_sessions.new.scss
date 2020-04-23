@@ -1,0 +1,109 @@
+.sessions-new{
+  width: 100%;
+  height: 100%;
+  background: #f5f5f5;
+  a{
+    display: none
+  }
+    &__top-logo{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: auto;
+
+      img{
+        height: 45px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+    }
+  &__wrapper{
+    width: 456px;
+    height: 410px;
+    background-color:white;
+    margin-right: auto;
+    margin-left: auto;
+    &__registrations{
+      width: 456px;
+      height: 112px;
+      padding-top: 24px;
+      padding: 24px, 32px;
+      padding: 24px 32px 24px 32px;
+      border-bottom: solid 1px;
+      border-color: gainsboro;
+      text-align: center;
+      &__nav{
+        font-size: 14px;
+      }
+      &__button{
+        border: 1px solid #0099e8;
+        background: #0099e8;
+        border: none;
+        width: 392px;
+        height: 42px;
+        a{
+          display: inline-block;
+          text-decoration: none;
+          width: 100%;
+          height: 100%;
+          line-height: 40px;
+          color: white;
+        }
+      }
+    }
+    &__form{
+      label{
+        display: none;
+      }
+      input{
+        width: 392px;
+        height: 48px;
+        margin-left: auto;
+        margin-right: auto;
+        /* padding: 9px; */
+        padding: 9px 16px 9px 16px;
+        display: block;
+      }
+      #user_remember_me{
+        display: none;
+      }
+      .actions--red{
+        margin-top: 30px;
+        input{
+          background-color: red;
+          border: none;
+          color: white;
+        }
+      }
+    }
+    &__passwordreminder{
+      font-size: 14px;
+      margin-top: 35px;
+      margin-left: 35px;
+      color: #0099e8;
+    }
+  }
+  &__footer{
+    &__desc{
+      text-align: center; 
+      font-size: 12px;
+      color: gray;
+      line-height: 30px;
+    }
+    &__logo{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: auto;
+      margin-top: 30px;
+
+      img{
+        height: 45px;
+      }
+      &__desc{
+        font-size: 12px;
+        text-align: center;
+      }
+    }
+  }
+}
