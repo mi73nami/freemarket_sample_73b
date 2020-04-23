@@ -2,6 +2,12 @@
   height: 130px;
   width: 100%;
   background-color: chartreuse;
+  display:flex;
+  align-items:center;
+  &__logo{
+    height: 55px;
+    margin: 0 auto;
+  }
 }
 
 .products-new-main{
