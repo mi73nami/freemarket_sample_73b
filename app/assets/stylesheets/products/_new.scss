@@ -14,6 +14,13 @@
   height: 100vh;
   width: 100%;
   background-color: cornsilk;
+  &__form{
+    height: 100%;
+    width: 50%;
+    background-color: cyan;
+    margin: 0 auto;
+    padding: 20px;
+  }
 }
 
 .products-new-footer{
