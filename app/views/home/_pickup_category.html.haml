@@ -1,22 +1,22 @@
 .wrapper
-  .containerCategory
-    %h2.containerCategory__title
+  .pickup_category__containerCategory
+    %h2.pickup_category__containerCategory__title
       商品一覧
-    .containerCategory__product
-      .containerCategory__product--head
-        = link_to "#", class: "products--head" do
+    .pickup_category__containerCategory__product
+      .pickup_category__containerCategory__product--head
+        = link_to "#", class: "pickup_category__products--head" do
           %h3.head
-      .containerCategory__product--lists
+      .pickup_category__containerCategory__product--lists
         
-        %figure.product__images
+        %figure.pickup_category__product__images
           
-        .containerCategory__product--lists__list--body
-          %h3.product--name
+        .pickup_category__containerCategory__product--lists__list--body
+          %h3.pickup_category__product--name
             
-          .containerCategory__product--lists__list--body__details
-            %ul.details__menu
+          .pickup_category__containerCategory__product--lists__list--body__details
+            %ul.pickup_category__details__menu
               %li
                 
                 円
               %li ★
-          %p.taxIncluded （税込）
+          %p.pickup_category__taxIncluded （税込）
