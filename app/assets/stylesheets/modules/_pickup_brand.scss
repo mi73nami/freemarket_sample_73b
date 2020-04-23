@@ -13,7 +13,7 @@
     
   }
 }
-.products--head{
+.pickup_brand__products--head{
   margin-left: 10px;
   text-decoration: none;
 }
@@ -25,13 +25,13 @@
 .listBtn:hover {
   opacity: 0.5 ;
 }
-.product--name{
+.pickup_brand__product--name{
   overflow: hidden;
   line-height: 1.5;
   font-size: 16px;
   text-align: left;
 }
-.product__images{
+.pickup_brand__product__images{
   width: 220px;
   height: 150px;
   position: relative;
@@ -50,16 +50,16 @@
     object-fit: cover;
   }
 }
-.details__menu{
+.pickup_brand__details__menu{
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.taxIncluded{
+.pickup_brand__taxIncluded{
   font-size: 10px;
   text-align: left;
 }
-.containerBrand{
+.pickup_brand__containerBrand{
   background-color: #f8f8f8;
   padding-bottom: 80px;
   height: 100%;
