@@ -71,13 +71,22 @@
       width: 780px;
       margin: 26px auto;
       display: flex;
-      .pickup_category__product__images {
-        margin-left: 45px;
-      }
+      justify-content: space-around;
       &__list{
         width: 220px;
         display: inline-block;
         margin: 0 auto;
+        //float: left;
+        height: 100%;
+        .pickup_category__product__images {
+          //margin-left: 45px;
+          width: 220px;
+          height: 150px;
+          position: relative;
+          overflow: hidden;
+          margin: 0;
+          z-index: auto;
+        }
         &--body{
           background-color: white;
           color: black;
