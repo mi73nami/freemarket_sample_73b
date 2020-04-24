@@ -5,19 +5,19 @@
     .pickup_brand__containerBrand__product
       .pickup_brand__containerBrand__product__head
         = link_to "#", class: "pickup_brand__products--head" do
-          %h3.pickup_brand__head Dior
+          %h3.pickup_brand__head Christian Dior
       .pickup_brand__containerBrand__product--lists
+        - @products.each do |product|
+          .pickup_brand__containerBrand__product--lists__list
+            %figure.pickup_brand__product__images
+              = image_tag "https://static.mercdn.net/item/detail/orig/photos/m69199789239_1.jpg?1585451120", alt: "image_url", class:"pickup_brand__product__images--image"
             
-        %figure.pickup_brand__product__images
-          //= image_tag "#", alt: "image_url",size: "200x150", class:"new-img"
-        .pickup_brand__containerBrand__product--lists__list
-          .pickup_brand__containerBrand__product--lists__list__body
-            %h3.pickup_brand__product--name
-              aaa
-            .pickup_brand__containerBrand__product--lists__list--body__details
-              %ul.pickup_brand__details__menu
-                %li
-                  
-                  円
-                %li ★
-            %p.pickup_brand__taxIncluded （税込）
+            .pickup_brand__containerBrand__product--lists__list__body
+              %h3.pickup_brand__product--name
+                = product.name
+              .pickup_brand__containerBrand__product--lists__list__body__details
+                %ul.pickup_brand__details__menu
+                  %li
+                    = "#{product.price}円"
+                  %li ★
+              %p.pickup_brand__taxIncluded （税込）
