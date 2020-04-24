@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: "home#index"
   resources :products
   resources :users
+  get 'purchase', to: 'products#purchase'
 end
