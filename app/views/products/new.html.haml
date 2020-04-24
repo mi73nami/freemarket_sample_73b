@@ -3,23 +3,20 @@
 .products_new-main
   .products_new-main__form
     .products_new-main__form--product_image
-      = form_with model: @product_image, local: true, id:"new_image" do |form|
+      = form_with model: @product, local: true, id:"new_product" do |form|
         .products_new-newimage
           .products_new-product__headline
             .products_new-product__headline--title 出品画像
             .products_new-product__headline--required 必須
           %p.products_new-product__explanation 最大10枚までアップロードできます
           .products_new-imagearea
-            = form.label :image, class: 'products_new-imagearea__select' do
-              = icon('fas', 'camera', class: 'products_new-imagearea__select--icon')
-              %p.products_new-imagearea__select--explanation
-                ドラッグアンドドロップ
-                %br またはクリックしてファイルをアップロード
-            = form.file_field :image, style: "display: none;"
-        .products_new-product__image--submit
-          = form.submit '出品する', class: "products_new-product__image--submit--btn"
-    .products_new-main__form--product
-      = form_with model: @product, local: true, id:"new_product" do |form|
+            = form.fields_for :product_images do |i|
+              = i.file_field :image, style: "display: none;"
+              = i.label :image, class: 'products_new-imagearea__select' do
+                = icon('fas', 'camera', class: 'products_new-imagearea__select--icon')
+                %p.products_new-imagearea__select--explanation
+                  ドラッグアンドドロップ
+                  %br またはクリックしてファイルをアップロード
         .products_new-title
           .products_new-product__headline
             .products_new-product__headline--title 商品名

@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   resources :products
   resources :users
   resources :categories
+
+  get 'purchase', to: 'products#purchase'
 end
+
