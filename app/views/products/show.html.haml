@@ -1,15 +1,14 @@
 .products-show-main
   .products-show-wrapper
-    -# .contentLeftqq
     .products-show-contents
       .products-show-contents__topContent
         
         .products-show-itemBox
-          %h2.products-show-itemBox__title ギャグマンガ日和GB 1 増田こうすけ劇場
+          %h2.products-show-itemBox__name
+            = @product.name
           .products-show-itemBox__pic
             %ul
               %li
-                -# = image_tag 'dog.JPG', :size =>'320x480'　
                 %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}/
                 %ul
                   %li
@@ -21,14 +20,20 @@
                     = image_tag 'pict/bg-appBanner-pict.jpg'
           .products-show-itemBox__price
             %span
-              ¥30000
-            .products-show-itemBox__price--tax_sipfee
+              ¥
+              =@product.price
+            .products-show-itemBox__price--tax_shipfee
               %span
                 (税込)
               %span
                 送料込み
+          
+          %a.products-show-itemBox__buy-btn{:href => "#"}
+            購入画面に進む
 
-          .products-show-description ジョースター一族と、邪悪な吸血鬼と化したディオやその後継者たちが、1世紀以上に亘って繰り広げる戦いを描く大河群像劇である。舞台は1888年のイギリス。英国の青年貴族で強い正義感と勇気を持つ主人公ジョナサン・ジョースターと、下層階級の出身ながら類稀なカリスマ性と野望の持ち主ディオ・ブランドーの抗争劇。「石仮面」や「波紋」を背景に、2人の成長や対立が描かれている。
+
+          .products-show-detail
+            =@product.detail
 
           .products-show-table
             %table
@@ -59,7 +64,7 @@
                 %tr
                   %th 発送元の地域
                   %td
-                    =link_to "" "岩手県"
+                    = link_to "" "岩手県"
                 %tr
                   %th 発送日の目安
                   %td 4-7日で発送

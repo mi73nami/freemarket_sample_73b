@@ -1,5 +1,5 @@
 .products-show-main{
-  background-color: #f47c7c;
+  background-color: #f8f8f8;
 
   .products-show-wrapper{    
     padding: 40px;
@@ -11,7 +11,7 @@
       .products-show-itemBox{
           background-color: #fff;
           padding: 24px 40px 40px;
-          &__title{
+          &__name{
             text-align: center;
             font-weight: bold;
             font-size: 24px;
@@ -60,7 +60,7 @@
               font-weight: bold;
               margin: 0 10px 0 0;
             }
-            &--tax_sipfee{
+            &--tax_shipfee{
               span{
                 font-size: 16px;
                 font-weight: normal;
@@ -68,7 +68,24 @@
             }
           }
 
-          .products-show-description{
+          &__buy-btn{
+            font-size: 24px;
+            line-height: 60px;
+            display: block;
+            margin-top: 16px;
+            background: #3CCACE;
+            color: #fff;
+            line-height: 56px;
+            text-align: center;
+            font-weight: 600;
+            text-decoration: none;
+            a{
+              text-decoration: none;
+            }
+          }
+
+          .products-show-detail{
+          padding: 32px 0 0;
           line-height: 1.5;
           font-size: 18px;
           margin-bottom: 30px;
@@ -112,37 +129,35 @@
 
 
         .products-show-fav_bad_btn{
+          margin: 10px 0 0;
           display: flex;
           justify-content: space-between;
           ul{    
             margin: 10px 0 0;
             display: flex;
-            li{
+            li:first-child{
               margin-right: auto;
               padding: 6px 10px;
               border-radius: 40px;
               color: #3CCACE;
               border: 1px solid #ffb340;
-              // i.fa.fa-star{}
             }
           }
-          .products-show-fav_bad_btn{
-            margin: 10px 0 0;
-            display: flex;
-            .optionalBtn{
-              font-size: 14px;
+          ul.optional{
+            font-size: 14px;
+            li.optionalBtn{
+              display: inline-block;
+              border-radius: 4px;
+              border: 1px solid #333;
               a{
-                display: inline-block;
-                border-radius: 4px;
-                color: #333;
-                border: 1px solid #333;
-                text-decoration: none;
-                // .fa{}
+              text-decoration: none;
+              color: #333;
               }
             }
           }
         }
       }
+    
       
       .products-show-commentBox{
         padding: 24px;
