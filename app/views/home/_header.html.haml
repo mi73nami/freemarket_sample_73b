@@ -16,11 +16,13 @@
 
           .visibleTree
             %ul.firstMenu__parents
-              %li.firstMenu__parents__parent
-                %ul.secondMenu__children                  
-                  %li.secondMenu__children__child
-                    %ul.thirdMenu__grandchildren                       
-                      %li.thirdMenu__grandchildren__grandchild
+              - @parents.each do |parent|
+                %li.firstMenu__parents__parent
+                  = link_to "#{parent.name}", "#", class: "item-link" 
+                  %ul.secondMenu__children                  
+                    %li.secondMenu__children__child
+                      %ul.thirdMenu__grandchildren                       
+                        %li.thirdMenu__grandchildren__grandchild
         .home-header__header__box__sub__left--brand
       .home-header__header__box__sub__right
         .home-header__header__box__sub__right--log-in

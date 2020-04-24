@@ -37,7 +37,7 @@
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|type|string|null:false|
+|name|string|null:false|
 ### Association
 - has_many :products
 
@@ -45,7 +45,7 @@
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|type|string|null: false|
+|name|string|null: false|
 ### Association
 - has_many :products
 
