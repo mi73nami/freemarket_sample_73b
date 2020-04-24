@@ -11,7 +11,7 @@
 }
 
 .products_new-main{
-  height: 3000px;
+  height: auto;
   width: 100%;
   background-color: #f8f8f8;
   &__form{
@@ -197,8 +197,6 @@ select{
 .products_new-product_price{
   height: 250px;
   width: 100%;
-  background-color: lightsalmon;
-  border-bottom: 2px solid #f8f8f8;
   &__headline2{
     padding: 40px 0 ;
     color: #808080;
@@ -228,6 +226,24 @@ select{
   .products_new-product_price--yen{
     font-size: 12px;
     padding-right: 10px;
+  }
+}
+
+.products_new-boolean{
+  display: none;
+}
+
+.products_new-product__submit{
+  &--btn{
+    height: 50px;
+    width: 50%;
+    background-color: red;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    display: block;
+    margin: 0 auto;
   }
 }
 
