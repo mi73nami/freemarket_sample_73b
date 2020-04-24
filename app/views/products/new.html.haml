@@ -16,6 +16,8 @@
                 ドラッグアンドドロップ
                 %br またはクリックしてファイルをアップロード
             = form.file_field :image, style: "display: none;"
+        .products_new-product__image--submit
+          = form.submit '出品する', class: "products_new-product__image--submit--btn"
     .products_new-main__form--product
       = form_with model: @product, local: true, id:"new_product" do |form|
         .products_new-title
@@ -27,7 +29,7 @@
           .products_new-product__headline
             .products_new-product__headline--title 商品の説明
             .products_new-product__headline--required 必須
-          = form.text_area :detaile, class:"products_new-product__detaile--box", placeholder:"商品の説明(必須 1000文字以内)", maxlength:'1000'
+          = form.text_area :detail, class:"products_new-product__detaile--box", placeholder:"商品の説明(必須 1000文字以内)", maxlength:'1000'
         .products_new-product_explanation
           .products_new-product_explanation__headline2 商品の詳細
           .products_new-product_explanation__category
@@ -53,17 +55,17 @@
             .products_new-product__headline
               .products_new-product__headline--title 配送料の負担
               .products_new-product__headline--required 必須
-            = form.select :condition, [["送料込み(出品者負担)",1],["着払い(購入者負担)",2]], prompt: "選択してください", class: "products_new-product_delivery__fee--box"
+            = form.select :delivery_fee, [["送料込み(出品者負担)",1],["着払い(購入者負担)",2]], prompt: "選択してください", class: "products_new-product_delivery__fee--box"
           .products_new-product_delivery__shipping_area
             .products_new-product__headline
               .products_new-product__headline--title 発送元の地域
               .products_new-product__headline--required 必須
-            = form.select :condition, [["北海道",1],["沖縄",2]], prompt: "選択してください", class: "products_new-product_delivery__shipping_area--box"
+            = form.select :shipping_area, [["北海道",1],["沖縄",2]], prompt: "選択してください", class: "products_new-product_delivery__shipping_area--box"
           .products_new-product_delivery__shipping_days
             .products_new-product__headline
               .products_new-product__headline--title 発送までの日数
               .products_new-product__headline--required 必須
-            = form.select :condition, [["1~2日で発送",1],["2~3日で発送",2]], prompt: "選択してください", class: "products_new-product_delivery__shipping_days--box"
+            = form.select :shipping_days, [["1~2日で発送",1],["2~3日で発送",2]], prompt: "選択してください", class: "products_new-product_delivery__shipping_days--box"
           .products_new-product_price
             .products_new-product_price__headline2 価格（¥300〜9,999,999）
             .products_new-product_price--displayflex
@@ -72,5 +74,9 @@
                 .products_new-product__headline--required 必須
               .products_new-product_price--select
                 %p.products_new-product_price--yen ¥
-                = form.number_field :age, class: "products_new-product_price--box", placeholder:"0"
+                = form.number_field :price, class: "products_new-product_price--box", placeholder:"0"
+        .products_new-boolean
+          = form.select :existence, [0], class: "products_new-boolean__box"
+        .products_new-product__submit
+          = form.submit '出品する', class: "products_new-product__submit--btn"
 .products_new-footer
