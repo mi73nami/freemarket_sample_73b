@@ -1,6 +1,5 @@
 .products-show-main
   .products-show-wrapper
-    -# .contentLeftqq
     .products-show-contents
       .products-show-contents__topContent
         
@@ -10,7 +9,6 @@
           .products-show-itemBox__pic
             %ul
               %li
-                -# = image_tag 'dog.JPG', :size =>'320x480'　
                 %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}/
                 %ul
                   %li
@@ -34,7 +32,7 @@
             購入画面に進む
 
 
-          .products-show-description
+          .products-show-detail
             =@product.detail
 
           .products-show-table
