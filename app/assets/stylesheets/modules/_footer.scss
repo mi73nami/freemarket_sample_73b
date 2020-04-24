@@ -1,20 +1,20 @@
-li{
+li.home_footer__footer__contents__list{
   list-style: none;
 }
 
-.list--menu{
+.home_footer__list--menu{
   color: white;
   text-decoration: none;
   font-size: 12px;
   line-height: 32px;
 }
-.list--menu:hover {
+.home_footer__list--menu:hover {
   text-decoration: underline;
 }
 
 
-.footer{
-  background-color: black;
+.home_footer__footer{
+  background-color: #2b2929;
   color: white;
   padding: 60px 0;
   text-align: center;

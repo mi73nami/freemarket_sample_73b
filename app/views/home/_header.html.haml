@@ -3,11 +3,16 @@
     .home-header__header__box__main
       = link_to root_path do
         .home-header__header__box__main--icon
+      .home-header__header__box__main--searchbox
+        %i.fas.fa-search
     .home-header__header__box__sub
       .home-header__header__box__sub__left
         .home-header__header__box__sub__left--category
           = link_to "#", class: "categoryBtn", id: "left-category" do
             = "カテゴリー"
+        .home-header__header__box__sub__left--brand
+          = link_to "#", class: "brandBtn", id: "left-category" do
+            = "ブランド"
 
           .visibleTree
             %ul.firstMenu__parents

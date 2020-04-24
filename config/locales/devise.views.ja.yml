@@ -1,5 +1,20 @@
 ja:
   activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "が入力されていません。"
+            password:
+              blank: "が入力されていません。"
+        # message:　　　　　　　　　　　　　　　　　　　←これは自分で作ったmodel
+        #   attributes:
+        #     title:　　　　　　　　　　　　　　　　　　←自分で作ったカラム名
+        #       blank: "が入力されていません。"
+        #     content:　　　　　　　　　　　　　　　　　←自分で作ったカラム名
+        #       blank: "が入力されていません。"
+
     attributes:
       user:
         current_password: "現在のパスワード"

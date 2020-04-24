@@ -1,21 +1,115 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.registrations-new
+
+  .registrations-new__head
+  .registrations-new__wrapper
+    .registrations-new__wrapper__box
+      .registrations-new__wrapper__box__nav
+        会員情報入力
+      .registrations-new__wrapper__box__form
+        .registrations-new__wrapper__box__form__set
+          = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+            = render "devise/shared/error_messages", resource: resource
+
+            .registrations-new__wrapper__box__form__set__nickname
+              = f.label :nickname
+              %span.form-require 必須
+              %br/
+              = f.text_field :email, autofocus: true, autocomplete: "email", placeholder: '例）フリマ太郎'
+            
+            .registrations-new__wrapper__box__form__set__email
+              = f.label :email
+              %span.form-require 必須
+              %br/
+              = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'PC・携帯どちらでも可'
+            
+            .registrations-new__wrapper__box__form__set__password
+              = f.label :password
+              %span.form-require 必須
+              %br/
+              = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: '7文字以上の半角英数字' 
+              .registrations-new__wrapper__box__form__set__password__desc
+                ※ 英字と数字の両方を含めて設定してください
+
+
+            .registrations-new__wrapper__box__form__set__desc-safety
+              %h 本人確認
+              %br/
+              安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+
+            .registrations-new__wrapper__box__form__set__name
+              .registrations-new__wrapper__box__form__set__name__last-name
+                = f.label :email
+                お名前(全角) 
+                %span.form-require 必須
+
+                %br/
+                = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: '例）山田'
+              .registrations-new__wrapper__box__form__set__name__first-name
+                = f.label :email
+                %br/
+                = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: '例）彩'
+
+            .registrations-new__wrapper__box__form__set__ruby-name
+              .registrations-new__wrapper__box__form__set__ruby-name__last-name
+                = f.label :email
+                お名前カナ(全角)  
+                %span.form-require 必須
+                %br/
+                = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: '例）ヤマダ'
+              .registrations-new__wrapper__box__form__set__ruby-name__first-name
+                = f.label :email
+                
+                
+                %br/
+                = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: '例）アヤ'
+            
+            .registrations-new__wrapper__box__form__set__date-index
+              %h 生年月日
+              %span.form-require 必須
+
+            .registrations-new__wrapper__box__form__set__birthdate
+
+              .registrations-new__wrapper__box__form__set__birthdate__year
+                = f.label :email
+                %br/
+                = f.email_field :email, autofocus: true, autocomplete: "email"
+                %p 年
+                
+
+                
+              .registrations-new__wrapper__box__form__set__birthdate__month
+                = f.label :email
+                %br/
+                = f.email_field :email, autofocus: true, autocomplete: "email"
+                %p 月
+              .registrations-new__wrapper__box__form__set__birthdate__day
+                = f.label :email
+                %br/
+                = f.email_field :email, autofocus: true, autocomplete: "email"
+                %p 日
+
+            .registrations-new__wrapper__box__form__set__about-form
+              %p1 ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+
+
+            -# .registrations-new__wrapper__form__about-form
+            -#   = f.label :password
+            -#   - if @minimum_password_length
+            -#     %em
+            -#       (#{@minimum_password_length} characters minimum)
+            -#   %br/
+            -#   = f.password_field :password, autocomplete: "new-password"
+            -# .registrations-new__wrapper__form__group
+            -#   = f.label :password_confirmation
+            -#   %br/
+            -#   = f.password_field :password_confirmation, autocomplete: "new-password"
+            -# .registrations-new__wrapper__form__group
+            -#   = f.label :email
+            -#   %br/
+            -#   = f.email_field :email, autofocus: true, autocomplete: "email"
+            
+            .registrations-new__wrapper__box__form__set__actions
+              = f.submit "商品送付先の入力画面へ"
+
+          
+  = render "devise/shared/links"

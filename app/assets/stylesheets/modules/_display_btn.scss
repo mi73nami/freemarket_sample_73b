@@ -1,0 +1,25 @@
+.display_btn {
+  box-sizing: border-box;
+  background-color: #3CCACE;
+  width: 120px;
+  color: white;
+  border-radius: 4%;
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  text-align: center;
+  text-decoration: none;
+  z-index: 1;
+  &__in-box{
+    padding: 15px 15px 10px 15px;
+    &--text {
+      font-size: 18px;
+    }
+    &--img {
+      padding-top: 5px;
+    }
+  }
+}
+.display_btn:hover {
+  opacity: 0.7;
+}

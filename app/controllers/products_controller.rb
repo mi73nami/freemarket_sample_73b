@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   def index
+    @products = Product.all
   end
 
   def new
@@ -16,6 +17,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find(1) #(@products.ids) #(params[:id])
   end
 
   def edit
@@ -36,7 +38,3 @@ class ProductsController < ApplicationController
     params.require(:product_image).permit(:image).merge(:product_id)
   end
 end
-
-
-
-

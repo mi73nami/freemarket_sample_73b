@@ -1,1 +1,115 @@
-.test show 表示テスト
+.products-show-main
+  .products-show-wrapper
+    .products-show-contents
+      .products-show-contents__topContent
+        
+        .products-show-itemBox
+          %h2.products-show-itemBox__name
+            = @product.name
+          .products-show-itemBox__pic
+            %ul
+              %li
+                %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}/
+                %ul
+                  %li
+                    -# = image_tag 'dog.JPG', :size =>'320x480'　
+                    %img{:height => "75", :src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", :width => "75"}/
+                  %li
+                    %img{:height => "75", :src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/14/a001.png", :width => "75"}/
+                  %li
+                    = image_tag 'pict/bg-appBanner-pict.jpg'
+          .products-show-itemBox__price
+            %span
+              ¥
+              =@product.price
+            .products-show-itemBox__price--tax_shipfee
+              %span
+                (税込)
+              %span
+                送料込み
+          
+          %a.products-show-itemBox__buy-btn{:href => "#"}
+            購入画面に進む
+
+
+          .products-show-detail
+            =@product.detail
+
+          .products-show-table
+            %table
+              %tbody
+                %tr
+                  %th 出品者
+                  %td 増田こうすけ
+                %tr
+                  %th カテゴリー
+                  %td
+                    =link_to "" "ベビー・キッズ"
+                    %br/
+                    =link_to "" "ベビー服(男女兼用)  ~95cm"
+                    %br/
+                    =link_to "" "アウター"
+                %tr
+                  %th ブランド
+                  %td
+                %tr
+                  %th 商品のサイズ
+                  %td
+                %tr
+                  %th 商品の状態
+                  %td 未使用に近い
+                %tr
+                  %th 配送料の負担
+                  %td 送料込み（出品者負担）
+                %tr
+                  %th 発送元の地域
+                  %td
+                    = link_to "" "岩手県"
+                %tr
+                  %th 発送日の目安
+                  %td 4-7日で発送
+
+
+          .products-show-fav_bad_btn
+            %ul
+              %li#likeBtn.optionalBtn.likeBtn
+                %i.fa.fa-star
+                お気に入り 0
+            %ul.optional
+              %li.optionalBtn
+                %a{:href => "#"}
+                  %i.fa.fa-flag
+                  不適切な商品の通報
+
+
+        .products-show-commentBox
+          %ul.commentContents
+          %form#new_comment.products-show-commentBox__new_comment{"accept-charset" => "UTF-8", :action => "#", :method => "post"}
+            %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+            %input{:name => "authenticity_token", :type => "hidden", :value => "1NxpNJyDFYtsiCk9sjRs0RKxssQ/jbE95Yf1Rr6D9tO1kd7Cc6EsdZvTr9DslutaNcHzXHre4aMeKiUey8NWzA=="}/
+            %textarea#comment_body{:name => "comment[body]", :required => "required"}
+            %p.products-show-commentBox__new_comment__noticeMsg
+              相手のことを考え丁寧なコメントを心がけましょう。
+              %br/
+              不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            %br/
+            %button.products-show-commentBox__new_comment__commentBtn{:name => "button", :type => "submit"}
+              %i.fa.fa-comment
+              コメントする
+
+      .products-show-link-block
+        %ul.links
+          %li
+            %a{:href => "#"}
+              %i.fa.fa-angle-left
+              %span
+              前の商品
+          %li
+            %a{:href => "#"}
+              %span 
+              後ろの商品
+              %i.fa.fa-angle-right
+
+      .products-show-relatedItems
+        = link_to "" "ベビー・キッズをもっと見る"
+        .products-show-relatedItems__productLists

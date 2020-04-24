@@ -1,0 +1,23 @@
+.wrapper
+  .pickup_brand__containerBrand
+    %h2.pickup_brand__containerBrand__title
+      ピックアップブランド
+    .pickup_brand__containerBrand__product
+      .pickup_brand__containerBrand__product__head
+        = link_to "#", class: "pickup_brand__products--head" do
+          %h3.pickup_brand__head Dior
+      .pickup_brand__containerBrand__product--lists
+            
+        %figure.pickup_brand__product__images
+          //= image_tag "#", alt: "image_url",size: "200x150", class:"new-img"
+        .pickup_brand__containerBrand__product--lists__list
+          .pickup_brand__containerBrand__product--lists__list__body
+            %h3.pickup_brand__product--name
+              aaa
+            .pickup_brand__containerBrand__product--lists__list--body__details
+              %ul.pickup_brand__details__menu
+                %li
+                  
+                  円
+                %li ★
+            %p.pickup_brand__taxIncluded （税込）
