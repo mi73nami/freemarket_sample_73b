@@ -1,14 +1,11 @@
 .sessions-new
-
-  .sessions-new__header-logo
-    = image_tag 'logo/logo.png'
-
+  .sessions-new__head
   .sessions-new__wrapper
     .sessions-new__wrapper__registrations
       .sessions-new__wrapper__registrations__nav
         アカウントをお持ちでない方はこちら
       .sessions-new__wrapper__registrations__button
-        = link_to "新規会員登録", "#"
+        = link_to "新規会員登録", new_user_registration_path
 
     .sessions-new__wrapper__form
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
@@ -28,18 +25,5 @@
           = f.submit "ログイン"
     .sessions-new__wrapper__passwordreminder
       パスワードをお忘れの方
-
-  .sessions-new__footer
-    .sessions-new__footer__desc
-      プライバシーポリシー
-      %br/
-      メルカリ利用規約
-      %br/
-      特定商取引に関する表記
-    .sessions-new__footer__logo
-      = image_tag 'logo/logo-white.png'
-      .sessions-new__footer__logo__desc
-        © Mercari, Inc.
-
           
   = render "devise/shared/links"
