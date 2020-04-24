@@ -1,8 +1,8 @@
-.head{
+h3.pickup_brand__head{
   font-weight: bold;
   width: 35%;
   text-align: center;
-  //color: $light_green;
+  color: #3CCACE;
   display: flex;
   align-items: center;
   margin-left: 280px;
@@ -70,36 +70,36 @@
     font-weight: bold;
     margin-left: 50px;
   }
-    &__product{
-      height: 321px;
-      width: 780px;
-      margin: 0 auto;
-      
-      &--head{
+  &__product{
+    height: 321px;
+    width: 780px;
+    margin: 0 auto;
+    
+    &--head{
+    }
+    &--lists{
+    width: 780px;
+    margin: 26px auto;
+    display: flex;
+    overflow-x: scroll;
+      .product__images {
+        margin-left: 45px;
       }
-      &--lists{
-      width: 780px;
-      margin: 26px auto;
-      display: flex;
-      overflow-x: scroll;
-        .product__images {
-          margin-left: 45px;
-        }
-      &__list{
-        width: 220px;
-        display: inline-block;
-        &--body{
-          background-color: white;
-          color: black;
-          padding: 16px;
-          &__details__menu{
-            font-size: 16px;
-            text-align: left;
-          }
+    &__list{
+      width: 220px;
+      display: inline-block;
+      &__body{
+        background-color: white;
+        color: black;
+        padding: 16px;
+        &__details__menu{
+          font-size: 16px;
+          text-align: left;
         }
       }
     }
   }
+}
 
 }
 
