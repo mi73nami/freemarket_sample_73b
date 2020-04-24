@@ -1,11 +1,7 @@
 .products--head{
-  text-decoration: none;
+  //text-decoration: none;
 }
-.head{
-  font-weight: bold;
-  text-align: center;
-  //color: $light_green;
-}
+
 .listBtn{
   text-decoration: none;
   display: inline-block;
@@ -54,19 +50,30 @@
     font-size: 28px;
     line-height: 1.4;
     font-weight: bold;
-    margin-left: 40px;
   }
-    &__product{
-      width: 780px;
-      margin: 0 auto;
-      overflow-x: scroll;
-      &--lists{
+  &__product{
+    width: 780px;
+    margin: 0 auto;
+    overflow-x: scroll;
+    &--head{
+      text-align: center;
+      .pickup_category__products--head {
+        font-size: 24px;
+        text-decoration: none;
+        color: #3CCACE;
+        h3.products--head-title {
+          font-weight: bold;
+        }
+      }
+    }
+    
+    &--lists{
       width: 780px;
       margin: 26px auto;
       display: flex;
-        .pickup_category__product__images {
-          margin-left: 45px;
-        }
+      .pickup_category__product__images {
+        margin-left: 45px;
+      }
       &__list{
         width: 220px;
         display: inline-block;
