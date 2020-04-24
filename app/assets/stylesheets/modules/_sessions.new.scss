@@ -5,18 +5,9 @@
   a{
     display: none
   }
-    &__header-logo{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: auto;
-
-      img{
-        height: 45px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-      }
-    }
+  &__head{
+    height: 48px;
+  }
   &__wrapper{
     width: 456px;
     height: 410px;
@@ -73,6 +64,7 @@
           background-color: red;
           border: none;
           color: white;
+          cursor: pointer;
         }
       }
     }
@@ -81,29 +73,6 @@
       margin-top: 35px;
       margin-left: 35px;
       color: #0099e8;
-    }
-  }
-  &__footer{
-    &__desc{
-      text-align: center; 
-      font-size: 12px;
-      color: gray;
-      line-height: 30px;
-    }
-    &__logo{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: auto;
-      margin-top: 30px;
-
-      img{
-        height: 45px;
-      }
-      &__desc{
-        font-size: 12px;
-        text-align: center;
-      }
     }
   }
 }
