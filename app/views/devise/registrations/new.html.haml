@@ -11,7 +11,7 @@
             = render "devise/shared/error_messages", resource: resource
 
             .registrations-new__wrapper__box__form__set__nickname
-              = f.label :nickname
+              ニックネーム
               %span.form-require 必須
               %br/
               = f.text_field :nickname, placeholder: '例）フリマ太郎'
@@ -66,8 +66,10 @@
             .registrations-new__wrapper__box__form__set__birthdate
 
               .registrations-new__wrapper__box__form__set__birthdate__year
-                = f.date_select :birthdate, {start_year: 1900}
-  
+                .birthdate_field
+                  = f.label :birthdate
+                  = raw sprintf(f.date_select(:birthdate, include_blank: true, use_month_numbers: true,start_year: 1920,end_year: (Time.now.year - 10),date_separator: '%s'),'年 ', '月 ') + '日'
+
 
             .registrations-new__wrapper__box__form__set__about-form
               %p1 ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
