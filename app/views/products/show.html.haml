@@ -10,19 +10,18 @@
           .products-show-itemBox__pic
             %ul
               %li
-                = image_tag @products
--# .product_images_attributes[:image]
+                = image_tag(@image.image.url)
                 %ul
                   %li
-                    = image_tag 'pict/bg-appBanner-pict.jpg', size: '75*75'
+                    = image_tag(@image.image.url)
                   %li
-                    = image_tag 'pict/bg-appBanner-pict.jpg', size: '75*75'
+                    = image_tag(@image.image.url)
                   %li
-                    = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png', size: '75*75'
+                    = image_tag(@image.image.url)
           .products-show-itemBox__price
             %span
               ¥
-              =@product.price
+              =@product.price.to_s(:delimited)
             .products-show-itemBox__price--tax_shipfee
               %span
                 (税込)
