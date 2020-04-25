@@ -2,12 +2,6 @@
   height: 50px;
   width: 100%;
   background-color: #f8f8f8;
-  display:flex;
-  align-items:center;
-  &__logo{
-    height: 55px;
-    margin: 0 auto;
-  }
 }
 
 .products_new-main{
@@ -23,8 +17,13 @@
   }
 }
 
+.products_new-main__form--product_new{
+  height: auto;
+  width: 100%;
+}
+
 .products_new-newimage{
-  height: 270px;
+  height: auto;
   width: 100%;
   padding-bottom: 40px;
   border-bottom: 2px solid #f8f8f8;
@@ -59,7 +58,7 @@
   margin-bottom: 20px;
 }
 .products_new-imagearea{
-  height: calc(100% - 75px);
+  min-height: 150px;
   width: 100%;
   background-color: #f8f8f8;
   border: dashed 1px #d3d3d3;
