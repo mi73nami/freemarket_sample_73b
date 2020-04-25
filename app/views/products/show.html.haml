@@ -31,10 +31,10 @@
           - if user_signed_in? && current_user.id == @product.user_id
             .l-single-container
               .listing-item-change-box
-                = link_to "商品の編集", purchase_path, class: "products-show-itemBox__btn-red"
+                = link_to "商品の編集", "#", class: "products-show-itemBox__btn-red"
                 %p.text-center or
                 = link_to "出品を一旦停止する", "#", class: "products-show-itemBox__btn-grey"
-                = link_to "この商品を削除する", purchase_path, class: "products-show-itemBox__btn-grey"
+                = link_to "この商品を削除する", "#", class: "products-show-itemBox__btn-grey"
           - else
             = link_to "購入画面に進む", purchase_path, class: "products-show-itemBox__buy-btn"
 
