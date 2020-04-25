@@ -9,7 +9,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  POST /resource
+  # POST /resource
 
   def create
     @user = User.new(sign_up_params)
