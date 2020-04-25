@@ -1,3 +1,4 @@
+=link_to "仮設置products_index", products_path
 .products-show-main
   .products-show-wrapper
     .products-show-contents
@@ -27,8 +28,39 @@
               %span
                 送料込み
 
+          - if user_signed_in? && current_user.id == @product.user_id
+            .l-single-container
+              .listing-item-change-box
+                = link_to "商品の編集", "#", class: "products-show-itemBox__btn-red"
+                %p.text-center or
+                = link_to "出品を一旦停止する", "#", class: "products-show-itemBox__btn-grey"
+                = link_to "この商品を削除する", "#", class: "products-show-itemBox__btn-grey"
+          - else
             = link_to "購入画面に進む", purchase_path, class: "products-show-itemBox__buy-btn"
-            
+
+          -# - if user_signed_in? && current_user.id == @product.user_id
+          -#   .postManage
+          -#     = link_to "編集", edit_post_path(@product.id), class: "postManage__edit"
+          -#     = link_to "削除", post_path(@product.id), method: :delete, class: "postManage__delete"
+
+              -# %a.btn-default.btn-red{:href => "https://www.mercari.com/jp/sell/edit/m15820539324/"} 商品の編集
+              -# %p.text-center or
+              -# %form{:action => "/jp/mypage/items/deactivate/m15820539324/", :method => "POST", :novalidate => "novalidate"}
+              -#   %input{:name => "__csrf_value", :type => "hidden", :value => "6d2518b5c3c10c6223b2fb76fa46f041221ec755a98aa5e3380459057c6f060a7058a7d43bc25dfaccea37e7b7ce62c68be4df8a416fcfab910a25af2da9db57b"}/
+              -#   %button.btn-default.btn-gray{:type => "submit"} 出品を一旦停止する
+              -# %button.btn-default.btn-gray{"data-modal" => "delete-item", "data-open" => "modal"}
+              -#   この商品を削除する
+
+            -# = link_to new_product_path do
+            -#   .display_btn__in-box
+            -#     .display_btn__in-box--text
+            -#       出品する
+            -#     = image_tag "icon/icon_camera.png", size: "54x54", class: "display_btn__in-box--img"
+
+
+
+
+
 
 
           .products-show-detail
