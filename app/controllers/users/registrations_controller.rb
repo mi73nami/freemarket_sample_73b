@@ -20,7 +20,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
    
     session["devise.regist_data"] = {user: @user.attributes}
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
-    @address = @user.build_address
+    @address = @user.build_ship_address
     render :new_address
   end
    
@@ -34,7 +34,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       flash.now[:alert] = @address.errors.full_messages
       render :new_address and return
     end
-    @user.build_address(@address.attributes)
+    @user.build_ship_address(@address.attributes)
     @user.save
     sign_in(:user, @user)
     redirect_to root_path
