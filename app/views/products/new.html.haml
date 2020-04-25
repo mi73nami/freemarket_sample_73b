@@ -12,6 +12,7 @@
             = form.fields_for :product_images do |i|
               .js-file_group{ data: { index: '#{image.index}' } }
                 = i.file_field :image, style: "display: none;", class: "js-file"
+                .js-remove 削除
                 = i.label :image, class: 'products_new-imagearea__select' do
                   = icon('fas', 'camera', class: 'products_new-imagearea__select--icon')
                   %p.products_new-imagearea__select--explanation
