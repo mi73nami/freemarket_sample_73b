@@ -2,8 +2,8 @@ $(function(){
   const buildFileField = (index)=> {
     const html = `<div data-index="${index}" class="js-file_group">
                     <input class="js-file" type="file"
-                    name="product[images_attributes][${index}][src]"
-                    id="product_images_attributes_${index}_src"><br>
+                    name="product[product_images_attributes][${index}][image]"
+                    id="product_images_attributes_${index}_image"><br>
                     <div class="js-remove">削除</div>
                   </div>`;
     return html;
@@ -13,5 +13,9 @@ $(function(){
     $(".products_new-imagearea").append(buildFileField(fileIndex[0]));
     fileIndex.shift();
     fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
+  });
+  $('.products_new-imagearea').on('click', '.js-remove', function() {
+    $(this).parent().remove();
+    if ($('.js-file').length == 0) $('.products_new-imagearea').append(buildFileField(fileIndex[0]));
   });
 });
