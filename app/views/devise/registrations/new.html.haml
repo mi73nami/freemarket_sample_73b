@@ -74,25 +74,7 @@
             .registrations-new__wrapper__box__form__set__about-form
               %p1 ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
 
-
-            -# .registrations-new__wrapper__form__about-form
-            -#   = f.label :password
-            -#   - if @minimum_password_length
-            -#     %em
-            -#       (#{@minimum_password_length} characters minimum)
-            -#   %br/
-            -#   = f.password_field :password, autocomplete: "new-password"
-            -# .registrations-new__wrapper__form__group
-            -#   = f.label :password_confirmation
-            -#   %br/
-            -#   = f.password_field :password_confirmation, autocomplete: "new-password"
-            -# .registrations-new__wrapper__form__group
-            -#   = f.label :email
-            -#   %br/
-            -#   = f.email_field :email, autofocus: true, autocomplete: "email"
-            
             .registrations-new__wrapper__box__form__set__actions
               = f.submit "商品送付先の入力画面へ"
-
-          
+                        
   = render "devise/shared/links"
