@@ -25,9 +25,11 @@
                       %li.thirdMenu__grandchildren__grandchild
         .home-header__header__box__sub__left--brand
       .home-header__header__box__sub__right
-        .home-header__header__box__sub__right--log-in
-          ログイン
-        .home-header__header__box__sub__right--register-user
-          新規会員登録
-        .home-header__header__box__sub__right--log-out
-          マイページ
+        - if current_user.nil?
+          = link_to "ログイン", new_user_session_path, class: "home-header__header__box__sub__right--log-in" 
+            
+          = link_to "新規会員登録", new_user_registration_path, class: "home-header__header__box__sub__right--register-user" 
+            
+        - else
+          = link_to "マイページ", users_path(current_user), class:"home-header__header__box__sub__right--mypage" 
+            
