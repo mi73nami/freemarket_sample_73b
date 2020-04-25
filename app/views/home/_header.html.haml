@@ -31,5 +31,4 @@
           = link_to "新規会員登録", new_user_registration_path, class: "home-header__header__box__sub__right--register-user" 
             
         - else
-          = link_to "マイページ", users_path(current_user), class:"home-header__header__box__sub__right--mypage" 
-            
+          = link_to "マイページ", user_path(current_user), class:"home-header__header__box__sub__right--mypage" 
