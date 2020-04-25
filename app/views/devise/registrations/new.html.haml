@@ -7,7 +7,7 @@
         会員情報入力
       .registrations-new__wrapper__box__form
         .registrations-new__wrapper__box__form__set
-          = form_for(resource, as: resource_name, url: new_user_path(resource_name)) do |f|
+          = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
             = render "devise/shared/error_messages", resource: resource
 
             .registrations-new__wrapper__box__form__set__nickname
@@ -23,10 +23,10 @@
               = f.email_field :email, placeholder: 'PC・携帯どちらでも可'
             
             .registrations-new__wrapper__box__form__set__password
-              = f.label :encrypted_password
+              = f.label :password
               %span.form-require 必須
               %br/
-              = f.password_field :encrypted_password, placeholder: '7文字以上の半角英数字' 
+              = f.password_field :password, placeholder: '7文字以上の半角英数字' 
               .registrations-new__wrapper__box__form__set__password__desc
                 ※ 英字と数字の両方を含めて設定してください
 
@@ -65,6 +65,9 @@
 
             .registrations-new__wrapper__box__form__set__birthdate
 
+              .registrations-new__wrapper__box__form__set__birthdate__year
+                = f.date_select :birthdate, {start_year: 1900}
+  
 
             .registrations-new__wrapper__box__form__set__about-form
               %p1 ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
