@@ -10,7 +10,8 @@
           .products-show-itemBox__pic
             %ul
               %li
-                = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png'
+                = image_tag @products
+-# .product_images_attributes[:image]
                 %ul
                   %li
                     = image_tag 'pict/bg-appBanner-pict.jpg', size: '75*75'
