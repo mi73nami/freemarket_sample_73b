@@ -11,6 +11,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
 
+  def new
+    @user = User.new
+  end
+
   def create
     @user = User.new(sign_up_params)
     unless @user.valid?
@@ -25,6 +29,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
    
   def new_address
+    @ship_address = Ship_address.new
   end
 
   def create_address
