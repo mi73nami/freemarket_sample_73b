@@ -28,13 +28,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_address
   end
    
-  def new_address
-    @ship_address = Ship_address.new
-  end
+  # def new_address
+  #   @ship_address = Ship_address.new
+  # end
 
   def create_address
     @user = User.new(session["devise.regist_data"]["user"])
-    @address = Address.new(address_params)
+    @address = ShipAddress.new(address_params)
     unless @address.valid?
       flash.now[:alert] = @address.errors.full_messages
       render :new_address and return
@@ -52,7 +52,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def address_params
-    params.require(:ship_addresses).permit(:last_name, :first_name, :ruby_last_name, :ruby_first_name, :postal_code, :prefectures, :city, :address_detail, :apartment_name, :room_number, :phone_number)
+    params.require(:ship_address).permit(:last_name, :first_name, :ruby_last_name, :ruby_first_name, :postal_code, :prefectures, :city, :address_detail, :apartment_name, :room_number, :phone_number)
   end
 
   # GET /resource/edit
