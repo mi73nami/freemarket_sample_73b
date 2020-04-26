@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
   before_action :set_ancestry
+  before_action :set_categories
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -23,6 +24,16 @@ class ApplicationController < ActionController::Base
 
   def set_ancestry
     @parents = Category.where(ancestry: nil)
+  end
+
+  def set_categories
+    @main_categories = Category.where(sub: '0')
+    @sub_categories = Category.where(sub: params[:parent], sub_sub: '0')
+    @sub_sub_categories = Category.where(sub: params[:child], sub_sub: params[:grandChild])
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
 end
