@@ -7,8 +7,11 @@
         会員情報入力
       .registrations-new__wrapper__box__form
         .registrations-new__wrapper__box__form__set
-          = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-            = render "devise/shared/error_messages", resource: resource
+          -# = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          -#   = render "devise/shared/error_messages", resource: resource
+
+          = form_for(@user, url: user_registration_path) do |f|
+            = render "devise/shared/error_messages", resource: @user
 
             .registrations-new__wrapper__box__form__set__nickname
               ニックネーム
@@ -77,4 +80,4 @@
             .registrations-new__wrapper__box__form__set__actions
               = f.submit "商品送付先の入力画面へ"
                         
-  = render "devise/shared/links"
+          = render "devise/shared/links"
