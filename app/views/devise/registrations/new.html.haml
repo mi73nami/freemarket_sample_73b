@@ -32,6 +32,10 @@
               = f.password_field :password, placeholder: '7文字以上の半角英数字' 
               .registrations-new__wrapper__box__form__set__password__desc
                 ※ 英字と数字の両方を含めて設定してください
+              
+            .registrations-new__wrapper__box__form__set__passwordconfirmation
+              = f.label :password_confirmation
+              = f.password_field :password_confirmation
 
             .registrations-new__wrapper__box__form__set__desc-safety
               %h 本人確認
