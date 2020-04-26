@@ -7,8 +7,6 @@
         会員情報入力
       .registrations-new__wrapper__box__form
         .registrations-new__wrapper__box__form__set
-          -# = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-          -#   = render "devise/shared/error_messages", resource: resource
 
           = form_for(@user, url: user_registration_path) do |f|
             = render "devise/shared/error_messages", resource: @user
@@ -35,7 +33,9 @@
               
             .registrations-new__wrapper__box__form__set__passwordconfirmation
               = f.label :password_confirmation
-              = f.password_field :password_confirmation
+              %span.form-require 必須
+              %br/
+              = f.password_field :password_confirmation, placeholder: 'パスワードをもう一度入力してください' 
 
             .registrations-new__wrapper__box__form__set__desc-safety
               %h 本人確認

@@ -1,6 +1,6 @@
 .users-new{
   width: 100%;
-  height: 165vh;
+  height: 181vh;
   background: #f5f5f5;
   a{
     display: none
@@ -11,7 +11,7 @@
   &__wrapper{
     &__box{
       width: 700px;
-      height: 68rem;
+      height: 75rem;
       margin-right: auto;
       margin-left: auto;
       margin-bottom: 38px;
@@ -23,11 +23,17 @@
         padding: 16px;
         font-weight: bold;
         margin-top: 15px;
-        margin-bottom: 15px;
         border-bottom: solid 1px;
         border-color: whitesmoke;  
       }
       &__form{
+        #error_explanation{
+          margin-bottom: 10px;
+          ul{
+            li{
+            }
+          }
+        }
         &__set{
           font-size: 14px;
           width: 343px;
@@ -35,28 +41,28 @@
           margin-right: auto;
           margin-left: auto;
           margin-bottom: 38px;
-          margin-top: 55px;  
+          margin-top: 20px;
           &__name-desc{
-
           }
           &__fullname{
             display: flex;
             justify-content: space-between;
-
+            #ship_address_last_name{
+              width: 170px;
+            }
+            #ship_address_first_name{
+              width: 170px;
+            }
             &__last_name{
               #user_last_name{
                 width: 165px;
               }
-
             }
             &__first_name{
               #user_first_name{
                 width: 165px;
               }
-              
-
             }
-            
           }
           &__ruby-name-desc{
 
@@ -66,18 +72,15 @@
             justify-content: space-between;
 
             &__ruby_last_name{
-              #user_ruby_last_name{
-                width: 165px;
+              #ship_address_ruby_last_name{
+                width: 170px;
               }
-
             }
             &__ruby_first_name{
-              #user_ruby_first_name{
-                width: 165px;
+              #ship_address_ruby_first_name{
+                width: 170px;
               }
-
             }
-
           }
           input{
             margin-bottom: 27px;
