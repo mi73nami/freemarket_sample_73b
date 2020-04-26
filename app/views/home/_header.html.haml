@@ -10,21 +10,24 @@
         .home-header__header__box__sub__left--category
           = link_to "#", class: "categoryBtn", id: "left-category" do
             = "カテゴリー"
-            .visibleTree
+          .visibleTree
+          
             %ul.firstMenu__parents
-              - @parents.each do |parent|
-                %li.firstMenu__parents__parent
-                  /= link_to "#{parent.name}", "#", class: "item-link" 
+              - @main_categories.each do |main_category|
+                %li.firstMenu__parents__parent{data: {category: {id: main_category.id, sub: main_category.sub, sub_sub: main_category.sub_sub}}}
+                  %div
+                    = main_category.name
 
-                  %ul.secondMenu__children
-                    - parent.children.each do |child|
-                      %li.secondMenu__children__child
-                        /= link_to "#{child.name}", "#", class: "item-link" 
+            %ul.secondMenu__children
+              - @sub_categories.each do |sub_category|
+                %li.secondMenu__children__child{data: {category: {id: sub_category.id, sub: sub_category.sub, sub_sub: sub_category.sub_sub}}}
+                  %div
+                    = sub_category.name
 
-                        %ul.thirdMenu__grandchildren
-                          - child.children.each do |grandchildren|
-                            %li.thirdMenu__grandchildren__grandchild
-                              /= link_to "#{grandchildren.name}", "#", class: "item-link" 
+            %ul.thirdMenu__grandchildren
+              - @sub_sub_categories.each do |sub_sub_category|
+                %li.thirdMenu__grandchildren__grandchild{data: {category: {id: sub_sub_category.id, sub: sub_sub_category.sub, sub_sub: sub_sub_category.sub_sub}}}
+                  = sub_sub_category.name
         .home-header__header__box__sub__left--brand
           = link_to "#", class: "brandBtn", id: "left-category" do
             = "ブランド"
