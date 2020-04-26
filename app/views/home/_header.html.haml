@@ -1,46 +1,39 @@
-.home-header__header
-  .home-header__header__box
-    .home-header__header__box__main
+.header__box
+  .header__box__main
+    .main__icon
       = link_to root_path do
-        .home-header__header__box__main--icon
-      .home-header__header__box__main--searchbox
-        %i.fas.fa-search
-    .home-header__header__box__sub
-      .home-header__header__box__sub__left
-        .home-header__header__box__sub__left--category
-          = link_to "#", class: "categoryBtn", id: "left-category" do
-            = "カテゴリー"
-          .visibleTree
-          
-            %ul.firstMenu__parents
-              - @main_categories.each do |main_category|
-                %li.firstMenu__parents__parent{data: {category: {id: main_category.id, sub: main_category.sub, sub_sub: main_category.sub_sub}}}
-                  %div
-                    = main_category.name
+        = image_tag 'logo/logo.png', alt: 'title', height: '41', width: '140'
+    .main__search
+      = form_with(url: "#", local: true, method: :get, class: "search-form") do |form|
+        = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input"
+       
+  .header__box__action
 
-            %ul.secondMenu__children
-              - @sub_categories.each do |sub_category|
-                %li.secondMenu__children__child{data: {category: {id: sub_category.id, sub: sub_category.sub, sub_sub: sub_category.sub_sub}}}
-                  %div
-                    = sub_category.name
+    %ul.action__list
+      %li.list__category
+        = link_to categories_path do
+          = image_tag 'icon/icon_category.png', height: '12.5', width: '15'
+          カテゴリー
+          = render partial: 'home/categorymenu'
 
-            %ul.thirdMenu__grandchildren
-              - @sub_sub_categories.each do |sub_sub_category|
-                %li.thirdMenu__grandchildren__grandchild{data: {category: {id: sub_sub_category.id, sub: sub_sub_category.sub, sub_sub: sub_sub_category.sub_sub}}}
-                  = sub_sub_category.name
-        .home-header__header__box__sub__left--brand
-          = link_to "#", class: "brandBtn", id: "left-category" do
-            = "ブランド"
-
-          
-
-
-        
-      .home-header__header__box__sub__right
-        - if current_user.nil?
-          = link_to "ログイン", new_user_session_path, class: "home-header__header__box__sub__right--log-in" 
-            
-          = link_to "新規会員登録", new_user_registration_path, class: "home-header__header__box__sub__right--register-user" 
-            
-        - else
-          = link_to "マイページ", user_path(current_user), class:"home-header__header__box__sub__right--mypage" 
+      %li.list__brand
+        = link_to "#" do
+          = image_tag 'icon/icon_brand.png', height: '12.5', width: '15'
+          ブランド
+        -# .brand-tree
+        -#   %ul.first__tree
+        -#     %li.brand__item
+          後ほどこちらもドロップダウン予定
+    %ul.action__user
+      - if user_signed_in?
+        %li.mypage
+          = link_to mypages_index_path, class: "mypage_btn" do
+            = image_tag "user.png", class: "user-icon", size: "20x20"
+            マイページ
+      - else
+        %li.user__login
+          = link_to new_user_session_path, class: "login_btn" do
+            ログイン
+        %li.user__new
+          = link_to new_user_registration_path, class: "new_btn" do
+            新規会員登録

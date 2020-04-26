@@ -6,330 +6,198 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-lady = Category.create(name: "レディース")
-lady_1 = lady.children.create(name: "トップス")
-lady_1.children.create([{name: "Tシャツ/カットソー(半袖/袖なし)"},{name: "Tシャツ/カットソー(七分/長袖)"},{name: "シャツ/ブラウス(半袖/袖なし)"},{name: "シャツ/ブラウス(七分/長袖)"},{name: "ポロシャツ"},{name: "キャミソール"},{name: "タンクトップ"},{name: "ホルターネック"},{name: "ニット/セーター"},{name: "チュニック"},{name: "カーディガン/ボレロ"},{name: "アンサンブル"},{name: "ベスト/ジレ"},{name: "パーカー"},{name: "トレーナー/スウェット"},{name: "ベアトップ/チューブトップ"},{name: "ジャージ"},{name: "その他"}])
-lady_2 = lady.children.create(name: "ジャケット/アウター")
-lady_2.children.create([{name: "テーラードジャケット"},{name: "ノーカラージャケット"},{name: "Gジャン/デニムジャケット"},{name: "レザージャケット"},{name: "ダウンジャケット"},{name: "ライダースジャケット"},{name: "ミリタリージャケット"},{name: "ダウンベスト"},{name: "ジャンパー/ブルゾン"},{name: "ポンチョ"},{name: "ロングコート"},{name: "トレンチコート"},{name: "ダッフルコート"},{name: "ピーコート"},{name: "チェスターコート"},{name: "モッズコート"},{name: "スタジャン"},{name: "毛皮/ファーコート"},{name: "スプリングコート"},{name: "スカジャン"},{name: "その他"}])
-lady_3 = lady.children.create(name: "パンツ")
-lady_3.children.create([{name: "デニム/ジーンズ"},{name: "ショートパンツ"},{name: "カジュアルパンツ"},{name: "ハーフパンツ"},{name: "チノパン"},{name: "ワークパンツ/カーゴパンツ"},{name: "クロップドパンツ"},{name: "サロペット/オーバーオール"},{name: "オールインワン"},{name: "サルエルパンツ"},{name: "ガウチョパンツ"},{name: "その他"}])
-lady_4 = lady.children.create(name: "スカート")
-lady_4.children.create([{name: "ミニスカート"},{name: "ひざ丈スカート"},{name: "ロングスカート"},{name: "キュロット"},{name: "その他"}])
-lady_5 = lady.children.create(name: "ワンピース")
-lady_5.children.create([{name: "ミニワンピース"},{name: "ひざ丈ワンピース"},{name: "ロングワンピース"},{name: "その他"}])
-lady_6 = lady.children.create(name: "靴")
-lady_6.children.create([{name: "ハイヒール/パンプス"},{name: "ブーツ"},{name: "サンダル"},{name: "スニーカー"},{name: "ミュール"},{name: "モカシン"},{name: "ローファー/革靴"},{name: "フラットシューズ/バレエシューズ"},{name: "長靴/レインシューズ"},{name: "その他"}])
-lady_7 = lady.children.create(name: "ルームウェア/パジャマ")
-lady_7.children.create([{name: "パジャマ"},{name: "ルームウェア"}])
-lady_8 = lady.children.create(name: "レッグウェア")
-lady_8.children.create([{name: "ソックス"},{name: "スパッツ/レギンス"},{name: "ストッキング/タイツ"},{name: "レッグウォーマー"},{name: "その他"}])
-lady_9 = lady.children.create(name: "帽子")
-lady_9.children.create([{name: "ニットキャップ/ビーニー"},{name: "ハット"},{name: "ハンチング/ベレー帽"},{name: "キャップ"},{name: "キャスケット"},{name: "麦わら帽子"},{name: "その他"}])
-lady_10 = lady.children.create(name: "バッグ")
-lady_10.children.create([{name: "ハンドバッグ"},{name: "トートバッグ"},{name: "エコバッグ"},{name: "リュック/バックパック"},{name: "ボストンバッグ"},{name: "スポーツバッグ"},{name: "ショルダーバッグ"},{name: "クラッチバッグ"},{name: "ポーチ/バニティ"},{name: "ボディバッグ/ウェストバッグ"},{name: "マザーズバッグ"},{name: "メッセンジャーバッグ"},{name: "ビジネスバッグ"},{name: "旅行用バッグ/キャリーバッグ"},{name: "ショップ袋"},{name: "和装用バッグ"},{name: "かごバッグ"},{name: "その他"}])
-lady_11 = lady.children.create(name: "アクセサリー")
-lady_11.children.create([{name: "ネックレス"},{name: "ブレスレット"},{name: "バングル/リストバンド"},{name: "リング"},{name: "ピアス(片耳用)"},{name: "ピアス(両耳用)"},{name: "イヤリング"},{name: "アンクレット"},{name: "ブローチ/コサージュ"},{name: "チャーム"},{name: "その他"}])
-lady_12 = lady.children.create(name: "ヘアアクセサリー")
-lady_12.children.create([{name: "ヘアゴム/シュシュ"},{name: "ヘアバンド/カチューシャ"},{name: "ヘアピン"},{name: "その他"}])  
-lady_13 = lady.children.create(name: "小物")
-lady_13.children.create([{name: "長財布"},{name: "折り財布"},{name: "コインケース/小銭入れ"},{name: "名刺入れ/定期入れ"},{name: "キーケース"},{name: "キーホルダー"},{name: "手袋/アームカバー"},{name: "ハンカチ"},{name: "ベルト"},{name: "マフラー/ショール"},{name: "ストール/スヌード"},{name: "バンダナ/スカーフ"},{name: "ネックウォーマー"},{name: "サスペンダー"},{name: "サングラス/メガネ"},{name: "モバイルケース/カバー"},{name: "手帳"},{name: "イヤマフラー"},{name: "傘"},{name: "レインコート/ポンチョ"},{name: "ミラー"},{name: "タバコグッズ"},{name: "その他"}])
-lady_14 = lady.children.create(name: "時計")
-lady_14.children.create([{name: "腕時計(アナログ)"},{name: "腕時計(デジタル)"},{name: "ラバーベルト"},{name: "レザーベルト"},{name: "金属ベルト"},{name: "その他"}])
-lady_15 = lady.children.create(name: "ウィッグ/エクステ")
-lady_15.children.create([{name: "前髪ウィッグ"},{name: "ロングストレート"},{name: "ロングカール"},{name: "ショートストレート"},{name: "ショートカール"},{name: "その他"}])
-lady_16 = lady.children.create(name: "浴衣/水着")
-lady_16.children.create([{name: "浴衣"},{name: "着物"},{name: "振袖"},{name: "長襦袢/半襦袢"},{name: "水着セパレート"},{name: "水着ワンピース"},{name: "水着スポーツ用"},{name: "その他"}])
-lady_17 = lady.children.create(name: "スーツ/フォーマル/ドレス")
-lady_17.children.create([{name: "スカートスーツ上下"},{name: "パンツスーツ上下"},{name: "ドレス"},{name: "パーティーバッグ"},{name: "シューズ"},{name: "ウェディング"},{name: "その他"}])
-lady_18 = lady.children.create(name: "マタニティ")
-lady_18.children.create([{name: "トップス"},{name: "アウター"},{name: "インナー"},{name: "ワンピース"},{name: "パンツ/スパッツ"},{name: "スカート"},{name: "パジャマ"},{name: "授乳服"},{name: "その他"}])
-lady_19 = lady.children.create(name: "その他")
-lady_19.children.create([{name: "コスプレ"},{name: "下着"},{name: "その他"}])
+category=[
+  {level1:"レディース",level1_children:[
+                                      {level2:"トップス",level2_children:["Tシャツ/カットソー(半袖/袖なし)","Tシャツ/カットソー(七分/長袖)","シャツ/ブラウス(半袖/袖なし)","シャツ/ブラウス(七分/長袖)","ポロシャツ","キャミソール","タンクトップ","ホルターネック","ニット/セーター","チュニック","カーディガン/ボレロ","アンサンブル","ベスト/ジレ","パーカー"]},
+                                      {level2:"ジャケット/アウター",level2_children:["テーラードジャケット","ノーカラージャケット","Gジャン/デニムジャケット","レザージャケット","ダウンジャケット","ライダースジャケット","ミリタリージャケット","ダウンベスト","ジャンパー/ブルゾン","ポンチョ","ロングコート","トレンチコート","ダッフルコート","ピーコート"]},
+                                      {level2:"パンツ",level2_children:["デニム/ジーンズ","ショートパンツ","カジュアルパンツ","ハーフパンツ","チノパン","ワークパンツ/カーゴパンツ","クロップドパンツ","サロペット/オーバーオール","オールインワン","サルエルパンツ","ガウチョパンツ","その他"]},
+                                      {level2:"スカート",level2_children:["ミニスカート","ひざ丈スカート","ロングスカート","キュロット","その他"]},
+                                      {level2:"ワンピース",level2_children:["ミニワンピース","ひざ丈ワンピース","ロングワンピース","その他"]},
+                                      {level2:"靴",level2_children:["ハイヒール/パンプス","ブーツ","サンダル","スニーカー","ミュール","モカシン","ローファー/革靴","フラットシューズ/バレエシューズ","長靴/レインシューズ","その他"]},
+                                      {level2:"ルームウェア/パジャマ",level2_children:["パジャマ","ルームウェア"]},
+                                      {level2:"レッグウェア",level2_children:["ソックス","スパッツ/レギンス","ストッキング/タイツ","レッグウォーマー","その他"]},
+                                      {level2:"帽子",level2_children:["ニットキャップ/ビーニー","ハット","ハンチング/ベレー帽","キャップ","キャスケット","麦わら帽子","その他"]},
+                                      {level2:"バッグ",level2_children:["ハンドバッグ","トートバッグ","エコバッグ","リュック/バックパック","ボストンバッグ","スポーツバッグ","ショルダーバッグ","クラッチバッグ","ポーチ/バニティ","ボディバッグ/ウェストバッグ","マザーズバッグ","メッセンジャーバッグ","ビジネスバッグ","旅行用バッグ/キャリーバッグ"]},
+                                      {level2:"アクセサリー",level2_children:["ネックレス","ブレスレット","バングル/リストバンド","リング","ピアス(片耳用)","ピアス(両耳用)","イヤリング","アンクレット","ブローチ/コサージュ","チャーム","その他"]},
+                                      {level2:"ヘアアクセサリー",level2_children:["ヘアゴム/シュシュ","ヘアバンド/カチューシャ","ヘアピン","その他"]},
+                                      {level2:"小物",level2_children:["長財布","折り財布","コインケース/小銭入れ","名刺入れ/定期入れ","キーケース","キーホルダー","手袋/アームカバー","ハンカチ","ベルト","マフラー/ショール","ストール/スヌード","バンダナ/スカーフ","ネックウォーマー","サスペンダー"]},
+                                      {level2:"時計",level2_children:["腕時計(アナログ)","腕時計(デジタル)","ラバーベルト","レザーベルト","金属ベルト","その他"]}
+                                     ]
+  },
+  {level1:"メンズ",level1_children:[
+                                      {level2:"トップス",level2_children:["Tシャツ/カットソー(半袖/袖なし)","Tシャツ/カットソー(七分/長袖)","シャツ","ポロシャツ","タンクトップ","ニット/セーター","パーカー","カーディガン","スウェット","ジャージ","ベスト","その他"]},
+                                      {level2:"ジャケット/アウター",level2_children:["テーラードジャケット","ノーカラージャケット","Gジャン/デニムジャケット","レザージャケット","ダウンジャケット","ライダースジャケット","ミリタリージャケット","ダウンベスト","ジャンパー/ブルゾン","ポンチョ","ロングコート","トレンチコート","ダッフルコート","ピーコート"]},
+                                      {level2:"パンツ",level2_children:["デニム/ジーンズ","ワークパンツ/カーゴパンツ","スラックス","チノパン","ショートパンツ","ペインターパンツ","サルエルパンツ","オーバーオール","その他"]},
+                                      {level2:"靴",level2_children:["スニーカー","サンダル","ブーツ","モカシン","ドレス/ビジネス","長靴/レインシューズ","デッキシューズ","その他"]},
+                                      {level2:"バッグ",level2_children:["ショルダーバッグ","トートバッグ","ボストンバッグ","リュック/バックパック","ウエストポーチ","ボディーバッグ","ドラムバッグ","ビジネスバッグ","トラベルバッグ","メッセンジャーバッグ","エコバッグ","その他"]},
+                                      {level2:"スーツ",level2_children:["スーツジャケット","スーツベスト","スラックス","セットアップ","その他"]},
+                                      {level2:"帽子",level2_children:["キャップ","ハット","ニットキャップ/ビーニー","ハンチング/ベレー帽","キャスケット","サンバイザー","その他"]},
+                                      {level2:"アクセサリー",level2_children:["ネックレス","ブレスレット","バングル/リストバンド","リング","ピアス(片耳用)","ピアス(両耳用)","アンクレット","その他"]},
+                                      {level2:"小物",level2_children:["長財布","折り財布","マネークリップ","コインケース/小銭入れ","名刺入れ/定期入れ","キーケース","キーホルダー","ネクタイ","手袋","ハンカチ","ベルト","マフラー","ストール","バンダナ"]},
+                                      {level2:"時計",level2_children:["腕時計(アナログ)","腕時計(デジタル)","ラバーベルト","レザーベルト","金属ベルト","その他"]},
+                                      {level2:"水着",level2_children:["一般水着","スポーツ用","アクセサリー","その他"]},
+                                      {level2:"レッグウェア",level2_children:["ソックス","レギンス/スパッツ","レッグウォーマー","その他"]},
+                                      {level2:"アンダーウェア",level2_children:["トランクス","ボクサーパンツ","その他"]},
+                                      {level2:"その他",level2_children:["美容"]}
+                                     ]
+  },
+  {level1:"ベビー・キッズ",level1_children:[
+                                      {level2:"ベビー服(女の子用) ~95cm",level2_children:["トップス","アウター","パンツ","スカート","ワンピース","ベビードレス","おくるみ","下着/肌着","パジャマ","ロンパース","その他"]},
+                                      {level2:"ベビー服(男の子用) ~95cm",level2_children:["トップス","アウター","パンツ","おくるみ","下着/肌着","パジャマ","ロンパース","その他"]},
+                                      {level2:"ベビー服(男女兼用) ~95cm",level2_children:["トップス","アウター","パンツ","おくるみ","下着/肌着","パジャマ","ロンパース","その他"]},
+                                      {level2:"キッズ服(女の子用) 100cm~",level2_children:["コート","ジャケット/上着","トップス(Tシャツ/カットソー)","トップス(トレーナー)","zトップス(チュニック)","トップス(タンクトップ)","トップス(その他)","スカート","パンツ","ワンピース","セットアップ","パジャマ","フォーマル/ドレス","和服"]},
+                                      {level2:"キッズ服(男の子用) 100cm~",level2_children:["コート","ジャケット/上着","トップス(Tシャツ/カットソー)","トップス(トレーナー)","トップス(その他)","パンツ","セットアップ","パジャマ","フォーマル/ドレス","和服","浴衣","甚平","水着","その他"]},
+                                      {level2:"キッズ服(男女兼用) 100cm~",level2_children:["コート","ジャケット/上着","トップス(Tシャツ/カットソー)","トップス(トレーナー)","トップス(その他)","ボトムス","パジャマ","その他"]},
+                                      {level2:"キッズ靴",level2_children:["スニーカー","ブーツ","サンダル","長靴","その他"]},
+                                      {level2:"子ども用ファッション小物",level2_children:["靴下/スパッツ","帽子","エプロン","サスペンダー","タイツ","ハンカチ","バンダナ","ベルト","マフラー","傘","手袋","スタイ","バッグ","その他"]},
+                                      {level2:"おむつ/トイレ/バス",level2_children:["おむつ用品","おまる/補助便座","トレーニングパンツ","ベビーバス","お風呂用品","その他"]},
+                                      {level2:"外出/移動用品",level2_children:["ベビーカー","抱っこひも/スリング","チャイルドシート","その他"]},
+                                      {level2:"授乳/食事",level2_children:["ミルク","ベビーフード","ベビー用食器","その他"]},
+                                      {level2:"ベビー家具/寝具/室内用品",level2_children:["ベッド","布団/毛布","イス","たんす","その他"]},
+                                      {level2:"おもちゃ",level2_children:["おふろのおもちゃ","がらがら","オルゴール","ベビージム","手押し車/カタカタ","知育玩具","その他"]},
+                                      {level2:"行事/記念品",level2_children:["お宮参り用品","お食い初め用品","アルバム","手形/足形","その他"]}
+                                     ]
+  },
+  {level1:"インテリア・住まい・小物",level1_children:[
+                                      {level2:"キッチン/食器",level2_children:["食器","調理器具","収納/キッチン雑貨","弁当用品","カトラリー(スプーン等)","テーブル用品","容器","エプロン","アルコールグッズ","浄水機","その他"]},
+                                      {level2:"ベッド/マットレス",level2_children:["セミシングルベッド","シングルベッド","セミダブルベッド","ダブルベッド","ワイドダブルベッド","クイーンベッド","キングベッド","脚付きマットレスベッド","マットレス","すのこベッド","ロフトベッド/システムベッド","簡易ベッド/折りたたみベッド","収納付き","その他"]},
+                                      {level2:"ソファ/ソファベッド",level2_children:["ソファセット","シングルソファ","ラブソファ","トリプルソファ","オットマン","コーナーソファ","ビーズソファ/クッションソファ","ローソファ/フロアソファ","ソファベッド","応接セット","ソファカバー","リクライニングソファ","その他"]},
+                                      {level2:"椅子/チェア",level2_children:["一般","スツール","ダイニングチェア","ハイバックチェア","ロッキングチェア","座椅子","折り畳みイス","デスクチェア","その他"]},
+                                      {level2:"机/テーブル",level2_children:["こたつ","カウンターテーブル","サイドテーブル","センターテーブル","ダイニングテーブル","座卓/ちゃぶ台","アウトドア用","パソコン用","事務机/学習机","その他"]},
+                                      {level2:"収納家具",level2_children:["リビング収納","キッチン収納","玄関/屋外収納","バス/トイレ収納","本収納","本/CD/DVD収納","洋服タンス/押入れ収納","電話台/ファックス台","ドレッサー/鏡台","棚/ラック","ケース/ボックス","その他"]},
+                                      {level2:"ラグ/カーペット/マット",level2_children:["ラグ","カーペット","ホットカーペット","玄関/キッチンマット","トイレ/バスマット","その他"]},
+                                      {level2:"カーテン/ブラインド",level2_children:["カーテン","ブラインド","ロールスクリーン","のれん","その他"]},
+                                      {level2:"ライト/照明",level2_children:["蛍光灯/電球","天井照明","フロアスタンド","その他"]},
+                                      {level2:"寝具",level2_children:["布団/毛布","枕","シーツ/カバー","その他"]},
+                                      {level2:"インテリア小物",level2_children:["ごみ箱","ウェルカムボード","オルゴール","クッション","クッションカバー","スリッパラック","ティッシュボックス","バスケット/かご","フォトフレーム","マガジンラック","モビール","花瓶","灰皿","傘立て"]},
+                                      {level2:"季節/年中行事",level2_children:["正月","成人式","バレンタインデー","ひな祭り","子どもの日","母の日","父の日","サマーギフト/お中元","夏/夏休み","ハロウィン","敬老の日","七五三","お歳暮","クリスマス"]},
+                                      {level2:"その他",level2_children:["その他"]},
+                                     ]
+  },
+  {level1:"本・音楽・ゲーム",level1_children:[
+                                      {level2:"本",level2_children:["文学/小説","人文/社会","ノンフィクション/教養","地図/旅行ガイド","ビジネス/経済","健康/医学","コンピュータ/IT","趣味/スポーツ/実用","住まい/暮らし/子育て","アート/エンタメ","洋書","絵本","参考書","その他"]},
+                                      {level2:"漫画",level2_children:["全巻セット","少年漫画","少女漫画","青年漫画","女性漫画","同人誌","その他"]},
+                                      {level2:"雑誌",level2_children:["アート/エンタメ/ホビー","ファッション","ニュース/総合","趣味/スポーツ","その他"]},
+                                      {level2:"CD",level2_children:["邦楽","洋楽","アニメ","クラシック","K-POP/アジア","キッズ/ファミリー","その他"]},
+                                      {level2:"DVD/ブルーレイ",level2_children:["外国映画","日本映画","アニメ","TVドラマ","ミュージック","お笑い/バラエティ","スポーツ/フィットネス","キッズ/ファミリー","その他"]},
+                                      {level2:"レコード",level2_children:["邦楽","洋楽","その他"]},
+                                      {level2:"テレビゲーム",level2_children:["家庭用ゲーム本体","家庭用ゲームソフト","携帯用ゲーム本体","携帯用ゲームソフト","PCゲーム","その他"]}
+                                     ]
+  },
+  {level1:"おもちゃ・ホビー・グッズ",level1_children:[
+                                      {level2:"おもちゃ",level2_children:["キャラクターグッズ","ぬいぐるみ","小物/アクセサリー","模型/プラモデル","ミニカー","トイラジコン","プラモデル","ホビーラジコン","鉄道模型","その他"]},
+                                      {level2:"タレントグッズ",level2_children:["アイドル","ミュージシャン","タレント/お笑い芸人","スポーツ選手","その他"]},
+                                      {level2:"コミック/アニメグッズ",level2_children:["ストラップ","キーホルダー","バッジ","カード","クリアファイル","ポスター","タオル","その他"]},
+                                      {level2:"トレーディングカード",level2_children:["遊戯王","マジック：ザ・ギャザリング","ポケモンカードゲーム","デュエルマスターズ","バトルスピリッツ","プリパラ","アイカツ","カードファイト!! ヴァンガード","ヴァイスシュヴァルツ","プロ野球オーナーズリーグ","ベースボールヒーローズ","ドラゴンボール","スリーブ","その他"]},
+                                      {level2:"フィギュア",level2_children:["コミック/アニメ","特撮","ゲームキャラクター","SF/ファンタジー/ホラー","アメコミ","スポーツ","ミリタリー","その他"]},
+                                      {level2:"楽器/器材",level2_children:["エレキギター","アコースティックギター","ベース","エフェクター","アンプ","弦楽器","管楽器","鍵盤楽器","打楽器","和楽器","楽譜/スコア","レコーディング/PA機器","DJ機器","DTM/DAW"]},
+                                      {level2:"コレクション",level2_children:["武具","使用済切手/官製はがき","旧貨幣/金貨/銀貨/記念硬貨","印刷物","ノベルティグッズ","その他"]},
+                                      {level2:"ミリタリー",level2_children:["トイガン","個人装備","その他"]},
+                                      {level2:"美術品",level2_children:["陶芸","ガラス","漆芸","金属工芸","絵画/タペストリ","版画","彫刻/オブジェクト","書","写真","その他"]},
+                                      {level2:"アート用品",level2_children:["画材","額縁","その他"]},
+                                      {level2:"その他",level2_children:["トランプ/UNO","カルタ/百人一首","ダーツ","ビリヤード","麻雀","パズル/ジグソーパズル","囲碁/将棋","オセロ/チェス","人生ゲーム","野球/サッカーゲーム","スポーツ","三輪車/乗り物","ヨーヨー","模型製作用品"]}
+                                     ]
+  },
+  {level1:"コスメ・香水・美容",level1_children:[
+                                      {level2:"ベースメイク",level2_children:["ファンデーション","化粧下地","コントロールカラー","BBクリーム","CCクリーム","コンシーラー","フェイスパウダー","トライアルセット/サンプル","その他"]},
+                                      {level2:"メイクアップ",level2_children:["アイシャドウ","口紅","リップグロス","リップライナー","チーク","フェイスカラー","マスカラ","アイライナー","つけまつげ","アイブロウペンシル","パウダーアイブロウ","眉マスカラ","トライアルセット/サンプル","メイク道具/化粧小物"]},
+                                      {level2:"ネイルケア",level2_children:["ネイルカラー","カラージェル","ネイルベースコート/トップコート","ネイルアート用品","ネイルパーツ","ネイルチップ/付け爪","手入れ用具","除光液","その他"]},
+                                      {level2:"香水",level2_children:["香水(女性用)","香水(男性用)","ユニセックス","ボディミスト","その他"]},
+                                      {level2:"スキンケア/基礎化粧品",level2_children:["化粧水/ローション","乳液/ミルク","美容液","フェイスクリーム","洗顔料","クレンジング/メイク落とし","パック/フェイスマスク","ジェル/ゲル","ブースター/導入液","アイケア","リップケア","トライアルセット/サンプル","洗顔グッズ","その他"]},
+                                      {level2:"ヘアケア",level2_children:["シャンプー","トリートメント","コンディショナー","リンス","スタイリング剤","カラーリング剤","ブラシ","その他"]},
+                                      {level2:"ボディケア",level2_children:["オイル/クリーム","ハンドクリーム","ローション","日焼け止め/サンオイル","ボディソープ","入浴剤","制汗/デオドラント","フットケア","その他"]},
+                                      {level2:"オーラルケア",level2_children:["口臭防止/エチケット用品","歯ブラシ","その他"]},
+                                      {level2:"リラクゼーション",level2_children:["エッセンシャルオイル","芳香器","お香/香炉","キャンドル","リラクゼーショングッズ","その他"]},
+                                      {level2:"ダイエット",level2_children:["ダイエット食品","エクササイズ用品","体重計","体脂肪計","その他"]},
+                                      {level2:"その他",level2_children:["健康用品","看護/介護用品","救急/衛生用品","その他"]}
+                                     ]
+  },
+  {level1:"家電・スマホ・カメラ",level1_children:[
+                                      {level2:"スマートフォン/携帯電話",level2_children:["スマートフォン本体","バッテリー/充電器","携帯電話本体","PHS本体","その他"]},
+                                      {level2:"スマホアクセサリー",level2_children:["Android用ケース","iPhone用ケース","カバー","イヤホンジャック","ストラップ","フィルム","自撮り棒","その他"]},
+                                      {level2:"PC/タブレット",level2_children:["タブレット","ノートPC","デスクトップ型PC","ディスプレイ","電子ブックリーダー","PC周辺機器","PCパーツ","その他"]},
+                                      {level2:"カメラ",level2_children:["デジタルカメラ","ビデオカメラ","レンズ(単焦点)","レンズ(ズーム)","フィルムカメラ","防犯カメラ","その他"]},
+                                      {level2:"テレビ/映像機器",level2_children:["テレビ","プロジェクター","ブルーレイレコーダー","DVDレコーダー","ブルーレイプレーヤー","DVDプレーヤー","映像用ケーブル","その他"]},
+                                      {level2:"オーディオ機器",level2_children:["ポータブルプレーヤー","イヤフォン","ヘッドフォン","アンプ","スピーカー","ケーブル/シールド","ラジオ","その他"]},
+                                      {level2:"美容/健康",level2_children:["ヘアドライヤー","ヘアアイロン","美容機器","電気シェーバー","電動歯ブラシ","その他"]},
+                                      {level2:"冷暖房/空調",level2_children:["エアコン","空気清浄器","加湿器","扇風機","除湿機","ファンヒーター","電気ヒーター","オイルヒーター","ストーブ","ホットカーペット","こたつ","電気毛布","その他"]},
+                                      {level2:"生活家電",level2_children:["冷蔵庫","洗濯機","炊飯器","電子レンジ/オーブン","調理機器","アイロン","掃除機","エスプレッソマシン","コーヒーメーカー","衣類乾燥機","その他"]},
+                                      {level2:"その他",level2_children:["その他"]}
+                                     ]
+  },
+  {level1:"スポーツ・レジャー",level1_children:[
+                                      {level2:"ゴルフ",level2_children:["クラブ","ウエア(男性用)","ウエア(女性用)","バッグ","シューズ(男性用)","シューズ(女性用)","アクセサリー","その他"]},
+                                      {level2:"フィッシング",level2_children:["ロッド","リール","ルアー用品","ウエア","釣り糸/ライン","その他"]},
+                                      {level2:"自転車",level2_children:["自転車本体","ウエア","パーツ","アクセサリー","バッグ","工具/メンテナンス","その他"]},
+                                      {level2:"トレーニング/エクササイズ",level2_children:["ランニング","ウォーキング","ヨガ","トレーニング用品","その他"]},
+                                      {level2:"野球",level2_children:["ウェア","シューズ","グローブ","バット","アクセサリー","防具","練習機器","記念グッズ","応援グッズ","その他"]},
+                                      {level2:"サッカー/フットサル",level2_children:["ウェア","シューズ","ボール","アクセサリー","記念グッズ","応援グッズ","その他"]},
+                                      {level2:"テニス",level2_children:["ラケット(硬式用)","ラケット(軟式用)","ウェア","シューズ","ボール","アクセサリー","記念グッズ","応援グッズ","その他"]},
+                                      {level2:"スノーボード",level2_children:["ボード","バインディング","ブーツ(男性用)","ブーツ(女性用)","ブーツ(子ども用)","ウエア/装備(男性用)","ウエア/装備(女性用)","ウエア/装備(子ども用)","アクセサリー","バッグ","その他"]},
+                                      {level2:"スキー",level2_children:["板","ブーツ(男性用)","ブーツ(女性用)","ブーツ(子ども用)","ビンディング","ウエア(男性用)","ウエア(女性用)","ウエア(子ども用)","ストック","その他"]},
+                                      {level2:"その他スポーツ",level2_children:["ダンス/バレエ","サーフィン","バスケットボール","バドミントン","バレーボール","スケートボード","陸上競技","ラグビー","アメリカンフットボール","ボクシング","ボウリング","その他"]},
+                                      {level2:"アウトドア",level2_children:["テント/タープ","ライト/ランタン","寝袋/寝具","テーブル/チェア","ストーブ/コンロ","調理器具","食器","登山用品","その他"]},
+                                      {level2:"その他",level2_children:["旅行用品","その他"]}
+                                     ]
+  },
+  {level1:"ハンドメイド",level1_children:[
+                                      {level2:"アクセサリー(女性用)",level2_children:["ピアス","イヤリング","ネックレス","ブレスレット","リング","チャーム","ヘアゴム","アンクレット","その他"]},
+                                      {level2:"ファッション/小物",level2_children:["バッグ(女性用)","バッグ(男性用)","財布(女性用)","財布(男性用)","ファッション雑貨","その他"]},
+                                      {level2:"アクセサリー/時計",level2_children:["アクセサリー(男性用)","時計(女性用)","時計(男性用)","その他"]},
+                                      {level2:"日用品/インテリア",level2_children:["キッチン用品","家具","文房具","アート/写真","アロマ/キャンドル","フラワー/ガーデン","その他"]},
+                                      {level2:"趣味/おもちゃ",level2_children:["クラフト/布製品","おもちゃ/人形","その他"]},
+                                      {level2:"キッズ/ベビー",level2_children:["ファッション雑貨","スタイ/よだれかけ","外出用品","ネームタグ","その他"]},
+                                      {level2:"素材/材料",level2_children:["各種パーツ","生地/糸","型紙/パターン","その他"]},
+                                      {level2:"二次創作物",level2_children:["Ingress","クリエイターズ宇宙兄弟"]},
+                                      {level2:"その他",level2_children:["その他"]}
+                                     ]
+  },
+  {level1:"チケット",level1_children:[
+                                      {level2:"音楽",level2_children:["男性アイドル","女性アイドル","韓流","国内アーティスト","海外アーティスト","音楽フェス","声優/アニメ","その他"]},
+                                      {level2:"スポーツ",level2_children:["サッカー","野球","テニス","格闘技/プロレス","相撲/武道","ゴルフ","バレーボール","バスケットボール","モータースポーツ","ウィンタースポーツ","その他"]},
+                                      {level2:"演劇/芸能",level2_children:["ミュージカル","演劇","伝統芸能","落語","お笑い","オペラ","サーカス","バレエ","その他"]},
+                                      {level2:"イベント",level2_children:["声優/アニメ","キッズ/ファミリー","トークショー/講演会","その他"]},
+                                      {level2:"映画",level2_children:["邦画","洋画","その他"]},
+                                      {level2:"施設利用券",level2_children:["遊園地/テーマパーク","美術館/博物館","スキー場","ゴルフ場","フィットネスクラブ","プール","ボウリング場","水族館","動物園","その他"]},
+                                      {level2:"優待券/割引券",level2_children:["ショッピング","レストラン/食事券","フード/ドリンク券","宿泊券","その他"]},
+                                      {level2:"その他",level2_children:["その他"]}
+                                     ]
+  },
+  {level1:"自動車・オートバイ",level1_children:[
+                                      {level2:"自動車本体",level2_children:["国内自動車本体","外国自動車本体"]},
+                                      {level2:"自動車タイヤ/ホイール",level2_children:["タイヤ/ホイールセット","タイヤ","ホイール","その他"]},
+                                      {level2:"自動車パーツ",level2_children:["サスペンション","ブレーキ","外装、エアロパーツ","ライト","内装品、シート","ステアリング","マフラー・排気系","エンジン、過給器、冷却装置","クラッチ、ミッション、駆動系","電装品","補強パーツ","汎用パーツ","外国自動車用パーツ","その他"]},
+                                      {level2:"自動車アクセサリー",level2_children:["車内アクセサリー","カーナビ","カーオーディオ","車外アクセサリー","メンテナンス用品","チャイルドシート","ドライブレコーダー","レーダー探知機","カタログ/マニュアル","セキュリティ","ETC","その他"]},
+                                      {level2:"オートバイ車体",level2_children:["その他"]},
+                                      {level2:"オートバイパーツ",level2_children:["タイヤ","マフラー","エンジン、冷却装置","カウル、フェンダー、外装","サスペンション","ホイール","シート","ブレーキ","タンク","ライト、ウィンカー","チェーン、スプロケット、駆動系","メーター","電装系","ミラー"]},
+                                      {level2:"オートバイアクセサリー",level2_children:["ヘルメット/シールド","バイクウエア/装備","アクセサリー","メンテナンス","カタログ/マニュアル","その他"]}
+                                     ]
+  },
+  {level1:"その他",level1_children:[
+                                      {level2:"まとめ売り",level2_children:["その他"]},
+                                      {level2:"ペット用品",level2_children:["ペットフード","犬用品","猫用品","魚用品/水草","小動物用品","爬虫類/両生類用品","かご/おり","鳥用品","虫類用品","その他"]},
+                                      {level2:"食品",level2_children:["菓子","米","野菜","果物","調味料","魚介類(加工食品)","肉類(加工食品)","その他 加工食品","その他"]},
+                                      {level2:"飲料/酒",level2_children:["コーヒー","ソフトドリンク","ミネラルウォーター","茶","ウイスキー","ワイン","ブランデー","焼酎","日本酒","ビール、発泡酒","その他"]},
+                                      {level2:"日用品/生活雑貨/旅行",level2_children:["タオル/バス用品","日用品/生活雑貨","洗剤/柔軟剤","旅行用品","防災関連グッズ","その他"]},
+                                      {level2:"アンティーク/コレクション",level2_children:["雑貨","工芸品","家具","印刷物","その他"]},
+                                      {level2:"文房具/事務用品",level2_children:["筆記具","ノート/メモ帳","テープ/マスキングテープ","カレンダー/スケジュール","アルバム/スクラップ","ファイル/バインダー","はさみ/カッター","カードホルダー/名刺管理","のり/ホッチキス","その他"]},
+                                      {level2:"事務/店舗用品",level2_children:["オフィス用品一般","オフィス家具","店舗用品","OA機器","ラッピング/包装","その他"]},
+                                      {level2:"その他",level2_children:["その他"]}
+                                     ]
+  },
+]
 
-# メンズ
-men = Category.create(name: "メンズ")
-men_1 = men.children.create(name: "トップス")
-men_1.children.create([{name: "Tシャツ/カットソー(半袖/袖なし)"},{name: "Tシャツ/カットソー(七分/長袖)"},{name: "シャツ"},{name: "ポロシャツ"},{name: "タンクトップ"},{name: "ニット/セーター"},{name: "パーカー"},{name: "カーディガン"},{name: "スウェット"},{name: "ジャージ"},{name: "ベスト"},{name: "その他"}])
-men_2 = men.children.create(name: "ジャケット/アウター")
-men_2.children.create([{name: "テーラードジャケット"},{name: "ノーカラージャケット"},{name: "Gジャン/デニムジャケット"},{name: "レザージャケット"},{name: "ダウンジャケット"},{name: "ライダースジャケット"},{name: "ミリタリージャケット"},{name: "ナイロンジャケット"},{name: "フライトジャケット"},{name: "ダッフルコート"},{name: "ピーコート"},{name: "ステンカラーコート"},{name: "トレンチコート"},{name: "モッズコート"},{name: "チェスターコート"},{name: "スタジャン"},{name: "スカジャン"},{name: "ブルゾン"},{name: "マウンテンパーカー"},{name: "ダウンベスト"},{name: "ポンチョ"},{name: "カバーオール"},{name: "その他"}])
-men_3 = men.children.create(name: "パンツ")
-men_3.children.create([{name: "デニム/ジーンズ"},{name: "ワークパンツ/カーゴパンツ"},{name: "スラックス"},{name: "チノパン"},{name: "ショートパンツ"},{name: "ペインターパンツ"},{name: "サルエルパンツ"},{name: "オーバーオール"},{name: "その他"}])
-men_4 = men.children.create(name: "靴")
-men_4.children.create([{name: "スニーカー"},{name: "サンダル"},{name: "ブーツ"},{name: "モカシン"},{name: "ドレス/ビジネス"},{name: "長靴/レインシューズ"},{name: "デッキシューズ"},{name: "その他"}])
-men_5 = men.children.create(name: "バッグ")
-men_5.children.create([{name: "ショルダーバッグ"},{name: "トートバッグ"},{name: "ボストンバッグ"},{name: "リュック/バックパック"},{name: "ウエストポーチ"},{name: "ボディーバッグ"},{name: "ドラムバッグ"},{name: "ビジネスバッグ"},{name: "トラベルバッグ"},{name: "メッセンジャーバッグ"},{name: "エコバッグ"},{name: "その他"}])
-men_6 = men.children.create(name: "スーツ")
-men_6.children.create([{name: "スーツジャケット"},{name: "スーツベスト"},{name: "スラックス"},{name: "セットアップ"},{name: "その他"}])
-men_7 = men.children.create(name: "帽子")
-men_7.children.create([{name: "キャップ"},{name: "ハット"},{name: "ニットキャップ/ビーニー"},{name: "ハンチング/ベレー帽"},{name: "キャスケット"},{name: "サンバイザー"},{name: "その他"}])
-men_8 = men.children.create(name: "アクセサリー")
-men_8.children.create([{name: "ネックレス"},{name: "ブレスレット"},{name: "バングル/リストバンド"},{name: "リング"},{name: "ピアス(片耳用)"},{name: "ピアス(両耳用)"},{name: "アンクレット"},{name: "その他"}])
-men_9 = men.children.create(name: "小物")
-men_9.children.create([{name: "長財布"},{name: "折り財布"},{name: "マネークリップ"},{name: "コインケース/小銭入れ"},{name: "名刺入れ/定期入れ"},{name: "キーケース"},{name: "キーホルダー"},{name: "ネクタイ"},{name: "手袋"},{name: "ハンカチ"},{name: "ベルト"},{name: "マフラー"},{name: "ストール"},{name: "バンダナ"},{name: "ネックウォーマー"},{name: "サスペンダー"},{name: "ウォレットチェーン"},{name: "サングラス/メガネ"},{name: "モバイルケース/カバー"},{name: "手帳"},{name: "ストラップ"},{name: "ネクタイピン"},{name: "カフリンクス"},{name: "イヤマフラー"},{name: "傘"},{name: "レインコート"},{name: "ミラー"},{name: "タバコグッズ"},{name: "その他"}])
-men_10 = men.children.create(name: "時計")
-men_10.children.create([{name: "腕時計(アナログ)"},{name: "腕時計(デジタル)"},{name: "ラバーベルト"},{name: "レザーベルト"},{name: "金属ベルト"},{name: "その他"}])
-men_11 = men.children.create(name: "水着")
-men_11.children.create([{name: "一般水着"},{name: "スポーツ用"},{name: "アクセサリー"},{name: "その他"}])
-men_12 = men.children.create(name: "レッグウェア")
-men_12.children.create([{name: "ソックス"},{name: "レギンス/スパッツ"},{name: "レッグウォーマー"},{name: "その他"}])
-men_13 = men.children.create(name: "アンダーウェア")
-men_13.children.create([{name: "トランクス"},{name: "ボクサーパンツ"},{name: "その他"}])
-men_14 = men.children.create(name: "その他")
-men_14.children.create([{name: "すべて"}])
-
-# ベビー・キッズ
-baby_kids = Category.create(name: "ベビー・キッズ")
-baby_kids_1 = baby_kids.children.create(name: "ベビー服(女の子用) ~95cm")
-baby_kids_1.children.create([{name: "トップス"},{name: "アウター"},{name: "パンツ"},{name: "スカート"},{name: "ワンピース"},{name: "ベビードレス"},{name: "おくるみ"},{name: "下着/肌着"},{name: "パジャマ"},{name: "ロンパース"},{name: "その他"}])
-baby_kids_2 = baby_kids.children.create(name: "ベビー服(男の子用) ~95cm")
-baby_kids_2.children.create([{name: "トップス"},{name: "アウター"},{name: "パンツ"},{name: "おくるみ"},{name: "下着/肌着"},{name: "パジャマ"},{name: "ロンパース"},{name: "その他"}])
-baby_kids_3 = baby_kids.children.create(name: "ベビー服(男女兼用) ~95cm")
-baby_kids_3.children.create([{name: "トップス"},{name: "アウター"},{name: "パンツ"},{name: "おくるみ"},{name: "下着/肌着"},{name: "パジャマ"},{name: "ロンパース"},{name: "その他"}])
-baby_kids_4 = baby_kids.children.create(name: "キッズ服(女の子用) 100cm~")
-baby_kids_4.children.create([{name: "コート"},{name: "ジャケット/上着"},{name: "トップス(Tシャツ/カットソー)"},{name: "トップス(トレーナー)"},{name: "トップス(チュニック)"},{name: "トップス(タンクトップ)"},{name: "トップス(その他)"},{name: "スカート"},{name: "パンツ"},{name: "ワンピース"},{name: "セットアップ"},{name: "パジャマ"},{name: "フォーマル/ドレス"},{name: "和服"},{name: "浴衣"},{name: "甚平"},{name: "水着"},{name: "その他"}])
-baby_kids_5 = baby_kids.children.create(name: "キッズ服(男の子用) 100cm~")
-baby_kids_5.children.create([{name: "コート"},{name: "ジャケット/上着"},{name: "トップス(Tシャツ/カットソー)"},{name: "トップス(トレーナー)"},{name: "トップス(その他)"},{name: "パンツ"},{name: "セットアップ"},{name: "パジャマ"},{name: "フォーマル/ドレス"},{name: "和服"},{name: "浴衣"},{name: "甚平"},{name: "水着"},{name: "その他"}])
-baby_kids_6 = baby_kids.children.create(name: "キッズ服(男女兼用) 100cm~")
-baby_kids_6.children.create([{name: "コート"},{name: "ジャケット/上着"},{name: "トップス(Tシャツ/カットソー)"},{name: "トップス(トレーナー)"},{name: "トップス(その他)"},{name: "ボトムス"},{name: "パジャマ"},{name: "その他"}])
-baby_kids_7 = baby_kids.children.create(name: "キッズ靴")
-baby_kids_7.children.create([{name: "スニーカー"},{name: "サンダル"},{name: "ブーツ"},{name: "長靴"},{name: "その他"}])
-baby_kids_8 = baby_kids.children.create(name: "子ども用ファッション小物")
-baby_kids_8.children.create([{name: "靴下/スパッツ"},{name: "帽子"},{name: "エプロン"},{name: "サスペンダー"},{name: "タイツ"},{name: "ハンカチ"},{name: "バンダナ"},{name: "ベルト"},{name: "マフラー"},{name: "傘"},{name: "手袋"},{name: "スタイ"},{name: "バッグ"},{name: "その他"}])
-baby_kids_9 = baby_kids.children.create(name: "おむつ/トイレ/バス")
-baby_kids_9.children.create([{name: "おむつ用品"},{name: "おまる/補助便座"},{name: "トレーニングパンツ"},{name: "ベビーバス"},{name: "お風呂用品"},{name: "その他"}])
-baby_kids_10 = baby_kids.children.create(name: "外出/移動用品")
-baby_kids_10.children.create([{name: "ベビーカー"},{name: "抱っこひも/スリング"},{name: "チャイルドシート"},{name: "その他"}])
-baby_kids_11 = baby_kids.children.create(name: "授乳/食事")
-baby_kids_11.children.create([{name: "ミルク"},{name: "ベビーフード"},{name: "ベビー用食器"},{name: "その他"}])
-baby_kids_12 = baby_kids.children.create(name: "ベビー家具/寝具/室内用品")
-baby_kids_12.children.create([{name: "ベッド"},{name: "布団/毛布"},{name: "イス"},{name: "たんす"},{name: "その他"}])
-baby_kids_13 = baby_kids.children.create(name: "おもちゃ")
-baby_kids_13.children.create([{name: "おふろのおもちゃ"},{name: "がらがら"},{name: "オルゴール"},{name: "ベビージム"},{name: "手押し車/カタカタ"},{name: "知育玩具"},{name: "その他"}])
-baby_kids_14 = baby_kids.children.create(name: "行事/記念品")
-baby_kids_14.children.create([{name: "お宮参り用品"},{name: "お食い初め用品"},{name: "アルバム"},{name: "手形/足形"},{name: "その他"}])
-baby_kids_15 = baby_kids.children.create(name: "その他")
-baby_kids_15.children.create([{name: "母子手帳用品"},{name: "その他"}])
-
-# インテリア・住まい・小物
-interior_residence_accessory = Category.create(name: "インテリア・住まい・小物")
-interior_residence_accessory_1 = interior_residence_accessory.children.create(name: "キッチン/食器")
-interior_residence_accessory_1.children.create([{name: "食器"},{name: "調理器具"},{name: "収納/キッチン雑貨"},{name: "弁当用品"},{name: "カトラリー(スプーン等)"},{name: "テーブル用品"},{name: "容器"},{name: "エプロン"},{name: "アルコールグッズ"},{name: "浄水機"},{name: "その他"}])
-interior_residence_accessory_2 = interior_residence_accessory.children.create(name: "ベッド/マットレス")
-interior_residence_accessory_2.children.create([{name: "セミシングルベッド"},{name: "シングルベッド"},{name: "セミダブルベッド"},{name: "ダブルベッド"},{name: "ワイドダブルベッド"},{name: "クイーンベッド"},{name: "キングベッド"},{name: "脚付きマットレスベッド"},{name: "マットレス"},{name: "すのこベッド"},{name: "ロフトベッド/システムベッド"},{name: "簡易ベッド/折りたたみベッド"},{name: "収納付き"},{name: "その他"}])
-interior_residence_accessory_3 = interior_residence_accessory.children.create(name: "ソファ/ソファベッド")
-interior_residence_accessory_3.children.create([{name: "ソファセット"},{name: "シングルソファ"},{name: "ラブソファ"},{name: "トリプルソファ"},{name: "オットマン"},{name: "コーナーソファ"},{name: "ビーズソファ/クッションソファ"},{name: "ローソファ/フロアソファ"},{name: "ソファベッド"},{name: "応接セット"},{name: "ソファカバー"},{name: "リクライニングソファ"},{name: "その他"}])
-interior_residence_accessory_4 = interior_residence_accessory.children.create(name: "椅子/チェア")
-interior_residence_accessory_4.children.create([{name: "一般"},{name: "スツール"},{name: "ダイニングチェア"},{name: "ハイバックチェア"},{name: "ロッキングチェア"},{name: "座椅子"},{name: "折り畳みイス"},{name: "デスクチェア"},{name: "その他"}])
-interior_residence_accessory_5 = interior_residence_accessory.children.create(name: "机/テーブル")
-interior_residence_accessory_5.children.create([{name: "こたつ"},{name: "カウンターテーブル"},{name: "サイドテーブル"},{name: "センターテーブル"},{name: "ダイニングテーブル"},{name: "座卓/ちゃぶ台"},{name: "アウトドア用"},{name: "パソコン用"},{name: "事務机/学習机"},{name: "その他"}])
-interior_residence_accessory_6 = interior_residence_accessory.children.create(name: "収納家具")
-interior_residence_accessory_6.children.create([{name: "リビング収納"},{name: "キッチン収納"},{name: "玄関/屋外収納"},{name: "バス/トイレ収納"},{name: "本収納"},{name: "本/CD/DVD収納"},{name: "洋服タンス/押入れ収納"},{name: "電話台/ファックス台"},{name: "ドレッサー/鏡台"},{name: "棚/ラック"},{name: "ケース/ボックス"},{name: "その他"}])
-interior_residence_accessory_7 = interior_residence_accessory.children.create(name: "ラグ/カーペット/マット")
-interior_residence_accessory_7.children.create([{name: "ラグ"},{name: "カーペット"},{name: "ホットカーペット"},{name: "玄関/キッチンマット"},{name: "トイレ/バスマット"},{name: "その他"}])
-interior_residence_accessory_8 = interior_residence_accessory.children.create(name: "カーテン/ブラインド")
-interior_residence_accessory_8.children.create([{name: "カーテン"},{name: "ブラインド"},{name: "ロールスクリーン"},{name: "のれん"},{name: "その他"}])
-interior_residence_accessory_9 = interior_residence_accessory.children.create(name: "ライト/照明")
-interior_residence_accessory_9.children.create([{name: "蛍光灯/電球"},{name: "天井照明"},{name: "フロアスタンド"},{name: "その他"}])
-interior_residence_accessory_10 = interior_residence_accessory.children.create(name: "寝具")
-interior_residence_accessory_10.children.create([{name: "布団/毛布"},{name: "枕"},{name: "シーツ/カバー"},{name: "その他"}])
-interior_residence_accessory_11 = interior_residence_accessory.children.create(name: "インテリア小物")
-interior_residence_accessory_11.children.create([{name: "ごみ箱"},{name: "ウェルカムボード"},{name: "オルゴール"},{name: "クッション"},{name: "クッションカバー"},{name: "スリッパラック"},{name: "ティッシュボックス"},{name: "バスケット/かご"},{name: "フォトフレーム"},{name: "マガジンラック"},{name: "モビール"},{name: "モビール"},{name: "花瓶"},{name: "灰皿"},{name: "傘立て"},{name: "小物入れ"},{name: "置時計"},{name: "掛時計/柱時計"},{name: "鏡(立て掛け式)"},{name: "鏡(壁掛け式)"},{name: "置物"},{name: "風鈴"},{name: "植物/観葉植物"},{name: "その他"}])
-interior_residence_accessory_12 = interior_residence_accessory.children.create(name: "季節/年中行事")
-interior_residence_accessory_12.children.create([{name: "正月"},{name: "成人式"},{name: "バレンタインデー"},{name: "ひな祭り"},{name: "子どもの日"},{name: "母の日"},{name: "父の日"},{name: "父の日"},{name: "サマーギフト/お中元"},{name: "夏/夏休み"},{name: "ハロウィン"},{name: "敬老の日"},{name: "七五三"},{name: "お歳暮"},{name: "クリスマス"},{name: "冬一般"},{name: "その他"}])
-interior_residence_accessory_13 = interior_residence_accessory.children.create(name: "その他")
-interior_residence_accessory_13.children.create([{name: "すべて"}])
-
-# 本・音楽・ゲーム
-book_music_game = Category.create(name: "本・音楽・ゲーム")
-book_music_game_1 = book_music_game.children.create(name: "本")
-book_music_game_1.children.create([{name: "文学/小説"},{name: "人文/社会"},{name: "ノンフィクション/教養"},{name: "地図/旅行ガイド"},{name: "ビジネス/経済"},{name: "ビジネス/経済"},{name: "健康/医学"},{name: "コンピュータ/IT"},{name: "趣味/スポーツ/実用"},{name: "住まい/暮らし/子育て"},{name: "アート/エンタメ"},{name: "洋書"},{name: "絵本"},{name: "参考書"},{name: "その他"}])
-book_music_game_2 = book_music_game.children.create(name: "漫画")
-book_music_game_2.children.create([{name: "全巻セット"},{name: "少年漫画"},{name: "少女漫画"},{name: "青年漫画"},{name: "女性漫画"},{name: "同人誌"},{name: "その他"}])
-book_music_game_3 = book_music_game.children.create(name: "雑誌")
-book_music_game_3.children.create([{name: "アート/エンタメ/ホビー"},{name: "ファッション"},{name: "ニュース/総合"},{name: "趣味/スポーツ"},{name: "その他"}])
-book_music_game_4 = book_music_game.children.create(name: "CD")
-book_music_game_4.children.create([{name: "邦楽"},{name: "洋楽"},{name: "アニメ"},{name: "クラシック"},{name: "K-POP/アジア"},{name: "キッズ/ファミリー"},{name: "その他"}])
-book_music_game_5 = book_music_game.children.create(name: "DVD/ブルーレイ")
-book_music_game_5.children.create([{name: "外国映画"},{name: "日本映画"},{name: "アニメ"},{name: "TVドラマ"},{name: "ミュージック"},{name: "お笑い/バラエティ"},{name: "スポーツ/フィットネス"},{name: "キッズ/ファミリー"},{name: "その他"}])
-book_music_game_6 = book_music_game.children.create(name: "レコード")
-book_music_game_6.children.create([{name: "邦楽"},{name: "洋楽"},{name: "その他"}])
-book_music_game_7 = book_music_game.children.create(name: "テレビゲーム")
-book_music_game_7.children.create([{name: "家庭用ゲーム本体"},{name: "家庭用ゲームソフト"},{name: "携帯用ゲーム本体"},{name: "携帯用ゲームソフト"},{name: "PCゲーム"},{name: "その他"}])
-
-# おもちゃ・ホビー・グッズ
-toy_hobby_goods = Category.create(name: "おもちゃ・ホビー・グッズ")
-toy_hobby_goods_1 = toy_hobby_goods.children.create(name: "おもちゃ")
-toy_hobby_goods_1.children.create([{name: "キャラクターグッズ"},{name: "ぬいぐるみ"},{name: "小物/アクセサリー"},{name: "模型/プラモデル"},{name: "ミニカー"},{name: "トイラジコン"},{name: "プラモデル"},{name: "ホビーラジコン"},{name: "鉄道模型"},{name: "その他"}])
-toy_hobby_goods_2 = toy_hobby_goods.children.create(name: "タレントグッズ")
-toy_hobby_goods_2.children.create([{name: "アイドル"},{name: "ミュージシャン"},{name: "タレント/お笑い芸人"},{name: "スポーツ選手"},{name: "その他"}])
-toy_hobby_goods_3 = toy_hobby_goods.children.create(name: "コミック/アニメグッズ")
-toy_hobby_goods_3.children.create([{name: "ストラップ"},{name: "キーホルダー"},{name: "バッジ"},{name: "カード"},{name: "クリアファイル"},{name: "ポスター"},{name: "タオル"},{name: "その他"}])
-toy_hobby_goods_4 = toy_hobby_goods.children.create(name: "トレーディングカード")
-toy_hobby_goods_4.children.create([{name: "遊戯王"},{name: "マジック：ザ・ギャザリング"},{name: "ポケモンカードゲーム"},{name: "デュエルマスターズ"},{name: "バトルスピリッツ"},{name: "プリパラ"},{name: "アイカツ"},{name: "カードファイト!! ヴァンガード"},{name: "ヴァイスシュヴァルツ"},{name: "プロ野球オーナーズリーグ"},{name: "ベースボールヒーローズ"},{name: "ドラゴンボール"},{name: "スリーブ"},{name: "その他"}])
-toy_hobby_goods_5 = toy_hobby_goods.children.create(name: "フィギュア")
-toy_hobby_goods_5.children.create([{name: "コミック/アニメ"},{name: "特撮"},{name: "ゲームキャラクター"},{name: "SF/ファンタジー/ホラー"},{name: "アメコミ"},{name: "スポーツ"},{name: "ミリタリー"},{name: "その他"}])
-toy_hobby_goods_6 = toy_hobby_goods.children.create(name: "楽器/器材")
-toy_hobby_goods_6.children.create([{name: "エレキギター"},{name: "アコースティックギター"},{name: "ベース"},{name: "エフェクター"},{name: "アンプ"},{name: "弦楽器"},{name: "管楽器"},{name: "鍵盤楽器"},{name: "打楽器"},{name: "和楽器"},{name: "楽譜/スコア"},{name: "レコーディング/PA機器"},{name: "DJ機器"},{name: "DTM/DAW"},{name: "その他"}])
-toy_hobby_goods_7 = toy_hobby_goods.children.create(name: "コレクション")
-toy_hobby_goods_7.children.create([{name: "武具"},{name: "使用済切手/官製はがき"},{name: "旧貨幣/金貨/銀貨/記念硬貨"},{name: "印刷物"},{name: "ノベルティグッズ"},{name: "その他"}])
-toy_hobby_goods_8 = toy_hobby_goods.children.create(name: "ミリタリー")
-toy_hobby_goods_8.children.create([{name: "トイガン"},{name: "個人装備"},{name: "その他"}])
-toy_hobby_goods_9 = toy_hobby_goods.children.create(name: "美術品")
-toy_hobby_goods_9.children.create([{name: "陶芸"},{name: "ガラス"},{name: "漆芸"},{name: "金属工芸"},{name: "絵画/タペストリ"},{name: "版画"},{name: "彫刻/オブジェクト"},{name: "書"},{name: "写真"},{name: "その他"}])
-toy_hobby_goods_10 = toy_hobby_goods.children.create(name: "アート用品")
-toy_hobby_goods_10.children.create([{name: "画材"},{name: "額縁"},{name: "その他"}])
-toy_hobby_goods_11 = toy_hobby_goods.children.create(name: "その他")
-toy_hobby_goods_11.children.create([{name: "トランプ/UNO"},{name: "カルタ/百人一首"},{name: "ダーツ"},{name: "ビリヤード"},{name: "麻雀"},{name: "パズル/ジグソーパズル"},{name: "囲碁/将棋"},{name: "オセロ/チェス"},{name: "人生ゲーム"},{name: "野球/サッカーゲーム"},{name: "スポーツ"},{name: "三輪車/乗り物"},{name: "ヨーヨー"},{name: "模型製作用品"},{name: "鉄道"},{name: "航空機"},{name: "アマチュア無線"},{name: "パチンコ/パチスロ"},{name: "その他"}])
-
-# コスメ・香水・美容
-cosme_perfume_beauty = Category.create(name: "コスメ・香水・美容")
-cosme_perfume_beauty_1 = cosme_perfume_beauty.children.create(name: "ベースメイク")
-cosme_perfume_beauty_1.children.create([{name: "ファンデーション"},{name: "化粧下地"},{name: "コントロールカラー"},{name: "BBクリーム"},{name: "CCクリーム"},{name: "コンシーラー"},{name: "フェイスパウダー"},{name: "トライアルセット/サンプル"},{name: "その他"}])
-cosme_perfume_beauty_2 = cosme_perfume_beauty.children.create(name: "メイクアップ")
-cosme_perfume_beauty_2.children.create([{name: "アイシャドウ"},{name: "口紅"},{name: "リップグロス"},{name: "リップライナー"},{name: "チーク"},{name: "フェイスカラー"},{name: "マスカラ"},{name: "アイライナー"},{name: "つけまつげ"},{name: "アイブロウペンシル"},{name: "パウダーアイブロウ"},{name: "眉マスカラ"},{name: "トライアルセット/サンプル"},{name: "メイク道具/化粧小物"},{name: "美顔用品/美顔ローラー"},{name: "その他"}])
-cosme_perfume_beauty_3 = cosme_perfume_beauty.children.create(name: "ネイルケア")
-cosme_perfume_beauty_3.children.create([{name: "ネイルカラー"},{name: "カラージェル"},{name: "ネイルベースコート/トップコート"},{name: "ネイルアート用品"},{name: "ネイルパーツ"},{name: "ネイルチップ/付け爪"},{name: "手入れ用具"},{name: "除光液"},{name: "その他"}])
-cosme_perfume_beauty_4 = cosme_perfume_beauty.children.create(name: "香水")
-cosme_perfume_beauty_4.children.create([{name: "香水(女性用)"},{name: "香水(男性用)"},{name: "ユニセックス"},{name: "ボディミスト"},{name: "その他"}])
-cosme_perfume_beauty_5 = cosme_perfume_beauty.children.create(name: "スキンケア/基礎化粧品")
-cosme_perfume_beauty_5.children.create([{name: "化粧水/ローション"},{name: "乳液/ミルク"},{name: "美容液"},{name: "フェイスクリーム"},{name: "洗顔料"},{name: "クレンジング/メイク落とし"},{name: "パック/フェイスマスク"},{name: "ジェル/ゲル"},{name: "ブースター/導入液"},{name: "アイケア"},{name: "リップケア"},{name: "トライアルセット/サンプル"},{name: "洗顔グッズ"},{name: "その他"}])
-cosme_perfume_beauty_6 = cosme_perfume_beauty.children.create(name: "ヘアケア")
-cosme_perfume_beauty_6.children.create([{name: "シャンプー"},{name: "トリートメント"},{name: "コンディショナー"},{name: "リンス"},{name: "スタイリング剤"},{name: "カラーリング剤"},{name: "ブラシ"},{name: "その他"}])
-cosme_perfume_beauty_7 = cosme_perfume_beauty.children.create(name: "ボディケア")
-cosme_perfume_beauty_7.children.create([{name: "オイル/クリーム"},{name: "ハンドクリーム"},{name: "ローション"},{name: "日焼け止め/サンオイル"},{name: "ボディソープ"},{name: "入浴剤"},{name: "制汗/デオドラント"},{name: "フットケア"},{name: "その他"}])
-cosme_perfume_beauty_8 = cosme_perfume_beauty.children.create(name: "オーラルケア")
-cosme_perfume_beauty_8.children.create([{name: "口臭防止/エチケット用品"},{name: "歯ブラシ"},{name: "その他"}])
-cosme_perfume_beauty_9 = cosme_perfume_beauty.children.create(name: "リラクゼーション")
-cosme_perfume_beauty_9.children.create([{name: "エッセンシャルオイル"},{name: "芳香器"},{name: "お香/香炉"},{name: "キャンドル"},{name: "リラクゼーショングッズ"},{name: "その他"}])
-cosme_perfume_beauty_10 = cosme_perfume_beauty.children.create(name: "ダイエット")
-cosme_perfume_beauty_10.children.create([{name: "ダイエット食品"},{name: "エクササイズ用品"},{name: "体重計"},{name: "体脂肪計"},{name: "その他"}])
-cosme_perfume_beauty_11 = cosme_perfume_beauty.children.create(name: "その他")
-cosme_perfume_beauty_11.children.create([{name: "健康用品"},{name: "看護/介護用品"},{name: "救急/衛生用品"},{name: "その他"}])
-
-# 家電・スマホ・カメラ
-appliance_smartphone_camera = Category.create(name: "家電・スマホ・カメラ")
-appliance_smartphone_camera_1 = appliance_smartphone_camera.children.create(name: "スマートフォン/携帯電話")
-appliance_smartphone_camera_1.children.create([{name: "スマートフォン本体"},{name: "バッテリー/充電器"},{name: "携帯電話本体"},{name: "PHS本体"},{name: "その他"}])
-appliance_smartphone_camera_2 = appliance_smartphone_camera.children.create(name: "スマホアクセサリー")
-appliance_smartphone_camera_2.children.create([{name: "Android用ケース"},{name: "iPhone用ケース"},{name: "カバー"},{name: "イヤホンジャック"},{name: "ストラップ"},{name: "フィルム"},{name: "自撮り棒"},{name: "その他"}])
-appliance_smartphone_camera_3 = appliance_smartphone_camera.children.create(name: "PC/タブレット")
-appliance_smartphone_camera_3.children.create([{name: "タブレット"},{name: "ノートPC"},{name: "デスクトップ型PC"},{name: "ディスプレイ"},{name: "電子ブックリーダー"},{name: "PC周辺機器"},{name: "PCパーツ"},{name: "その他"}])
-appliance_smartphone_camera_4 = appliance_smartphone_camera.children.create(name: "カメラ")
-appliance_smartphone_camera_4.children.create([{name: "デジタルカメラ"},{name: "ビデオカメラ"},{name: "レンズ(単焦点)"},{name: "レンズ(ズーム)"},{name: "フィルムカメラ"},{name: "防犯カメラ"},{name: "その他"}])
-appliance_smartphone_camera_5 = appliance_smartphone_camera.children.create(name: "テレビ/映像機器")
-appliance_smartphone_camera_5.children.create([{name: "テレビ"},{name: "プロジェクター"},{name: "ブルーレイレコーダー"},{name: "DVDレコーダー"},{name: "ブルーレイプレーヤー"},{name: "DVDプレーヤー"},{name: "映像用ケーブル"},{name: "その他"}])
-appliance_smartphone_camera_6 = appliance_smartphone_camera.children.create(name: "オーディオ機器")
-appliance_smartphone_camera_6.children.create([{name: "ポータブルプレーヤー"},{name: "イヤフォン"},{name: "ヘッドフォン"},{name: "アンプ"},{name: "スピーカー"},{name: "ケーブル/シールド"},{name: "ラジオ"},{name: "その他"}])
-appliance_smartphone_camera_7 = appliance_smartphone_camera.children.create(name: "美容/健康")
-appliance_smartphone_camera_7.children.create([{name: "ヘアドライヤー"},{name: "ヘアアイロン"},{name: "美容機器"},{name: "電気シェーバー"},{name: "電動歯ブラシ"},{name: "その他"}])
-appliance_smartphone_camera_8 = appliance_smartphone_camera.children.create(name: "冷暖房/空調")
-appliance_smartphone_camera_8.children.create([{name: "エアコン"},{name: "空気清浄器"},{name: "加湿器"},{name: "扇風機"},{name: "除湿機"},{name: "ファンヒーター"},{name: "電気ヒーター"},{name: "オイルヒーター"},{name: "ストーブ"},{name: "ホットカーペット"},{name: "こたつ"},{name: "電気毛布"},{name: "その他"}])
-appliance_smartphone_camera_9 = appliance_smartphone_camera.children.create(name: "生活家電")
-appliance_smartphone_camera_9.children.create([{name: "冷蔵庫"},{name: "洗濯機"},{name: "炊飯器"},{name: "電子レンジ/オーブン"},{name: "調理機器"},{name: "アイロン"},{name: "掃除機"},{name: "エスプレッソマシン"},{name: "コーヒーメーカー"},{name: "衣類乾燥機"},{name: "その他"}])
-appliance_smartphone_camera_10 = appliance_smartphone_camera.children.create(name: "その他")
-appliance_smartphone_camera_10.children.create([{name: "その他"}])
-# スポーツ・レジャー
-sport_leisure = Category.create(name: "スポーツ・レジャー")
-sport_leisure_1 = sport_leisure.children.create(name: "ゴルフ")
-sport_leisure_1.children.create([{name: "クラブ"},{name: "ウエア(男性用)"},{name: "ウエア(女性用)"},{name: "バッグ"},{name: "シューズ(男性用)"},{name: "シューズ(女性用)"},{name: "アクセサリー"},{name: "その他"}])
-sport_leisure_2 = sport_leisure.children.create(name: "フィッシング")
-sport_leisure_2.children.create([{name: "ロッド"},{name: "リール"},{name: "ルアー用品"},{name: "ウエア"},{name: "釣り糸/ライン"},{name: "その他"}])
-sport_leisure_3 = sport_leisure.children.create(name: "自転車")
-sport_leisure_3.children.create([{name: "自転車本体"},{name: "ウエア"},{name: "パーツ"},{name: "アクセサリー"},{name: "バッグ"},{name: "工具/メンテナンス"},{name: "その他"}])
-sport_leisure_4 = sport_leisure.children.create(name: "トレーニング/エクササイズ")
-sport_leisure_4.children.create([{name: "ランニング"},{name: "ウォーキング"},{name: "ヨガ"},{name: "トレーニング用品"},{name: "その他"}])
-sport_leisure_5 = sport_leisure.children.create(name: "野球")
-sport_leisure_5.children.create([{name: "ウェア"},{name: "シューズ"},{name: "グローブ"},{name: "バット"},{name: "アクセサリー"},{name: "防具"},{name: "練習機器"},{name: "記念グッズ"},{name: "応援グッズ"},{name: "その他"}])
-sport_leisure_6 = sport_leisure.children.create(name: "サッカー/フットサル")
-sport_leisure_6.children.create([{name: "ウェア"},{name: "シューズ"},{name: "ボール"},{name: "アクセサリー"},{name: "記念グッズ"},{name: "応援グッズ"},{name: "その他"}])
-sport_leisure_7 = sport_leisure.children.create(name: "テニス")
-sport_leisure_7.children.create([{name: "ラケット(硬式用)"},{name: "ラケット(軟式用)"},{name: "ウェア"},{name: "シューズ"},{name: "ボール"},{name: "アクセサリー"},{name: "記念グッズ"},{name: "応援グッズ"},{name: "その他"}])
-sport_leisure_8 = sport_leisure.children.create(name: "スノーボード")
-sport_leisure_8.children.create([{name: "ボード"},{name: "バインディング"},{name: "ブーツ(男性用)"},{name: "ブーツ(女性用)"},{name: "ブーツ(子ども用)"},{name: "ウエア/装備(男性用)"},{name: "ウエア/装備(女性用)"},{name: "ウエア/装備(子ども用)"},{name: "アクセサリー"},{name: "バッグ"},{name: "その他"}])
-sport_leisure_9 = sport_leisure.children.create(name: "スキー")
-sport_leisure_9.children.create([{name: "板"},{name: "ブーツ(男性用)"},{name: "ブーツ(女性用)"},{name: "ブーツ(子ども用)"},{name: "ビンディング"},{name: "ウエア(男性用)"},{name: "ウエア(女性用)"},{name: "ウエア(子ども用)"},{name: "ストック"},{name: "その他"}])
-sport_leisure_10 = sport_leisure.children.create(name: "その他スポーツ")
-sport_leisure_10.children.create([{name: "ダンス/バレエ"},{name: "サーフィン"},{name: "バスケットボール"},{name: "バドミントン"},{name: "バレーボール"},{name: "スケートボード"},{name: "陸上競技"},{name: "ラグビー"},{name: "アメリカンフットボール"},{name: "ボクシング"},{name: "ボウリング"},{name: "その他"}])
-sport_leisure_11 = sport_leisure.children.create(name: "アウトドア")
-sport_leisure_11.children.create([{name: "テント/タープ"},{name: "ライト/ランタン"},{name: "寝袋/寝具"},{name: "テーブル/チェア"},{name: "ストーブ/コンロ"},{name: "調理器具"},{name: "食器"},{name: "登山用品"},{name: "その他"}])
-sport_leisure_12 = sport_leisure.children.create(name: "その他")
-sport_leisure_12.children.create([{name: "旅行用品"},{name: "その他"}])
-
-# ハンドメイド
-handmade = Category.create(name: "ハンドメイド")
-handmade_1 = handmade.children.create(name: "アクセサリー(女性用)")
-handmade_1.children.create([{name: "ピアス"},{name: "イヤリング"},{name: "ネックレス"},{name: "ブレスレット"},{name: "リング"},{name: "チャーム"},{name: "ヘアゴム"},{name: "アンクレット"},{name: "その他"}])
-handmade_2 = handmade.children.create(name: "ファッション/小物")
-handmade_2.children.create([{name: "バッグ(女性用)"},{name: "バッグ(男性用)"},{name: "財布(女性用)"},{name: "財布(男性用)"},{name: "ファッション雑貨"},{name: "その他"}])
-handmade_3 = handmade.children.create(name: "アクセサリー/時計")
-handmade_3.children.create([{name: "アクセサリー(男性用)"},{name: "時計(女性用)"},{name: "時計(男性用)"},{name: "その他"}])
-handmade_4 = handmade.children.create(name: "日用品/インテリア")
-handmade_4.children.create([{name: "キッチン用品"},{name: "家具"},{name: "文房具"},{name: "アート/写真"},{name: "アロマ/キャンドル"},{name: "フラワー/ガーデン"},{name: "その他"}])
-handmade_5 = handmade.children.create(name: "趣味/おもちゃ")
-handmade_5.children.create([{name: "クラフト/布製品"},{name: "おもちゃ/人形"},{name: "その他"}])
-handmade_6 = handmade.children.create(name: "キッズ/ベビー")
-handmade_6.children.create([{name: "ファッション雑貨"},{name: "スタイ/よだれかけ"},{name: "外出用品"},{name: "ネームタグ"},{name: "その他"}])
-handmade_7 = handmade.children.create(name: "素材/材料")
-handmade_7.children.create([{name: "各種パーツ"},{name: "生地/糸"},{name: "型紙/パターン"},{name: "その他"}])
-handmade_8 = handmade.children.create(name: "二次創作物")
-handmade_8.children.create([{name: "Ingress"},{name: "クリエイターズ宇宙兄弟"},{name: "その他"},{name: "チケット"},{name: "すべて"}])
-handmade_9 = handmade.children.create(name: "その他")
-handmade_9.children.create([{name: "すべて"}])
-
-# チケット
-ticket = Category.create(name: "チケット")
-ticket_1 = ticket.children.create(name: "音楽")
-ticket_1.children.create([{name: "男性アイドル"},{name: "女性アイドル"},{name: "韓流"},{name: "国内アーティスト"},{name: "海外アーティスト"},{name: "音楽フェス"},{name: "声優/アニメ"},{name: "その他"}])
-ticket_2 = ticket.children.create(name: "スポーツ")
-ticket_2.children.create([{name: "サッカー"},{name: "野球"},{name: "テニス"},{name: "格闘技/プロレス"},{name: "相撲/武道"},{name: "ゴルフ"},{name: "バレーボール"},{name: "バスケットボール"},{name: "モータースポーツ"},{name: "ウィンタースポーツ"},{name: "その他"}])
-ticket_3 = ticket.children.create(name: "演劇/芸能")
-ticket_3.children.create([{name: "ミュージカル"},{name: "演劇"},{name: "伝統芸能"},{name: "落語"},{name: "お笑い"},{name: "オペラ"},{name: "サーカス"},{name: "バレエ"},{name: "その他"}])
-ticket_4 = ticket.children.create(name: "イベント")
-ticket_4.children.create([{name: "声優/アニメ"},{name: "キッズ/ファミリー"},{name: "トークショー/講演会"},{name: "その他"}])
-ticket_5 = ticket.children.create(name: "映画")
-ticket_5.children.create([{name: "邦画"},{name: "洋画"},{name: "その他"}])
-ticket_6 = ticket.children.create(name: "施設利用券")
-ticket_6.children.create([{name: "遊園地/テーマパーク"},{name: "美術館/博物館"},{name: "スキー場"},{name: "ゴルフ場"},{name: "フィットネスクラブ"},{name: "プール"},{name: "ボウリング場"},{name: "水族館"},{name: "動物園"},{name: "その他"}])
-ticket_7 = ticket.children.create(name: "優待券/割引券")
-ticket_7.children.create([{name: "ショッピング"},{name: "レストラン/食事券"},{name: "フード/ドリンク券"},{name: "宿泊券"},{name: "その他"}])
-ticket_8 = ticket.children.create(name: "その他")
-ticket_8.children.create([{name: "すべて"}])
-
-
-# 自動車・オートバイ
-car_motorcycle = Category.create(name: "自動車・オートバイ")
-car_motorcycle_1 = car_motorcycle.children.create(name: "自動車本体")
-car_motorcycle_1.children.create([{name: "国内自動車本体"},{name: "外国自動車本体"}])
-car_motorcycle_2 = car_motorcycle.children.create(name: "自動車タイヤ/ホイール")
-car_motorcycle_2.children.create([{name: "タイヤ/ホイールセット"},{name: "タイヤ"},{name: "ホイール"},{name: "その他"}])
-car_motorcycle_3 = car_motorcycle.children.create(name: "自動車パーツ")
-car_motorcycle_3.children.create([{name: "サスペンション"},{name: "ブレーキ"},{name: "外装、エアロパーツ"},{name: "ライト"},{name: "内装品、シート"},{name: "ステアリング"},{name: "マフラー・排気系"},{name: "エンジン、過給器、冷却装置"},{name: "クラッチ、ミッション、駆動系"},{name: "電装品"},{name: "補強パーツ"},{name: "汎用パーツ"},{name: "外国自動車用パーツ"},{name: "その他"}])
-car_motorcycle_4 = car_motorcycle.children.create(name: "自動車アクセサリー")
-car_motorcycle_4.children.create([{name: "車内アクセサリー"},{name: "カーナビ"},{name: "カーオーディオ"},{name: "車外アクセサリー"},{name: "メンテナンス用品"},{name: "チャイルドシート"},{name: "ドライブレコーダー"},{name: "レーダー探知機"},{name: "カタログ/マニュアル"},{name: "セキュリティ"},{name: "ETC"},{name: "その他"}])
-car_motorcycle_5 = car_motorcycle.children.create(name: "オートバイ車体")
-car_motorcycle_5.children.create([{name: "すべて"}])
-car_motorcycle_6 = car_motorcycle.children.create(name: "オートバイパーツ")
-car_motorcycle_6.children.create([{name: "タイヤ"},{name: "マフラー"},{name: "エンジン、冷却装置"},{name: "カウル、フェンダー、外装"},{name: "サスペンション"},{name: "ホイール"},{name: "シート"},{name: "ブレーキ"},{name: "タンク"},{name: "ライト、ウィンカー"},{name: "チェーン、スプロケット、駆動系"},{name: "メーター"},{name: "電装系"},{name: "ミラー"},{name: "外国オートバイ用パーツ"},{name: "その他"}])
-car_motorcycle_7 = car_motorcycle.children.create(name: "オートバイアクセサリー")
-car_motorcycle_7.children.create([{name: "ヘルメット/シールド"},{name: "バイクウエア/装備"},{name: "アクセサリー"},{name: "メンテナンス"},{name: "カタログ/マニュアル"},{name: "その他"}])
-
-# その他
-others = Category.create(name: "その他")
-others_1 = others.children.create(name: "まとめ売り")
-others_1.children.create([{name: "すべて"}])
-others_2 = others.children.create(name: "ペット用品")
-others_2.children.create([{name: "ペットフード"},{name: "犬用品"},{name: "猫用品"},{name: "魚用品/水草"},{name: "小動物用品"},{name: "爬虫類/両生類用品"},{name: "かご/おり"},{name: "鳥用品"},{name: "虫類用品"},{name: "その他"}])
-others_3 = others.children.create(name: "食品")
-others_3.children.create([{name: "菓子"},{name: "米"},{name: "野菜"},{name: "果物"},{name: "調味料"},{name: "魚介類(加工食品)"},{name: "肉類(加工食品)"},{name: "その他 加工食品"},{name: "その他"}])
-others_4 = others.children.create(name: "飲料/酒")
-others_4.children.create([{name: "コーヒー"},{name: "ソフトドリンク"},{name: "ミネラルウォーター"},{name: "茶"},{name: "ウイスキー"},{name: "ワイン"},{name: "ブランデー"},{name: "焼酎"},{name: "日本酒"},{name: "ビール、発泡酒"},{name: "その他"}])
-others_5 = others.children.create(name: "日用品/生活雑貨/旅行")
-others_5.children.create([{name: "タオル/バス用品"},{name: "日用品/生活雑貨"},{name: "洗剤/柔軟剤"},{name: "旅行用品"},{name: "防災関連グッズ"},{name: "その他"}])
-others_6 = others.children.create(name: "アンティーク/コレクション")
-others_6.children.create([{name: "雑貨"},{name: "工芸品"},{name: "家具"},{name: "印刷物"},{name: "その他"}])
-others_7 = others.children.create(name: "文房具/事務用品")
-others_7.children.create([{name: "筆記具"},{name: "ノート/メモ帳"},{name: "テープ/マスキングテープ"},{name: "カレンダー/スケジュール"},{name: "アルバム/スクラップ"},{name: "ファイル/バインダー"},{name: "はさみ/カッター"},{name: "カードホルダー/名刺管理"},{name: "のり/ホッチキス"},{name: "その他"}])
-others_8 = others.children.create(name: "事務/店舗用品")
-others_8.children.create([{name: "オフィス用品一般"},{name: "オフィス家具"},{name: "店舗用品"},{name: "OA機器"},{name: "ラッピング/包装"},{name: "その他"}])
-others_9 = others.children.create(name: "その他")
-others_9.children.create([{name: "すべて"}])
+category.each.with_index(1) do |category,i|
+  level1_var="@category#{i}"                                                                            #1階層の変数("@category1"等)
+  level1_val= Category.create(name:"#{category[:level1]}")                                            #1階層の値作成("カテゴリ1"等)
+  eval("#{level1_var} = level1_val")                                                                    #1階層の変数=1階層の値
+    category[:level1_children].each.with_index(1) do |level1_child,j|
+      level2_var="#{level1_var}_#{j}"                                                                   #2階層の変数("@category1-1"等)
+      level2_val= eval("#{level1_var}.children.create(name:level1_child[:level2])")                     #2階層の値作成("カテゴリ1-1"等)
+      eval("#{level2_var} = level2_val")                                                                #2階層の変数=2階層の値
+        level1_child[:level2_children].each.with_index(1) do |level2_children_val,k|
+          level2_children_var="#{level2_var}_#{k}"                                                      #3階層の変数
+          level2_children_var= eval("#{level2_var}.children.create(name:level2_children_val)")          #3階層の値作成
+        end
+    end
+end
