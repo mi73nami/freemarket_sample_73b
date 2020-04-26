@@ -34,9 +34,8 @@
             .products_new-product__headline
               .products_new-product__headline--title カテゴリー
               .products_new-product__headline--required 必須
-            = form.select :category_id, [["レデース",1],["メンズ",2]], prompt: "選択してください", class: "products_new-product_explanation__category--parent"
-            = form.select :category_id, [["トップス",1],["ジャケット",2]], prompt: "選択してください", class: "products_new-product_explanation__category--children"
-            = form.select :category_id, [["Tシャツ",1],["ポロシャツ",2]], prompt: "選択してください", class: "products_new-product_explanation__category--grandchildren"
+            .products_new-product_explanation__category--box
+              = form.select :category_id, @category_parent_array, {}, {class: "products_new-product_explanation__category--parent",id: 'parent_category'}
           .products_new-product_explanation__brand
             .products_new-product__headline
               .products_new-product__headline--title ブランド
