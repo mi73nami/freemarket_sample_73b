@@ -7,8 +7,8 @@
         商品送付先入力
       .users-new__wrapper__box__form
         .users-new__wrapper__box__form__set
-          = form_for @ship_address do |f|
-            = render "devise/shared/error_messages", resource: @ship_addresses
+          = form_for @address do |f|
+            = render "devise/shared/error_messages", resource: @address
 
             .users-new__wrapper__box__form__set__name-desc
               お名前(全角) 
@@ -60,4 +60,4 @@
             .users-new__wrapper__box__form__set__actions
               = f.submit "ユーザー登録"
 
-        = render "devise/shared/links"
+          = render "devise/shared/links"
