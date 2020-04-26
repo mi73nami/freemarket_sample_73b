@@ -35,7 +35,7 @@
               .products_new-product__headline--title カテゴリー
               .products_new-product__headline--required 必須
             .products_new-product_explanation__category--box
-              = form.select :category_id, @category_parent_array, {}, {class: "products_new-product_explanation__category--parent",id: 'parent_category'}
+              = form.select :category, @category_parent_array, {}, {class: "products_new-product_explanation__category--parent",id: 'parent_category'}
           .products_new-product_explanation__brand
             .products_new-product__headline
               .products_new-product__headline--title ブランド
