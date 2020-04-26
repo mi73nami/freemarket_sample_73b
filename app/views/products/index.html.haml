@@ -1,4 +1,5 @@
 検証用仮設置 product index
+-# = image_tag(@product.product_images.first.image.url)
 .wrapper
   .pickup_category__containerCategory
     %h2.pickup_category__containerCategory__title
@@ -11,18 +12,36 @@
       .pickup_category__containerCategory__product--lists
         - @products.each do |product|
           .pickup_category__containerCategory__product--lists__list
-            = link_to product.name, product_path(product.id)#, class: "pickup_category__containerCategory__product--lists__list"
-
-      -# = link_to image_tag ('pict/bg-appBanner-pict.jpg', size: '75*75'), product_path(product.id)#, class: "pickup_category__containerCategory__product--lists__list"
- 
-      -# %figure.pickup_category__product__images
-      -#   = image_tag "https://static.mercdn.net/item/detail/orig/photos/m26688514106_1.jpg?1579836989", class: "pickup_category__product__images--image"
-      -# .pickup_category__containerCategory__product--lists__list--body
-      -#   %h3.pickup_category__product--name
-      -#     = product.name
-      -#   .pickup_category__containerCategory__product--lists__list--body__details
-      -#     %ul.pickup_category__details__menu
-      -#       %li
-      -#         = "#{product.price}円"
-      -#       %li ★
-      -#   %p.pickup_category__taxIncluded （税込）
+            = link_to product_path(product.id), class: "pickup_category__containerCategory__product--lists__list" do
+              %figure.pickup_category__product__images
+                = product.name
+                
+              -#   = image_tag "https://static.mercdn.net/item/detail/orig/photos/m26688514106_1.jpg?1579836989", class: "pickup_category__product__images--image"
+              -# .pickup_category__containerCategory__product--lists__list--body
+              -#   %h3.pickup_category__product--name
+              -#     = product.name
+              -#   .pickup_category__containerCategory__product--lists__list--body__details
+              -#     %ul.pickup_category__details__menu
+              -#       %li
+              -#         = "#{product.price}円"
+              -#       %li ★
+              -#   %p.pickup_category__taxIncluded （税込）
+-# = link_to product_path(product.id), class: "products__list" do
+-#   %li.products__list
+-#     %figure.product
+-#       %figucaption.product__text
+-#         = product.name
+-#       .product__thumbnail
+-#         .product__thumbnail--label
+-#           = "¥ #{product.price.to_s(:delimited)}"
+-#         .product__thumbnail--image
+-#           - if product.images.present?
+-#             =image_tag (product.images[0].product_image.url)
+-#           - else
+-#             = image_tag "no_image.png"
+-#           -if product.buyer_id.present? 
+-#             .items-box_photo__sold
+-#               .items-box_photo__sold__inner SOLD
+-#           -if product.reservation_email.present? 
+-#             .items-box_photo__reserved
+-#               .items-box_photo__reserved__inner Reserved
