@@ -6,7 +6,7 @@ $(function(){
   function appendChidrenBox(insertHTML){
     var childSelectHtml = '';
     childSelectHtml =`<select class="products_new-product_explanation__category--children" id="child_category" name="product[category_id]">
-                        <option value="選択してください" data-category="選択してください">選択してください</option>
+                        <option value="" data-category="選択してください">選択してください</option>
                           ${insertHTML}
                       <select>`;
     $('.products_new-product_explanation__category--box').append(childSelectHtml);
@@ -14,7 +14,7 @@ $(function(){
   function appendGrandchidrenBox(insertHTML){
     var grandchildSelectHtml = '';
     grandchildSelectHtml = `<select class="products_new-product_explanation__category--grandchildren" id="grandchild_category" name="product[category_id]">
-                              <option value="選択してください" data-category="選択してください">選択してください</option>
+                              <option value="" data-category="選択してください">選択してください</option>
                                 ${insertHTML}
                             </select>`;
     $('.products_new-product_explanation__category--box').append(grandchildSelectHtml);
@@ -55,6 +55,7 @@ $(function(){
         dataType: 'json'
       })
       .done(function(grandchildren){
+        console.log(grandchildren)
         if (grandchildren.length != 0) {
           $('.products_new-product_explanation__category--grandchildren').remove();
           var insertHTML = '';

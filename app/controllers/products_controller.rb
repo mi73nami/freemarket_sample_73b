@@ -15,11 +15,16 @@ class ProductsController < ApplicationController
   end
 
   def create
-  
     @product = Product.new(product_params)
+    @product.existence = false
     if @product.save
       redirect_to root_path
     else
+      @product.product_images.new
+      @category_parent_array = ["選択してください"]
+      Category.where(ancestry: nil).each do |parent|
+        @category_parent_array << parent.name
+      end
       render :new
     end
   end

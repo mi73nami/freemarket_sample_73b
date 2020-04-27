@@ -72,8 +72,6 @@
               .products_new-product_price--select
                 %p.products_new-product_price--yen ¥
                 = form.number_field :price, class: "products_new-product_price--box", placeholder:"0"
-        .products_new-boolean
-          = form.select :existence, [0], class: "products_new-boolean__box"
         .products_new-product__submit
           = form.submit '出品する', class: "products_new-product__submit--btn"
 .products_new-footer
