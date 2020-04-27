@@ -16,6 +16,7 @@
 |price|integer|null:false|　（価格）
 |existence|enum|null:false| (商品が購入済みかどうか）
 |user_id|references|null: false, foreign_key: true|
+|buyer_id|references|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
 |brand_id|references|null: false, foreign_key: true|
 ### Association
@@ -38,6 +39,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null:false|
+|ancestry|string|
 ### Association
 - has_many :products
 
@@ -54,13 +56,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null:false　(ニックネーム)
-|email|string|null: false, uniqueness: true|　(メール)
-  - メールアドレスは@とドメインを含む必要がある
+|email|string|null: false, uniqueness: true| (メール)
 |password|string|null: false, uniqueness: true|　(パスワード)
-  - パスワードは7文字以上
-  - パスワードは確認用を含めて2回入力する
-   要validates
-
 |last_name|string|null: false|　(苗字)
 |first_name|string|null: false|　(名前)
 |ruby_last_name|string|null:false|　(苗字ひらがな)
@@ -73,6 +70,8 @@
 
 
 ## ship_addressesテーブル
+|Column|Type|Options|
+|------|----|-------|
 |last_name|string|null:false|　(苗字)
 |first_name|string|null:false| (氏名)
 |ruby_last_name|string|null:false|　(苗字ひらがな)
@@ -94,7 +93,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
-- 多分クレジットカード情報のカラム（カード番号/月/年）追加？ancestry導入後検討
+|token|integer|null: false|
 ### Association
 - belongs_to :user
 
