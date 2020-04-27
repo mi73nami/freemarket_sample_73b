@@ -26,7 +26,6 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.includes(:product_images).order('created_at DESC').find(params[:id])
-    @image = ProductImage.find(params[:id])
 
   end
 
@@ -37,6 +36,12 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    product = Product.find(params[:id])
+    if product.destroy
+      redirect_to root_path, notice: '削除しました'
+    else
+      render :edit
+    end
   end
 
   def purchase
@@ -52,7 +57,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :detail,:condition,:category_id,:delivery_fee,:shipping_area,:shipping_days,:price,:existence,product_images_attributes: [:id, :product_id, :image]).merge(user_id: current_user.id)
+    params.require(:product).permit(:name, :detail,:condition,:category_id,:delivery_fee,:shipping_area,:shipping_days,:price,:existence,product_images_attributes: [:src, :_destroy, :id, :product_id, :image]).merge(user_id: current_user.id)
   end
 
   def move_to_index

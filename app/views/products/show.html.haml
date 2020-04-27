@@ -1,8 +1,6 @@
 =link_to "仮設置products_index", products_path
 
 
-
-
 -# - @products.each do |product|
 -#   .pickup_category__containerCategory__product--lists__list
 -#     = link_to product_path(product.id), class: "pickup_category__containerCategory__product--lists__list" do
@@ -20,11 +18,16 @@
           .products-show-itemBox__pic
             %ul
               %li
-                = image_tag(@image.image.url)
+                -# - if
+                -# - else
+                  
+                = image_tag(@product.product_images.first.image.url)
                 %ul
                   - @product.product_images.each do |i|
                     %li
-                      = image_tag(i.image.url)
+                      =link_to product_path(@product.id) do
+                        = image_tag(i.image.url)
+
 
           .products-show-itemBox__price
             %span
@@ -46,40 +49,16 @@
           - else
             = link_to "購入画面に進む", purchase_path, class: "products-show-itemBox__buy-btn"
 
-          -# - if user_signed_in? && current_user.id == @product.user_id
-          -#   .postManage
-          -#     = link_to "編集", edit_post_path(@product.id), class: "postManage__edit"
-          -#     = link_to "削除", post_path(@product.id), method: :delete, class: "postManage__delete"
-
-              -# %a.btn-default.btn-red{:href => "https://www.mercari.com/jp/sell/edit/m15820539324/"} 商品の編集
-              -# %p.text-center or
-              -# %form{:action => "/jp/mypage/items/deactivate/m15820539324/", :method => "POST", :novalidate => "novalidate"}
-              -#   %input{:name => "__csrf_value", :type => "hidden", :value => "6d2518b5c3c10c6223b2fb76fa46f041221ec755a98aa5e3380459057c6f060a7058a7d43bc25dfaccea37e7b7ce62c68be4df8a416fcfab910a25af2da9db57b"}/
-              -#   %button.btn-default.btn-gray{:type => "submit"} 出品を一旦停止する
-              -# %button.btn-default.btn-gray{"data-modal" => "delete-item", "data-open" => "modal"}
-              -#   この商品を削除する
-
-            -# = link_to new_product_path do
-            -#   .display_btn__in-box
-            -#     .display_btn__in-box--text
-            -#       出品する
-            -#     = image_tag "icon/icon_camera.png", size: "54x54", class: "display_btn__in-box--img"
-
-
-
-
-
-
-
           .products-show-detail
-            =@product.detail
+            = @product.detail
 
           .products-show-table
             %table
               %tbody
                 %tr
                   %th 出品者
-                  %td 増田こうすけ
+                  %td 
+                    = @product.user.nickname
                 %tr
                   %th カテゴリー
                   %td
@@ -96,17 +75,20 @@
                   %td
                 %tr
                   %th 商品の状態
-                  %td 未使用に近い
+                  %td
+                    = @product.condition
                 %tr
                   %th 配送料の負担
-                  %td 送料込み（出品者負担）
+                  %td
+                    = @product.delivery_fee
                 %tr
                   %th 発送元の地域
                   %td
                     = @product.shipping_area
                 %tr
                   %th 発送日の目安
-                  %td 4-7日で発送
+                  %td
+                    = @product.shipping_days
 
 
           .products-show-fav_bad_btn
@@ -119,7 +101,6 @@
                 = link_to "/" do
                   %i.fa.fa-flag
                   不適切な商品の通報
-
 
 
         .products-show-commentBox
