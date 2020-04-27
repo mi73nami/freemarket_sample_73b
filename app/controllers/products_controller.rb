@@ -15,11 +15,16 @@ class ProductsController < ApplicationController
   end
 
   def create
-  
     @product = Product.new(product_params)
+    @product.existence = false
     if @product.save
       redirect_to root_path
     else
+      @product.product_images.new
+      @category_parent_array = ["選択してください"]
+      Category.where(ancestry: nil).each do |parent|
+        @category_parent_array << parent.name
+      end
       render :new
     end
   end
@@ -52,7 +57,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :detail,:condition,:category_id,:delivery_fee,:shipping_area,:shipping_days,:price,:existence,product_images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:product).permit(:name, :detail, :condition, :category_id, :delivery_fee, :shipping_area, :shipping_days, :price, :existence, product_images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
   def move_to_index
