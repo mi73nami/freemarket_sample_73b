@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    @products = Product.all
+    @products = Product.includes(:product_images).order('created_at DESC').all
   end
 
   def new
@@ -52,7 +52,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :detail,:condition,:category_id,:delivery_fee,:shipping_area,:shipping_days,:price,:existence,product_images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:product).permit(:name, :detail,:condition,:category_id,:delivery_fee,:shipping_area,:shipping_days,:price,:existence,product_images_attributes: [:id, :product_id, :image]).merge(user_id: current_user.id)
   end
 
   def move_to_index

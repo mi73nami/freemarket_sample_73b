@@ -1,4 +1,14 @@
 =link_to "仮設置products_index", products_path
+
+
+
+
+-# - @products.each do |product|
+-#   .pickup_category__containerCategory__product--lists__list
+-#     = link_to product_path(product.id), class: "pickup_category__containerCategory__product--lists__list" do
+-#       = product.name
+
+
 .products-show-main
   .products-show-wrapper
     .products-show-contents
@@ -14,11 +24,9 @@
                 -# = image_tag(@product.product_images_attributes=image_url)#(@product.images[0].product_image.url)
                 %ul
                   %li
-                    = image_tag(@image.image.url)
-                  %li
-                    = image_tag(@image.image.url)
-                  %li
-                    = image_tag(@image.image.url)
+                    - @product.product_images.each do |image|
+                      = image_tag(image.image.url)
+
           .products-show-itemBox__price
             %span
               ¥
