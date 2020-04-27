@@ -1,0 +1,86 @@
+.parent__tree {
+  z-index: 1;
+  background-color: #fff;
+  box-shadow: 0 3px 3px 0 cadetblue;
+  font-size: 12px;
+  display: none;
+  padding: 2px;
+  height: 560px;
+  width: auto;
+  position: absolute;
+  cursor: pointer;
+
+  &__item {
+    height: 40px;
+    line-height: 40px;
+    padding-left: 20px;
+    width: 240px;
+
+    &:hover {
+      background-color: lightblue;
+    }
+    .parent {
+      display: flex;
+      padding: 2px;
+      width: 240px;
+    }
+  }
+}
+.children__tree{
+  background-color: #fff;
+  box-shadow: 0 3px 3px 0 cadetblue;
+  font-size: 12px;
+  display: none;
+  padding: 2px;
+  height: 560px;
+  width: auto;
+  position: absolute;
+  top: 0;
+  left: 240px;
+  cursor: pointer;
+
+  &__item {
+    height: 32px;
+    line-height: 32px;
+    padding-left: 20px;
+    width: 240px;
+
+    &:hover {
+      background-color: lightblue;
+    }
+    .child {
+      display: flex;
+      padding: 2px;
+      width: 240px;
+    }
+  }
+}
+.grandchildren__tree {
+  background-color: #fff;
+  box-shadow: 0 3px 3px 0 cadetblue;
+  font-size: 12px;
+  display: none;
+  padding: 2px;
+  height: 560px;
+  width: auto;
+  position: absolute;
+  top: 0;
+  left: 240px;
+  cursor: pointer;
+
+  &__item {
+    height: 32px;
+    line-height: 32px;
+    padding-left: 20px;
+    width: 240px;
+
+    &:hover {
+      background-color: lightblue;
+    }
+    .parent {
+      display: flex;
+      padding: 2px;
+      width: 240px;
+    }
+  }
+}
