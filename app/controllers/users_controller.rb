@@ -35,6 +35,7 @@ class UsersController < ApplicationController
     @furimapays = [
     {name:"売上・振込申請",path: "#",verb: "GET"},
     {name:"ポイント",path: "#",verb: "GET"}]
+    
 
   end
 
