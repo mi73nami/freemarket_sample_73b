@@ -7,21 +7,26 @@
     - @contents.each do |c|
       .users.show__left-wrapper__contents
         .users.show__left-wrapper__contents__content-title
-          = link_to c[:path],method: c[:verc] do
+          = link_to c[:path],method: c[:verb] do
             = c[:name]
 
-    - @furimapays.each do |f|
-      .users.show__left-wrapper__furimapay
-        .users.show__left-wrapper__furimapay__furimapay-title
-          = link_to f[:path],method: f[:verc] do
-            = f[:name]
+    .users.show__left-wrapper__furimapay-desc
+      %h  フリマペイ
+      - @furimapays.each do |f|
+        .users.show__left-wrapper__furimapay
+          .users.show__left-wrapper__furimapay__furimapay-title
+            = link_to f[:path],method: f[:verb] do
+              = f[:name]
 
-    - @settings.each do |s|
-      .users.show__left-wrapper__settings
-        .users.show__left-wrapper__settings__setting-title
-          = link_to s[:path],method: s[:verc] do
-            = s[:name]
-
+    .users.show__left-wrapper__settings-desc
+      %h  設定
+      - @settings.each do |s|
+        .users.show__left-wrapper__settings
+          .users.show__left-wrapper__settings__setting-title
+            = link_to s[:path],method: s[:verb] do
+              = s[:name]
+            
+ 
   .users.show__right-wrapper
     .users.show__right-wrapper__head
       .users.show__right-wrapper__head__icon
