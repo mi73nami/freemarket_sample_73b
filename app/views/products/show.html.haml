@@ -20,7 +20,7 @@
           .products-show-itemBox__pic
             %ul
               %li
-                = image_tag(@image.image.url)
+                = image_tag(@product.product_images.first.image.url)
                 %ul
                   - @product.product_images.each do |i|
                     %li
@@ -72,14 +72,15 @@
 
 
           .products-show-detail
-            =@product.detail
+            = @product.detail
 
           .products-show-table
             %table
               %tbody
                 %tr
                   %th 出品者
-                  %td 増田こうすけ
+                  %td 
+                    = @product.user.nickname
                 %tr
                   %th カテゴリー
                   %td
@@ -96,17 +97,20 @@
                   %td
                 %tr
                   %th 商品の状態
-                  %td 未使用に近い
+                  %td
+                    = @product.condition
                 %tr
                   %th 配送料の負担
-                  %td 送料込み（出品者負担）
+                  %td
+                    = @product.delivery_fee
                 %tr
                   %th 発送元の地域
                   %td
                     = @product.shipping_area
                 %tr
                   %th 発送日の目安
-                  %td 4-7日で発送
+                  %td
+                    = @product.shipping_days
 
 
           .products-show-fav_bad_btn
