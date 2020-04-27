@@ -20,12 +20,11 @@
           .products-show-itemBox__pic
             %ul
               %li
-                = image_tag(@image.image.url)#(@product.images[0].product_image.url)
-                -# = image_tag(@product.product_images_attributes=image_url)#(@product.images[0].product_image.url)
+                = image_tag(@image.image.url)
                 %ul
-                  %li
-                    - @product.product_images.each do |image|
-                      = image_tag(image.image.url)
+                  - @product.product_images.each do |i|
+                    %li
+                      = image_tag(i.image.url)
 
           .products-show-itemBox__price
             %span
