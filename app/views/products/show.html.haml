@@ -25,8 +25,8 @@
                 %ul
                   - @product.product_images.each do |i|
                     %li
-                      =link_to product_path(@product.id) do
-                        = image_tag(i.image.url)
+                      -# =link_to product_path(i.id) do
+                      = image_tag(i.image.url)
 
 
           .products-show-itemBox__price
@@ -62,11 +62,16 @@
                 %tr
                   %th カテゴリー
                   %td
-                    =link_to "" "ベビー・キッズ"
-                    %br/
-                    =link_to "" "ベビー服(男女兼用)  ~95cm"
-                    %br/
-                    =link_to "" "アウター"
+                    =link_to @categorys.find(138).name
+                    %br
+                    =link_to @categorys.find(186).name
+                    %br
+                    =link_to @categorys.find(190).name
+
+                    %br
+                    %br
+                    = @parents.name
+
                 %tr
                   %th ブランド
                   %td
