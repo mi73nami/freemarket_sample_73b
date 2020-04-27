@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
+    @product = Product.includes(:product_images).order('created_at DESC').find(params[:id])
     @image = ProductImage.find(params[:id])
 
   end
