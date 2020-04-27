@@ -1,0 +1,25 @@
+.container
+  .categories{ id: "categories" }
+    %h2 カテゴリー一覧
+    .parent-category-anchor
+      - @category_parent.each do |parent|
+        = link_to parent.name, { anchor: "parent-#{parent.id}" }, class: "anchor"
+    .category-boxes
+      - @category_parent.each do |parent|
+        .category-box
+          %h3.category-box__title{ id: "parent-#{parent.id}" }
+            = parent.name
+          .child-category-list
+            = link_to "すべて", category_path(parent.id)
+            - parent.children.each do |child|
+              .child-category-list__name
+                = child.name
+              = link_to "すべて", category_path(child.id), class: "children"
+              .grandchild-category
+                - child.children.each do |grandchild|
+                  = link_to grandchild.name, category_path(grandchild.id), class: "grandchild"
+
+    .topback-btn
+      = link_to anchor: "categories" do
+        上部へ
+        %i.fas.fa-chevron-circle-up.fa-3x
