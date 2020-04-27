@@ -1,4 +1,14 @@
 =link_to "仮設置products_index", products_path
+
+
+
+
+-# - @products.each do |product|
+-#   .pickup_category__containerCategory__product--lists__list
+-#     = link_to product_path(product.id), class: "pickup_category__containerCategory__product--lists__list" do
+-#       = product.name
+
+
 .products-show-main
   .products-show-wrapper
     .products-show-contents
@@ -10,14 +20,13 @@
           .products-show-itemBox__pic
             %ul
               %li
-                = image_tag(@image.image.url)
+                = image_tag(@image.image.url)#(@product.images[0].product_image.url)
+                -# = image_tag(@product.product_images_attributes=image_url)#(@product.images[0].product_image.url)
                 %ul
                   %li
-                    = image_tag(@image.image.url)
-                  %li
-                    = image_tag(@image.image.url)
-                  %li
-                    = image_tag(@image.image.url)
+                    - @product.product_images.each do |image|
+                      = image_tag(image.image.url)
+
           .products-show-itemBox__price
             %span
               ¥
@@ -31,10 +40,10 @@
           - if user_signed_in? && current_user.id == @product.user_id
             .l-single-container
               .listing-item-change-box
-                = link_to "商品の編集", "#", class: "products-show-itemBox__btn-red"
+                = link_to "商品の編集", edit_product_path, class: "products-show-itemBox__btn-red"
                 %p.text-center or
-                = link_to "出品を一旦停止する", "#", class: "products-show-itemBox__btn-grey"
-                = link_to "この商品を削除する", "#", class: "products-show-itemBox__btn-grey"
+                -# = link_to "出品を一旦停止する", "#", class: "products-show-itemBox__btn-grey"
+                = link_to "この商品を削除する", product_path, method: :delete, data: { confirm: '【確認】削除すると二度と復活できません。本当に削除しますか？' }, class: "products-show-itemBox__btn-grey"
           - else
             = link_to "購入画面に進む", purchase_path, class: "products-show-itemBox__buy-btn"
 
