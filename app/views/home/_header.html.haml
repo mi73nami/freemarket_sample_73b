@@ -6,7 +6,7 @@
     .main__search
       = form_with(url: "#", local: true, method: :get, class: "search-form") do |form|
         = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input"
-       
+        = form.submit src: "https://i.dlpng.com/static/png/6645719_preview.png", type: "image", class: "search-btn"
   .header__box__action
 
     %ul.action__list
@@ -20,10 +20,6 @@
         = link_to "#" do
           = image_tag 'icon/icon_brand.png', height: '12.5', width: '15'
           ブランド
-        -# .brand-tree
-        -#   %ul.first__tree
-        -#     %li.brand__item
-          後ほどこちらもドロップダウン予定
     %ul.action__user
       - if user_signed_in?
         %li.mypage
