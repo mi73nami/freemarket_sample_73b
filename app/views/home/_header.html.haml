@@ -27,7 +27,7 @@
     %ul.action__user
       - if user_signed_in?
         %li.mypage
-          = link_to mypages_index_path, class: "mypage_btn" do
+          = link_to "#", class: "mypage_btn" do
             = image_tag "user.png", class: "user-icon", size: "20x20"
             マイページ
       - else
