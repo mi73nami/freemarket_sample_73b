@@ -62,15 +62,12 @@
                 %tr
                   %th カテゴリー
                   %td
-                    =link_to @categorys.find(138).name
+                    =link_to @categorys.find(@product.category_id).parent.parent.name
                     %br
-                    =link_to @categorys.find(186).name
+                    =link_to @categorys.find(@product.category_id).parent.name
                     %br
-                    =link_to @categorys.find(190).name
+                    =link_to @categorys.find(@product.category_id).name
 
-                    %br
-                    %br
-                    = @parents.name
 
                 %tr
                   %th ブランド
