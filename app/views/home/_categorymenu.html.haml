@@ -1,14 +1,14 @@
 %ul.parent__tree
   - @category_parent.each do |parent|
     %li.parent__tree__item
-      = link_to "#{parent.name}", "#", class:"parent"
+      = link_to "#{parent.name}", category_path(parent.id), class:"parent"
 
       %ul.children__tree
         - parent.children.each do |child|
           %li.children__tree__item
-            = link_to "#{child.name}", "#", class:"child"
+            = link_to "#{child.name}", category_path(child.id), class:"child"
 
             %ul.grandchildren__tree
               - child.children.each do |grandchild|
                 %li.grandchildren__tree__item
-                  = link_to "#{grandchild.name}", "#", class:"grandchild"
+                  = link_to "#{grandchild.name}", category_path(grandchild.id), class:"grandchild"
