@@ -12,7 +12,7 @@
           = link_to product_path(product.id) do
             .pickup_category__containerCategory__product--lists__list
               %figure.pickup_category__product__images
-                = image_tag "https://static.mercdn.net/item/detail/orig/photos/m26688514106_1.jpg?1579836989", class: "pickup_category__product__images--image"
+                = image_tag product.product_images.first.image.url, class: "pickup_category__product__images--image"
               .pickup_category__containerCategory__product--lists__list--body
                 %h3.pickup_category__product--name
                   = product.name
