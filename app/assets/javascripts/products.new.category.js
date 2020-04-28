@@ -55,7 +55,6 @@ $(function(){
         dataType: 'json'
       })
       .done(function(grandchildren){
-        console.log(grandchildren)
         if (grandchildren.length != 0) {
           $('.products_new-product_explanation__category--grandchildren').remove();
           var insertHTML = '';

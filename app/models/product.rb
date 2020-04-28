@@ -6,5 +6,5 @@ class Product < ApplicationRecord
   validates :name, :detail, :condition, :category_id, :delivery_fee, :shipping_area, :shipping_days, :price, presence: true
 
   accepts_nested_attributes_for :product_images, allow_destroy: true
-
+  validates_presence_of :product_images
 end
