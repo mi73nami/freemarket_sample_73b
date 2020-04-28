@@ -16,7 +16,6 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    @product.existence = false
     if @product.save
       redirect_to root_path
     else
@@ -62,7 +61,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :detail,:condition,:category_id,:delivery_fee,:shipping_area,:shipping_days,:price,:existence,product_images_attributes: [:src, :_destroy, :id, :product_id, :image]).merge(user_id: current_user.id)
+    params.require(:product).permit(:name, :detail,:condition,:category_id,:delivery_fee,:shipping_area,:shipping_days,:price,product_images_attributes: [:src, :_destroy, :id, :product_id, :image]).merge(user_id: current_user.id, seller_id: current_user.id)
   end
 
   def move_to_index

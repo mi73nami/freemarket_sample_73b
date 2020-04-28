@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_25_061656) do
+ActiveRecord::Schema.define(version: 2020_04_28_102811) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -36,12 +36,15 @@ ActiveRecord::Schema.define(version: 2020_04_25_061656) do
     t.string "shipping_area", null: false
     t.integer "shipping_days", null: false
     t.integer "price", null: false
-    t.boolean "existence", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.bigint "category_id"
+    t.bigint "buyer_id"
+    t.bigint "seller_id", null: false
+    t.index ["buyer_id"], name: "index_products_on_buyer_id"
     t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["seller_id"], name: "index_products_on_seller_id"
   end
 
   create_table "ship_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -82,5 +85,7 @@ ActiveRecord::Schema.define(version: 2020_04_25_061656) do
 
   add_foreign_key "product_images", "products"
   add_foreign_key "products", "categories"
+  add_foreign_key "products", "users", column: "buyer_id"
+  add_foreign_key "products", "users", column: "seller_id"
   add_foreign_key "ship_addresses", "users"
 end
