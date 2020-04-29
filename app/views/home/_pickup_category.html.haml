@@ -11,6 +11,9 @@
         - @products.each do |product|
           = link_to product_path(product.id) do
             .pickup_category__containerCategory__product--lists__list
+              - if product.seller_id.present? && product.buyer_id.present?
+                .pickup_category__containerCategory__product--lists__list__status
+                  = "Sold Out"
               %figure.pickup_category__product__images
                 = image_tag product.product_images.first.image.url, class: "pickup_category__product__images--image"
               .pickup_category__containerCategory__product--lists__list--body
