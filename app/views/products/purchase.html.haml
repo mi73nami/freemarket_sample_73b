@@ -1,1 +1,63 @@
-購入テストページの表示
+%main.products-purchase-wrapper
+  %section.products-purchase-wrapper__buy-item-container
+    %h2.products-purchase-wrapper__buy-item-container__buy-head 購入内容の確認
+
+    .products-purchase-buy-content
+      .products-purchase-buy-content__inner
+        .products-purchase-buy-content__inner__item-box
+          %h3.products-purchase-buy-content__inner__item-box__image
+            %img.products-purchase-buy-content__inner__item-box__image--img-loaded{:alt => "", "data-src" => "#", :src => "#"}/
+          .products-purchase-buy-content__inner__item-box__detail
+            %p.products-purchase-buy-content__inner__item-box__detail__name ギャグマンガ日和GB 1 増田こうすけ劇場
+            %p.products-purchase-buy-content__inner__item-box__detail__price-ja
+              %span ¥400
+              %span.products-purchase-buy-content__inner__item-box__detail__price-ja__shipping-fee （税込）送料込み
+
+    %section.products-purchase-buy-content
+      .products-purchase-buy-content__inner
+        %form#buy-item-form.buy-form{:action => "#", :method => "POST", :novalidate => "novalidate"}
+          %ul.products-purchase-buy-price-table
+            %li.products-purchase-buy-price-row
+              .products-purchase-buy-price-cell.buy-price-cell-label 支払い金額
+              .products-purchase-buy-price-cell
+                %span{"data-buy-pay" => "400"} ¥400
+
+          %section.buy-user-info{"data-buy" => "pay-method"}
+            .products-purchase-buy-content__inner
+              .clearfix
+                %h3.products-purchase-l-left 支払い方法
+                %a.products-purchase-l-right.buy-user-info-fix{:href => "#"}
+                  %span 変更する
+              %p.products-purchase-buy-user-info-text
+                %br/
+                クレジットカード
+                %br/
+                ************7375
+                %br/
+                有効期限 08 / 23
+              %figure.products-purchase-buy-card-logo
+                %img{:alt => "visa", :height => "15", :src => "#", :width => "49"}/
+              %p
+
+          %section.buy-user-info
+            .products-purchase-buy-content__inner
+              .clearfix
+                %h3.products-purchase-l-left 配送先
+                %a.products-purchase-l-right.buy-user-info-fix{:href => "#"}
+                  %span 変更する
+              %address.products-purchase-buy-user-info-text
+                %p
+                  %br/
+                  〒176-0005
+                  %br/
+                  東京都 練馬区 ***2-*-*
+
+                  %br/
+                  青木　健
+
+          %section.buy-user-info
+            %p.products-purchase-has-info-text
+              郵便局/コンビニ受取をご希望の方は、購入後に
+              %span.products-purchase-bold> 取引画面
+              から受取場所を変更をすることが可能です。出品者が発送作業を開始した後は受取場所の変更ができませんので、早めに変更を行ってください。
+            %button.products-purchase-btn-default.btn-red.bold{"data-item-id" => "m58985111622", "data-modal" => "identity-confirmation", :type => "submit"} 購入する
