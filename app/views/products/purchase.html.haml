@@ -1,29 +1,30 @@
-%main.products-purchase-main
-  %section.products-purchase-l-single-container.buy-item-container
-    %h2.products-purchase-l-single-head.buy-head 購入内容の確認
+%main.products-purchase-wrapper
+  %section.products-purchase-wrapper__buy-item-container
+    %h2.products-purchase-wrapper__buy-item-container__buy-head 購入内容の確認
 
 
-    %section.products-purchase-buy-content.buy-item
-      .products-purchase-buy-content-inner
-        .products-purchase-buy-item-box
-          %h3.products-purchase-buy-item-image
-            %img.products-purchase-is-higher-height.lazyloaded{:alt => "", "data-src" => "https://static.mercdn.net/thumb/photos/m58985111622_1.jpg?1587558918", :src => "https://static.mercdn.net/thumb/photos/m58985111622_1.jpg?1587558918"}/
-          .products-purchase-buy-item-detail
-            %p.products-purchase-buy-item-name ギャグマンガ日和GB 1 増田こうすけ劇場
-            %p.products-purchase-buy-price-ja.bold
+    .products-purchase-buy-content
+      .products-purchase-buy-content__inner
+        .products-purchase-buy-content__inner__item-box
+          %h3.products-purchase-buy-content__inner__item-box__image
+            %img.products-purchase-buy-content__inner__item-box__image--img-loaded{:alt => "", "data-src" => "https://static.mercdn.net/thumb/photos/m58985111622_1.jpg?1587558918", :src => "https://static.mercdn.net/thumb/photos/m58985111622_1.jpg?1587558918"}/
+          .products-purchase-buy-content__inner__item-box__detail
+            %p.products-purchase-buy-content__inner__item-box__detail__name ギャグマンガ日和GB 1 増田こうすけ劇場
+            %p.products-purchase-buy-content__inner__item-box__detail__price-ja
               %span ¥400
-              %span.products-purchase-item-shipping-fee （税込）送料込み
+              %span.products-purchase-buy-content__inner__item-box__detail__price-ja__shipping-fee （税込）送料込み
 
 
 
-    %section.products-purchase-buy-content.buy-item
-      .products-purchase-buy-content-inner
+    %section.products-purchase-buy-content
+      .products-purchase-buy-content__inner
         %form#buy-item-form.buy-form{:action => "https://www.mercari.com/jp/transaction/buy/done/m58985111622/", :method => "POST", :novalidate => "novalidate"}
           %ul.products-purchase-buy-price-table
-            %li.products-purchase-buy-price-row.buy-you-pay.bold
+            %li.products-purchase-buy-price-row
               .products-purchase-buy-price-cell.buy-price-cell-label 支払い金額
               .products-purchase-buy-price-cell
                 %span{"data-buy-pay" => "400"} ¥400
+
           -# ポイント
           -# %ul.buy-accordion.buy-not-have-point
           -#   %li.accordion-parent
@@ -32,8 +33,8 @@
           -#       %i.icon-check
           -#       %label ポイントを使用 (所持ポイント: P0)
 
-          %section.products-purchase-buy-content.buy-user-info{"data-buy" => "pay-method"}
-            .products-purchase-buy-content-inner
+          %section.buy-user-info{"data-buy" => "pay-method"}
+            .products-purchase-buy-content__inner
               .clearfix
                 %h3.products-purchase-l-left 支払い方法
                 %a.products-purchase-l-right.buy-user-info-fix{:href => "https://www.mercari.com/jp/transaction/select_card/m58985111622/?_s=U2FsdGVkX1_af0K0gctOZaHsSfayx02KI3wH_o8bSUCaGTSZkBUAreEHfbK2ZHuYKANCrXQkjQEWpzwjzl6lFNZzIdUk0DYWhk7tCiyoUXy6HYZ2-wHzVOscIJXrIZXH"}
@@ -49,14 +50,15 @@
                 %img{:alt => "visa", :height => "15", :src => "//pcweb-assets.mercdn.net/assets/img/card/visa.svg?1536441709", :width => "49"}/
               %p
 
-          %section.products-purchase-buy-content.buy-user-info
-            .products-purchase-buy-content-inner
+          %section.buy-user-info
+            .products-purchase-buy-content__inner
               .clearfix
                 %h3.products-purchase-l-left 配送先
                 %a.products-purchase-l-right.buy-user-info-fix{:href => "https://www.mercari.com/jp/transaction/address/m58985111622/?_s=U2FsdGVkX1_af0K0gctOZaHsSfayx02KI3wH_o8bSUCaGTSZkBUAreEHfbK2ZHuYKANCrXQkjQEWpzwjzl6lFNZzIdUk0DYWhk7tCiyoUXy6HYZ2-wHzVOscIJXrIZXH"}
                   %span 変更する
               %address.products-purchase-buy-user-info-text
                 %p
+                  %br/
                   〒176-0005
                   %br/
                   東京都 練馬区 ***2-*-*
@@ -97,7 +99,7 @@
           -# %input{:name => "_s", :type => "hidden", :value => "U2FsdGVkX1_af0K0gctOZaHsSfayx02KI3wH_o8bSUCaGTSZkBUAreEHfbK2ZHuYKANCrXQkjQEWpzwjzl6lFNZzIdUk0DYWhk7tCiyoUXy6HYZ2-wHzVOscIJXrIZXH"}/
           
           
-          %section.products-purchase-buy-content.buy-user-info
+          %section.buy-user-info
             %p.products-purchase-has-info-text
               郵便局/コンビニ受取をご希望の方は、購入後に
               %span.products-purchase-bold> 取引画面
