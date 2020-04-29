@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   
   resources :users
   resources :categories, onlu: :index
+  resources :credit_cards
 
   get 'purchase', to: 'products#purchase'
 end
