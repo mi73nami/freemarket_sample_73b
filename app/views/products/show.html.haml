@@ -13,10 +13,12 @@
       .products-show-contents__topContent
         
         .products-show-itemBox
+          - if @product.seller_id.present? && @product.buyer_id.present?
+            .products-show-itemBox__status
+              = "Sold Out"
           %h2.products-show-itemBox__name
             = @product.name
-            - if @product.seller_id.present? && @product.buyer_id.present?
-              = "Sold Out"
+           
           .products-show-itemBox__pic
             %ul
               %li
