@@ -35,6 +35,25 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @product = Product.includes(:product_images).order('created_at DESC').find(params[:id])
+    
+    grandchild_category = @product.category
+    child_category = grandchild_category.parent
+
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+
+    @category_children_array = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array << children
+    end
+
+    @category_grandchildren_array = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array << grandchildren
+    end
   end
 
   def update
