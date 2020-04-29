@@ -8,11 +8,11 @@
             .products_new-product__headline--title 出品画像
             .products_new-product__headline--required 必須
           %p.products_new-product__explanation 最大10枚までアップロードできます
-          .products_new-imagearea
+          .products_new-image-box
+            #previews
             = form.fields_for :product_images do |i|
-              .js-file_group{ data: { index: '#{image.index}' } }
+              .js-file_group
                 = i.file_field :image, style: "display: none;", class: "js-file"
-                .js-remove 削除
                 = i.label :image, class: 'products_new-imagearea__select' do
                   = icon('fas', 'camera', class: 'products_new-imagearea__select--icon')
                   %p.products_new-imagearea__select--explanation
@@ -45,24 +45,24 @@
             .products_new-product__headline
               .products_new-product__headline--title 商品の状態
               .products_new-product__headline--required 必須
-            = form.select :condition, [["新品、未使用",1],["未使用に近い",2]], prompt: "選択してください", class: "products_new-product_explanation__condition--box"
+            = form.select :condition, [["新品、未使用","新品、未使用"],["未使用に近い","未使用に近い"],["目立った傷や汚れなし","目立った傷や汚れなし"],["やや傷や汚れあり","やや傷や汚れあり"],["汚れや傷あり","汚れや傷あり"],["全体的に状態が悪い","全体的に状態が悪い"]], prompt: "選択してください", class: "products_new-product_explanation__condition--box"
         .products_new-product_delivery
           .products_new-product_delivery__headline2 配送について
           .products_new-product_delivery__fee
             .products_new-product__headline
               .products_new-product__headline--title 配送料の負担
               .products_new-product__headline--required 必須
-            = form.select :delivery_fee, [["送料込み(出品者負担)",1],["着払い(購入者負担)",2]], prompt: "選択してください", class: "products_new-product_delivery__fee--box"
+            = form.select :delivery_fee, [["送料込み(出品者負担)","送料込み(出品者負担)"],["着払い(購入者負担)","着払い(購入者負担)"]], prompt: "選択してください", class: "products_new-product_delivery__fee--box"
           .products_new-product_delivery__shipping_area
             .products_new-product__headline
               .products_new-product__headline--title 発送元の地域
               .products_new-product__headline--required 必須
-            = form.select :shipping_area, [["北海道",1],["沖縄",2]], prompt: "選択してください", class: "products_new-product_delivery__shipping_area--box"
+            = form.collection_select :shipping_area, Prefecture.all, :id, :name, prompt: "選択してください", class: "products_new-product_delivery__shipping_area--box"
           .products_new-product_delivery__shipping_days
             .products_new-product__headline
               .products_new-product__headline--title 発送までの日数
               .products_new-product__headline--required 必須
-            = form.select :shipping_days, [["1~2日で発送",1],["2~3日で発送",2]], prompt: "選択してください", class: "products_new-product_delivery__shipping_days--box"
+            = form.select :shipping_days, [["1~2日で発送","1~2日で発送"],["2~3日で発送","2~3日で発送"],["4~7日で発送","4~7日で発送"]], prompt: "選択してください", class: "products_new-product_delivery__shipping_days--box"
           .products_new-product_price
             .products_new-product_price__headline2 価格（¥300〜9,999,999）
             .products_new-product_price--displayflex

@@ -31,6 +31,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.includes(:product_images).order('created_at DESC').find(params[:id])
     @categorys = Category.all
+    @prefectures = Prefecture.all
   end
 
   def edit
