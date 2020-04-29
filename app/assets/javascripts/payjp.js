@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded', function(){
 
   let submit = document.getElementById("payment_card_submit-button");
 
-  Payjp.setPublicKey('pk_test_###');
+  Payjp.setPublicKey('API_KEY');
 
     submit.addEventListener('click', function(e){
 
@@ -22,7 +22,7 @@ window.addEventListener('DOMContentLoaded', function(){
         $(".exp_month").removeAttr("name");
         $(".exp_year").removeAttr("name"); 
         $("#charge-form").append(
-          $('<input type="hidden" name="payjp_token">').val(response.id)
+        $('<input type="hidden" name="authenticity_token">').val(response.id)
         );
         document.inputForm.submit();
         alert("登録が完了しました");

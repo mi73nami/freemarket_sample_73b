@@ -1,83 +1,58 @@
--# .card_add 
--#   .title クレジットカード情報入力
 
--#   = form_tag(credit_cards_path, method: :post, id: "charge-form", class: "details", name: "inputForm") do
--#     .number-details
--#       .card-number カード番号
--#       %span.must_check 必須
--#     .number
--#       = text_field_tag 'payment_card_no', "", class: 'cardnumber', id: "payment_card_no", placeholder: '半角数字のみ', type: "text", maxlength: "16"
--#     -# 事前にassets/imagesにcardsファイルを作成
--#     .image
--#       = image_tag 'icon/visa.gif', height: '60', width: '60', class: 'visa'
+.card_add 
+  .title クレジットカード情報入力
 
--#     .expirationdate
--#       .expirationdate__details
--#         .date 有効期限
--#         %span.must_check 必須
--#       .expirationdate__choice
--#         .month
--#           %select#payment_card_month.card-default{name: "payment_card_month", type: "text"}
--#             %option{value: "1"} 01
--#             %option{value: "2"} 02
--#             %option{value: "3"} 03
--#             %option{value: "4"} 04
--#             %option{value: "5"} 05
--#             %option{value: "6"} 06
--#             %option{value: "7"} 07
--#             %option{value: "8"} 08
--#             %option{value: "9"} 09
--#             %option{value: "10"} 10
--#             %option{value: "11"} 11
--#             %option{value: "12"} 12
--#           .month-details 月
--#         .year
--#           %select#payment_card_year.card-default{name: "payment_card_year", type: "text"}
--#             %option{value: "2020"} 20
--#             %option{value: "2021"} 21
--#             %option{value: "2022"} 22
--#             %option{value: "2023"} 23
--#             %option{value: "2024"} 24
--#             %option{value: "2025"} 25
--#             %option{value: "2026"} 26
--#             %option{value: "2027"} 27
--#             %option{value: "2028"} 28
--#             %option{value: "2029"} 29
--#             %option{value: "2030"} 30
--#           .year-details 年
+  = form_tag(credit_cards_path, method: :post, id: "charge-form", class: "details", name: "inputForm") do
+    .number-details
+      .card-number カード番号
+      %span.must_check 必須
+    .number
+      = text_field_tag 'payment_card_no', "", class: 'cardnumber', id: "payment_card_no", placeholder: '半角数字のみ', type: "text", maxlength: "16"
+    -# 事前にassets/imagesにcardsファイルを作成
+    .image
+      = image_tag 'icon/visa.gif', height: '60', width: '60', class: 'visa'
 
--#     .securitycode
--#       .securitycode__details
--#         .securitycode-details__title セキュリティコード
--#         %span.must_check 必須
--#       .securitycode__cardsecurity
--#         = text_field_tag  "payment_card_cvc", "", type: 'text', class: 'securitycode__cardsecurity__form', id: "payment_card_cvc", maxlength: "4", placeholder: 'カード背面4桁もしくは3桁の番号'
--#       .card-question カード裏面の番号とは？
--#     .add 
--#       = submit_tag "登録する", class: "add__btn", id: "payment_card_submit-button"
+    .expirationdate
+      .expirationdate__details
+        .date 有効期限
+        %span.must_check 必須
+      .expirationdate__choice
+        .month
+          %select#payment_card_month.card-default{name: "payment_card_month", type: "text"}
+            %option{value: "1"} 01
+            %option{value: "2"} 02
+            %option{value: "3"} 03
+            %option{value: "4"} 04
+            %option{value: "5"} 05
+            %option{value: "6"} 06
+            %option{value: "7"} 07
+            %option{value: "8"} 08
+            %option{value: "9"} 09
+            %option{value: "10"} 10
+            %option{value: "11"} 11
+            %option{value: "12"} 12
+          .month-details 月
+        .year
+          %select#payment_card_year.card-default{name: "payment_card_year", type: "text"}
+            %option{value: "2020"} 20
+            %option{value: "2021"} 21
+            %option{value: "2022"} 22
+            %option{value: "2023"} 23
+            %option{value: "2024"} 24
+            %option{value: "2025"} 25
+            %option{value: "2026"} 26
+            %option{value: "2027"} 27
+            %option{value: "2028"} 28
+            %option{value: "2029"} 29
+            %option{value: "2030"} 30
+          .year-details 年
 
-.content__title
-  %h2 クレジットカード情報入力
-.content__credit-card
-  .content__credit-card__inner
-    = form_with url: cards_path, method: :post, html: { name: "inputForm" } do |f| -# createアクションのパスを指定
-      = f.label :カード番号, class: 'label'
-      %span 必須
-      = f.text_field :card_number, type: 'text', class: 'input-number', placeholder: '半角数字のみ', maxlength: "16"
-      .cards-expire
-        = f.label :有効期限, class: 'label'
-        %span 必須
-        %br
-        .cards-expire__wrap
-          = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: 'input-expire'
-          %span.expire-text 月
-          %br
-        .cards-expire__wrap
-          = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class: 'input-expire'
-          %span.expire-text 年
-      .cards-expire
-        = f.label :セキュリティコード, class: 'label'
-        %span 必須
-        = f.text_field :cvc, type: 'text', class: 'input-number', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4"
-      .content-bottom#card_token
-        = f.submit '追加する', class: 'content-bottom--add-btn', id: 'token_submit'
+    .securitycode
+      .securitycode__details
+        .securitycode-details__title セキュリティコード
+        %span.must_check 必須
+      .securitycode__cardsecurity
+        = text_field_tag  "payment_card_cvc", "", type: 'text', class: 'securitycode__cardsecurity__form', id: "payment_card_cvc", maxlength: "4", placeholder: 'カード背面4桁もしくは3桁の番号'
+      .card-question カード裏面の番号とは？
+    .add 
+      = submit_tag "登録する", class: "add__btn", id: "payment_card_submit-button"
