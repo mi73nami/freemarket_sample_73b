@@ -37,7 +37,6 @@
         &--img-loaded{
           width: auto;
           max-height: 80px;
-          // vertical-align: middle;
         }
       }
       &__detail{
@@ -48,7 +47,7 @@
           padding: 0 0 8px;
           line-height: 1.5;
           text-align: left;
-        } //ギャグマンガ日和GB 1 増田こうすけ劇場
+        }
         &__price-ja{
           margin: 0;
           text-align: left;
@@ -81,7 +80,7 @@
         font-size: 18px;
         display: table-cell;
         padding: 0;
-      } //支払い金額
+      }
       .products-purchase-buy-price-cell{
         display: table-cell;
         padding: 0;
@@ -93,15 +92,6 @@
     }
   }
 }
-          // ポイント
-          // .buy-accordion.buy-not-have-point{
-          //   color: #888;
-          //   margin: 10px 0 32px;
-          //   float: left;
-          // }
-          //   .accordion-parent{}
-          //     .checkbox-default.buy-use-point{}
-          //       .icon-check{}
 
 .buy-user-info{
   padding: 32px 0;
