@@ -2,7 +2,6 @@ class Product < ApplicationRecord
   has_many :product_images, dependent: :destroy
   belongs_to :user
   belongs_to :category
-  belongs_to :seller, class_name: "User", optional: true, foreign_key: "seller_id"
   belongs_to :buyer, class_name: "User", optional: true, foreign_key: "buyer_id"
   
   extend ActiveHash::Associations::ActiveRecordExtensions
