@@ -25,6 +25,14 @@ Rails.application.routes.draw do
   
   resources :users
   resources :categories, onlu: :index
-  resources :credit_cards
+
+  resources :credit_cards do
+    collection do
+      post 'show', to: 'credit_cards#show'
+      post 'pay', to: 'credit_cards#pay'
+      post 'delete', to: 'credit_cards#delete'
+    end
+  end
+
 end
 
