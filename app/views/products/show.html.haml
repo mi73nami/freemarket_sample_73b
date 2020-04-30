@@ -37,6 +37,8 @@
                 %p.text-center or
                 -# = link_to "出品を一旦停止する", "#", class: "products-show-itemBox__btn-grey"
                 = link_to "この商品を削除する", product_path, method: :delete, data: { confirm: '【確認】削除すると二度と復活できません。本当に削除しますか？' }, class: "products-show-itemBox__btn-grey"
+          - elsif @product.buyer_id.present? 
+            = link_to "売り切れました", buy_product_path,class:"products-show-itemBox__btn-grey"
           - else
             = link_to "購入画面に進む", buy_product_path, class: "products-show-itemBox__buy-btn"
 

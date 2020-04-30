@@ -78,6 +78,7 @@ class ProductsController < ApplicationController
   end
 
   def buy
+    @product = Product.includes(:product_images).order('created_at DESC').find(params[:id])
   end
 
   def get_category_children
