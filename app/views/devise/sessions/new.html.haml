@@ -1,5 +1,4 @@
 .sessions-new
-  .sessions-new__head
   .sessions-new__wrapper
     .sessions-new__wrapper__registrations
       .sessions-new__wrapper__registrations__nav
@@ -23,7 +22,7 @@
             = f.label :remember_me
         .actions--red
           = f.submit "ログイン"
-    .sessions-new__wrapper__passwordreminder
-      パスワードをお忘れの方
+    -# .sessions-new__wrapper__passwordreminder
+    -#   パスワードをお忘れの方
           
   = render "devise/shared/links"
