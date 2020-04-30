@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     @settings = [
     {name:"プロフィール",path: "#",verb: "GET"},
     {name:"発送元・お届け先住所変更",path: "#",verb: "GET"},
-    {name:"支払い方法",path: "#",verb: "GET"},
+    {name:"支払い方法",path: "/credit_cards/new",verb: "GET"},
     {name:"メール/パスワード",path: "#",verb: "GET"},
     {name:"本人情報",path: "#",verb: "GET"},
     {name:"電話番号の確認",path: "#",verb: "GET"},
