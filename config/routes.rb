@@ -17,13 +17,14 @@ Rails.application.routes.draw do
     member do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
+      post 'purchase'
+      get 'purchased'
+      get 'buy'
     end
   end
   
   resources :users
   resources :categories, onlu: :index
   resources :credit_cards
-
-  get 'purchase', to: 'products#purchase'
 end
 

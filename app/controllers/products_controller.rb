@@ -74,6 +74,12 @@ class ProductsController < ApplicationController
   def purchase
   end
 
+  def purchased
+  end
+
+  def buy
+  end
+
   def get_category_children
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
   end
