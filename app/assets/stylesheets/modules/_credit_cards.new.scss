@@ -1,0 +1,101 @@
+.credit_cards-new{
+  width: 100%;
+  height: auto;
+  background: #f5f5f5;
+  padding-top: 27px;
+  padding-bottom: 27px;
+
+  &__wrapper{
+    width: 700px;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: white;
+    
+    &__title{
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      border-bottom: 1px solid #f5f5f5;
+
+
+    }
+
+    &__form{
+      font-size: 14px;
+      width: 343px;
+      height: auto;
+      margin-right: auto;
+      margin-left: auto;
+      input{
+        width: 100%;
+        height: 48px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+
+      }
+      span{
+        background-color: red;
+        color: white;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        font-size: 12px;
+        vertical-align: top;
+        width: 32px;
+        height: 19px;
+      }
+      &__logos{
+        margin-bottom: 27px;
+      }
+      &__cardnumber{
+        margin-top: 27px;
+
+
+      }
+
+      &__expiration-desc{
+      }
+
+        &__expiration-date{
+        align-items: baseline;
+        display: flex;
+        height: 48px;
+        width: 343px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 27px;
+        select{
+          width: 40%;
+        }
+        p{
+          margin: 0px 8px 0px 8px;
+
+        }
+
+      }
+
+      &__cvc{
+        margin-bottom: 27px;
+
+
+      }
+
+      &__submit{
+        padding-bottom: 27px;
+
+        #token_submit{
+          width: 100%;
+          background-color: red;
+          border: none;
+          color: white;
+
+
+        }
+
+      }
+
+    }
+  }
+}
