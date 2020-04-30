@@ -1,8 +1,7 @@
 class CreditCardsController < ApplicationController
   require "payjp"
-  before_action :set_card
 
-  def new # カードの登録画面。送信ボタンを押すとcreateアクションへ。
+  def new
     card = CreditCard.where(user_id: current_user.id).first
     redirect_to action: "index" if card.present?
   end
@@ -11,31 +10,31 @@ class CreditCardsController < ApplicationController
     
   end
 
-  def create #PayjpとCardのデータベースを作成
-    Payjp.api_key = API_KEY
+  def create
+    # binding.pry
+    Payjp.api_key = 'sk_test_89a1f204dd73c629f410f646'
 
     if params['payjp-token'].blank?
-      redirect_to action: "new"
+      redirect_to root_path
+
     else
-      # トークンが正常に発行されていたら、顧客情報をPAY.JPに登録します。
       customer = Payjp::Customer.create(
-        description: 'test', # 無くてもOK。PAY.JPの顧客情報に表示する概要です。
-        email: current_user.email,
-        card: params['payjp-token'], # 直前のnewアクションで発行され、送られてくるトークンをここで顧客に紐付けて永久保存します。
-        metadata: {user_id: current_user.id} # 無くてもOK。
+        description: 'test',
+        card_token: params['payjp-token'],
+        card_number: params['card_number'],
+        exp_month: params['exp_month'],
+        exp_year: params['exp_year'],
+        cvc: params['cvc'],
+        metadata: {user_id: current_user.id}
       )
       @card = CreditCard.new(user_id: current_user.id, token: params['payjp-token'])
+      binding.pry
       if @card.save
         redirect_to action: "index"
       else
-        redirect_to action: "create"
+        redirect_to root_path
       end
     end
   end
 
-  private
-
-  def set_card
-    @card = CreditCard.where(user_id: current_user.id).first if CreditCard.where(user_id: current_user.id).present?
-  end
 end
