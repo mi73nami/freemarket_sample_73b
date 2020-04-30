@@ -4,7 +4,7 @@
       .products-show-contents__topContent
         
         .products-show-itemBox
-          - if @product.seller_id.present? && @product.buyer_id.present?
+          - if @product.user_id.present? && @product.buyer_id.present?
             .products-show-itemBox__status
               = "Sold Out"
           %h2.products-show-itemBox__name
