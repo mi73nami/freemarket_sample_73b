@@ -1,9 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :move_to_index, except: [:index, :show]
-
-  def index
-    @products = Product.includes(:product_images).order('created_at DESC').all
-  end
+  before_action :move_to_index, except: [:show]
 
   def new
     @product = Product.new
@@ -32,6 +28,7 @@ class ProductsController < ApplicationController
     @product = Product.includes(:product_images).order('created_at DESC').find(params[:id])
     @categorys = Category.all
     @prefectures = Prefecture.all
+    # @creditcard = CreditCard.find(params[:id])
   end
 
   def edit
@@ -114,7 +111,7 @@ class ProductsController < ApplicationController
 #製品のbuyer_idを付与
     @product_buyer= Product.find(params[:id])
     @product_buyer.update( buyer_id: current_user.id)
-    redirect_to product_path
+    redirect_to root_path
   end
 
   def purchased
