@@ -41,9 +41,8 @@
             = link_to "売り切れました", "",class:"products-show-itemBox__btn-grey disabled"
           - elsif current_user.credit_card.present?
             = link_to "購入画面に進む", buy_product_path, class: "products-show-itemBox__buy-btn"
-          - else
+          - elsif current_user.credit_card.blank?
             = link_to "購入画面に進む", new_credit_card_path, data: { confirm: '【確認】クレジットカード登録が必要です。登録画面に移動しますか？' }, class: "products-show-itemBox__btn-grey"
-
 
 
 
