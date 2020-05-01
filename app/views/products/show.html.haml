@@ -38,9 +38,12 @@
                 -# = link_to "出品を一旦停止する", "#", class: "products-show-itemBox__btn-grey"
                 = link_to "この商品を削除する", product_path, method: :delete, data: { confirm: '【確認】削除すると二度と復活できません。本当に削除しますか？' }, class: "products-show-itemBox__btn-grey"
           - elsif @product.buyer_id.present? 
-            = link_to "売り切れました", buy_product_path,class:"products-show-itemBox__btn-grey"
-          - else
+            = link_to "売り切れました", "",class:"products-show-itemBox__btn-grey disabled"
+          - elsif current_user.credit_card.present?
             = link_to "購入画面に進む", buy_product_path, class: "products-show-itemBox__buy-btn"
+          - elsif current_user.credit_card.blank?
+            = link_to "購入画面に進む", new_credit_card_path, data: { confirm: '【確認】クレジットカード登録が必要です。登録画面に移動しますか？' }, class: "products-show-itemBox__btn-grey"
+
 
 
           .products-show-detail
@@ -96,8 +99,6 @@
                 = link_to "/" do
                   %i.fa.fa-flag
                   不適切な商品の通報
-
-
         .products-show-commentBox
           %ul.commentContents
           %form#new_comment.products-show-commentBox__new_comment{"accept-charset" => "UTF-8", :action => "#", :method => "post"}

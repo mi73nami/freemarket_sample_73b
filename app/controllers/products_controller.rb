@@ -1,9 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :move_to_index, except: [:index, :show]
-
-  def index
-    @products = Product.includes(:product_images).order('created_at DESC').all
-  end
+  before_action :move_to_index, except: [:show]
 
   def new
     @product = Product.new
@@ -32,6 +28,7 @@ class ProductsController < ApplicationController
     @product = Product.includes(:product_images).order('created_at DESC').find(params[:id])
     @categorys = Category.all
     @prefectures = Prefecture.all
+    # @creditcard = CreditCard.find(params[:id])
   end
 
   def edit
@@ -71,14 +68,53 @@ class ProductsController < ApplicationController
     end
   end
 
+  def buy
+#商品/ユーザー/クレジットカードの変数設定
+    @user = current_user
+    @creditcard = CreditCard.where(user_id: current_user.id).first
+    @address = ShipAddress.where(user_id: current_user.id).first
+    @product = Product.find(params[:id])
+  #Payjpの秘密鍵を取得
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+  #Payjpから顧客情報を取得し、表示
+    customer = Payjp::Customer.retrieve(@creditcard.customer_id)
+    @creditcard_information = customer.cards.retrieve(@creditcard.card_id)
+    @card_brand = @creditcard_information.brand 
+    case @card_brand
+    when "Visa"
+      @card_src = "visa.svg"
+    when "JCB"
+      @card_src = "jcb.svg"
+    when "MasterCard"
+      @card_src = "master-card.svg"
+    when "American Express"
+      @card_src = "american_express.svg"
+    when "Diners Club"
+      @card_src = "dinersclub.svg"
+    when "Discover"
+      @card_src = "discover.svg"
+    end
+  end
+
   def purchase
+#クレジットカードと製品の変数を設定
+    @creditcard = CreditCard.where(user_id: current_user.id).first
+    @product = Product.find(params[:id])
+  #Payjpの秘密鍵を取得
+    Payjp.api_key= ENV["PAYJP_PRIVATE_KEY"]
+  #payjp経由で支払いを実行
+    charge = Payjp::Charge.create(
+      amount: @product.price,
+      customer: Payjp::Customer.retrieve(@creditcard.customer_id),
+      currency: 'jpy'
+    )
+#製品のbuyer_idを付与
+    @product_buyer= Product.find(params[:id])
+    @product_buyer.update( buyer_id: current_user.id)
+    redirect_to root_path
   end
 
   def purchased
-  end
-
-  def buy
-    @product = Product.includes(:product_images).order('created_at DESC').find(params[:id])
   end
 
   def get_category_children
