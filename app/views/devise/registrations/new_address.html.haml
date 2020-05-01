@@ -1,63 +1,49 @@
 .users-new
-
-  .users-new__head
   .users-new__wrapper
-    .users-new__wrapper__box
-      .users-new__wrapper__box__nav
-        商品送付先入力
-      .users-new__wrapper__box__form
-        .users-new__wrapper__box__form__set
-          = form_for @address do |f|
-            = render "devise/shared/error_messages", resource: @address
-
-            .users-new__wrapper__box__form__set__name-desc
-              お名前(全角) 
-              %span.form-require 必須
-            .users-new__wrapper__box__form__set__fullname
-              .users-new__wrapper__box__form__set__fullname__last_name
-                = f.text_field :last_name, placeholder: '例）山田'
-              .users-new__wrapper__box__form__set__fullname__first_name
-                = f.text_field :first_name, placeholder: '例）彩'
-
-            .users-new__wrapper__box__form__set__ruby-name-desc
-              お名前カナ(全角)  
-              %span.form-require 必須
-            .users-new__wrapper__box__form__set__ruby-fullname
-              .users-new__wrapper__box__form__set__ruby-fullname__ruby_last_name
-                = f.text_field :ruby_last_name,placeholder: '例）ヤマダ'
-              .users-new__wrapper__box__form__set__ruby-fullname__ruby_first_name
-                = f.text_field :ruby_first_name, placeholder: '例）アヤ'
-
-            .users-new__wrapper__box__form__set__postal_code
-              %span.form-require 必須
-              %br/
-              = f.text_field :postal_code, placeholder: '郵便番号'
-            
-            .users-new__wrapper__box__form__set__prefectures
-              %span.form-require 必須
-              %br/
-              = f.text_field :prefectures,  placeholder: '都道府県' 
-
-            .users-new__wrapper__box__form__set__city
-              %span.form-require 必須
-              %br/
-              = f.text_field :city,  placeholder: '市区町村' 
-
-            .users-new__wrapper__box__form__set__address_detail
-              %span.form-require 必須
-              %br/
-              = f.text_field :address_detail,  placeholder: '番地' 
- 
-            .users-new__wrapper__box__form__set__apartment_name
-              = f.text_field :apartment_name,  placeholder: 'マンション名やビル名' 
-            
-            .users-new__wrapper__box__form__set__room_number
-              = f.text_field :room_number,  placeholder: '部屋番号' 
-    
-            .users-new__wrapper__box__form__set__phone_number
-              = f.text_field :phone_number,  placeholder: '電話番号' 
-       
-            .users-new__wrapper__box__form__set__actions
-              = f.submit "ユーザー登録"
-
-          = render "devise/shared/links"
+    .users-new__wrapper__nav
+      商品送付先入力
+    .users-new__wrapper__form
+      .users-new__wrapper__form__set
+        = form_for @address do |f|
+          = render "devise/shared/error_messages", resource: @address
+          .users-new__wrapper__form__set__name-desc
+            お名前(全角) 
+            %span.form-require 必須
+          .users-new__wrapper__form__set__fullname
+            .users-new__wrapper__form__set__fullname__last_name
+              = f.text_field :last_name, placeholder: '例）山田'
+            .users-new__wrapper__form__set__fullname__first_name
+              = f.text_field :first_name, placeholder: '例）彩'
+          .users-new__wrapper__form__set__ruby-name-desc
+            お名前カナ(全角)  
+            %span.form-require 必須
+          .users-new__wrapper__form__set__ruby-fullname
+            .users-new__wrapper__form__set__ruby-fullname__ruby_last_name
+              = f.text_field :ruby_last_name,placeholder: '例）ヤマダ'
+            .users-new__wrapper__form__set__ruby-fullname__ruby_first_name
+              = f.text_field :ruby_first_name, placeholder: '例）アヤ'
+          .users-new__wrapper__form__set__postal_code
+            %span.form-require 必須
+            %br/
+            = f.text_field :postal_code, placeholder: '郵便番号'
+          .users-new__wrapper__form__set__prefectures
+            %span.form-require 必須
+            %br/
+            = f.text_field :prefectures,  placeholder: '都道府県' 
+          .users-new__wrapper__form__set__city
+            %span.form-require 必須
+            %br/
+            = f.text_field :city,  placeholder: '市区町村' 
+          .users-new__wrapper__form__set__address_detail
+            %span.form-require 必須
+            %br/
+            = f.text_field :address_detail,  placeholder: '番地' 
+          .users-new__wrapper__form__set__apartment_name
+            = f.text_field :apartment_name,  placeholder: 'マンション名やビル名' 
+          .users-new__wrapper__form__set__room_number
+            = f.text_field :room_number,  placeholder: '部屋番号' 
+          .users-new__wrapper__form__set__phone_number
+            = f.text_field :phone_number,  placeholder: '電話番号' 
+          .users-new__wrapper__form__set__actions
+            = f.submit "ユーザー登録"
+        = render "devise/shared/links"
