@@ -26,9 +26,9 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.includes(:product_images).order('created_at DESC').find(params[:id])
+    @product_last_id = Product.last.id
     @categorys = Category.all
     @prefectures = Prefecture.all
-    # @creditcard = CreditCard.find(params[:id])
   end
 
   def edit
@@ -111,7 +111,7 @@ class ProductsController < ApplicationController
 #製品のbuyer_idを付与
     @product_buyer= Product.find(params[:id])
     @product_buyer.update( buyer_id: current_user.id)
-    redirect_to root_path
+    redirect_to root_path, notice: '購入しました'
   end
 
   def purchased

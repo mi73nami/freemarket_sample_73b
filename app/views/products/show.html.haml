@@ -38,12 +38,13 @@
                 -# = link_to "出品を一旦停止する", "#", class: "products-show-itemBox__btn-grey"
                 = link_to "この商品を削除する", product_path, method: :delete, data: { confirm: '【確認】削除すると二度と復活できません。本当に削除しますか？' }, class: "products-show-itemBox__btn-grey"
           - elsif @product.buyer_id.present? 
-            = link_to "売り切れました", "",class:"products-show-itemBox__btn-grey disabled"
+            .products-show-itemBox__btn-grey 売り切れました
+          - elsif current_user.blank?
+            = link_to "購入画面に進む", new_user_session_path, data: { confirm: '【確認】購入はログインが必要です。移動しますか？' }, class: "products-show-itemBox__btn-grey"
           - elsif current_user.credit_card.present?
             = link_to "購入画面に進む", buy_product_path, class: "products-show-itemBox__buy-btn"
-          - elsif current_user.credit_card.blank?
+          - else current_user.credit_card.blank?
             = link_to "購入画面に進む", new_credit_card_path, data: { confirm: '【確認】クレジットカード登録が必要です。登録画面に移動しますか？' }, class: "products-show-itemBox__btn-grey"
-
 
 
           .products-show-detail
@@ -117,14 +118,24 @@
       .products-show-link-block
         %ul.links
           %li
-            = link_to "#" do
+            - p_back = @product.id -= 1
+            - if p_back == 0
               %i.fa.fa-angle-left
-              前の商品
-          %li
-            = link_to "#" do
-              %i.fa.fa-angle-right
-              後ろの商品
+                前の商品
+            - else
+              = link_to product_path(p_back) do
+                %i.fa.fa-angle-left
+                前の商品
 
+          %li
+            - next_id = @product.id += 1
+            - if @product_last_id > next_id
+              = link_to product_path(@product.id += 1) do
+                %i.fa.fa-angle-right
+                次の商品
+            - else
+              %i.fa.fa-angle-right
+              次の商品
       .products-show-relatedItems
-        = link_to "" "ベビー・キッズをもっと見る"
+        = link_to "" "#{@categorys.find(@product.category_id).name}" + "をもっと見る"
         .products-show-relatedItems__productLists
