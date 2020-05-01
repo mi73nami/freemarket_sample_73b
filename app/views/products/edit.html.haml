@@ -8,16 +8,23 @@
             .products_new-product__headline--title 出品画像
             .products_new-product__headline--required 必須
           %p.products_new-product__explanation 最大10枚までアップロードできます
-          .products_new-image-box
-            #previews
-            = form.fields_for :product_images do |i|
-              .js-file_group
-                = i.file_field :image, style: "display: none;", class: "js-file"
-                = i.label :image, class: 'products_new-imagearea__select' do
-                  = icon('fas', 'camera', class: 'products_new-imagearea__select--icon')
-                  %p.products_new-imagearea__select--explanation
-                    ドラッグアンドドロップ
-                    %br またはクリックしてファイルをアップロード
+          .products_edit-image
+            .products_edit-image-box
+              .products_edit-content
+                - if @product.persisted?
+                  - @product.product_images.each_with_index do |image, i|
+                    .products_edit-preview-box{"data-index" => "#{i}"}
+                      .products_edit-upper-box
+                        = image_tag image.image.url, width: "120", height: "120", alt: "preview", class: "product_edit-input_images"
+                        .products_edit-js-remove
+                          削除
+                = form.fields_for :product_images do |image|
+                  - if @product.persisted?
+                    = image.check_box :_destroy, include_hidden: false, data:{ index: image.index },class: 'product_edit-hidden-destroy'
+              .products_edit-lower-box
+                %label.products_edit-lower-box__label
+                  .product_edit-js-file_group{"data-index" => "#{@product.product_images.count}"}
+                    = form.file_field :image, name: "product[product_images_attributes][#{@product.product_images.count}][image]", id: "product_images_attributes_#{@product.product_images.count}_image", class: 'product_edit-js-file', style: "display:none"
         .products_new-title
           .products_new-product__headline
             .products_new-product__headline--title 商品名

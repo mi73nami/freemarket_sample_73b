@@ -1,0 +1,21 @@
+.products_edit-image-box{
+  display: flex;
+}
+
+.products_edit-content{
+  display: flex;
+}
+
+.products_edit-lower-box{
+  background-color: #fff;
+  min-height: 150px;
+  min-width: 100%;
+
+}
+
+.products_edit-lower-box__label{
+  display:block;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
