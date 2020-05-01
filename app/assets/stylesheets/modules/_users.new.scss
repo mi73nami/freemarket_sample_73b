@@ -1,226 +1,154 @@
 .users-new{
   width: 100%;
-  height: 181vh;
+  height: auto;
   background: #f5f5f5;
+  padding-top: 30px;
+  padding-bottom: 30px;
   a{
     display: none
   }
-  &__head{
-    height: 40px;
-  }
   &__wrapper{
-    &__box{
-      width: 700px;
-      height: 75rem;
-      margin-right: auto;
-      margin-left: auto;
-      margin-bottom: 38px;
-      background-color: white;
-      &__nav{
-        font-size: 18px;
-        line-height: 1.5;
-        text-align: center;
-        padding: 16px;
-        font-weight: bold;
-        margin-top: 15px;
-        border-bottom: solid 1px;
-        border-color: whitesmoke;  
+    width: 700px;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: white;
+    &__nav{
+      font-size: 18px;
+      text-align: center;
+      padding: 16px;
+      font-weight: bold;
+      border-bottom: solid 1px;
+      border-color: whitesmoke;  
+    }
+    &__form{
+      #error_explanation{
+        margin-bottom: 10px;
+        ul{
+          li{
+          }
+        }
       }
-      &__form{
-        #error_explanation{
-          margin-bottom: 10px;
-          ul{
-            li{
+      &__set{
+        font-size: 14px;
+        width: 343px;
+        height: auto;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 20px;
+        &__name-desc{
+        }
+        &__fullname{
+          display: flex;
+          justify-content: space-between;
+          #ship_address_last_name{
+            width: 170px;
+          }
+          #ship_address_first_name{
+            width: 170px;
+          }
+          &__last_name{
+            #user_last_name{
+              width: 165px;
+            }
+          }
+          &__first_name{
+            #user_first_name{
+              width: 165px;
             }
           }
         }
-        &__set{
+        &__ruby-name-desc{
+        }
+        &__ruby-fullname{
+          display: flex;
+          justify-content: space-between;
+
+          &__ruby_last_name{
+            #ship_address_ruby_last_name{
+              width: 170px;
+            }
+          }
+          &__ruby_first_name{
+            #ship_address_ruby_first_name{
+              width: 170px;
+            }
+          }
+        }
+        input{
+          margin-bottom: 27px;
+          width: 100%;
+          margin-left: auto;
+          margin-right: auto;
+          padding: 15px 0px 15px 0px;
+          display: block;
+        }
+        span{
+          background-color: red;
+          color: white;
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          vertical-align: top;
+          width: 32px;
+          height: 19px;
+        }
+        &__desc-safety{
           font-size: 14px;
           width: 343px;
-          height: 750px;
+          height: auto;
           margin-right: auto;
           margin-left: auto;
           margin-bottom: 38px;
-          margin-top: 20px;
-          &__name-desc{
+          margin-top: 55px;
+          h{
+            font-weight: bold;
           }
-          &__fullname{
-            display: flex;
-            justify-content: space-between;
-            #ship_address_last_name{
-              width: 170px;
-            }
-            #ship_address_first_name{
-              width: 170px;
-            }
-            &__last_name{
-              #user_last_name{
-                width: 165px;
-              }
-            }
-            &__first_name{
-              #user_first_name{
-                width: 165px;
-              }
-            }
-          }
-          &__ruby-name-desc{
-
-          }
-          &__ruby-fullname{
-            display: flex;
-            justify-content: space-between;
-
-            &__ruby_last_name{
-              #ship_address_ruby_last_name{
-                width: 170px;
-              }
-            }
-            &__ruby_first_name{
-              #ship_address_ruby_first_name{
-                width: 170px;
-              }
-            }
-          }
+        }
+        &__name{
+          display: flex;
+          justify-content: space-between;
           input{
-            margin-bottom: 27px;
-            width: 343px;
-            height: 48px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 9px 16px 9px 16px;
-            display: block;
+            width: 165px;
           }
-          span{
+          label{
+            display: none;
+          }
+        }
+        &__ruby-name{
+          display: flex;
+          justify-content: space-between;
+          input{
+            width: 165px;
+          }
+          label{
+            display: none;
+          }
+        }
+        &__actions{
+          input{
+            height: 55px;
+            display: inherit;
+            display: inline-block;
             background-color: red;
             color: white;
-            margin: 0 0 0 8px;
-            padding: 2px 4px;
-            border-radius: 2px;
-            color: #fff;
-            font-size: 12px;
-            vertical-align: top;
-            width: 32px;
-            height: 19px;
-          }
-          &__nickname{
-          }
-          &__email{
-          }
-          &__password{
-            &__desc{
-              margin: 8px 0 0;
-              line-height: 1.5;
-              color: #888;
-              font-size: 14px;
-            }
-          }
-          &__desc-safety{
-            font-size: 14px;
-            width: 343px;
-            height: 70px;
-            margin-right: auto;
-            margin-left: auto;
-            margin-bottom: 38px;
-            margin-top: 55px;
-            h{
-              font-weight: bold;
-            }
-          }
-          &__name{
-            display: flex;
-            justify-content: space-between;
-            input{
-              width: 165px;
-            }
-            label{
-              display: none;
-            }
-          }
-          &__ruby-name{
-            display: flex;
-            justify-content: space-between;
-            input{
-              width: 165px;
-            }
-            label{
-              display: none;
-            }
-          }
-          &__date-index{
-            width: 343px;
-            margin-right: auto;
-            margin-left: auto;
-            margin-bottom: 12px;
-          }
-          &__birthdate{
-            display: flex;
-            height: 48px;
-            width: 343px;
-            margin-right: auto;
-            margin-left: auto;
-            margin-bottom: 38px;
-            label{
-              display: none;
-            }
-            input{
-              width: 98px;
-            }
-            div{
-              display: flex;
-              align-items: center;
-            }
-          }
-          &__about-form{
-            color: #888;
-            font-size: 14px;
-            text-align: center;
-          }
-          &__actions{
-            input{
-              height: 55px;
-              display: inherit;
-              display: inline-block;
-              background-color: red;
-              color: white;
-              border: none;
-              margin-top: 29px;
-            }
+            border: none;
+            cursor: pointer;
           }
         }
       }
-      #user_remember_me{
-        display: none;
-      }
-      .actions--red{
-        margin-top: 30px;
-        input{
-          background-color: red;
-          border: none;
-          color: white;
-        }
-      }
     }
-  }
-  &__footer{
-    &__desc{
-      text-align: center; 
-      font-size: 12px;
-      color: gray;
-      line-height: 30px;
+    #user_remember_me{
+      display: none;
     }
-    &__logo{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: auto;
+    .actions--red{
       margin-top: 30px;
-      img{
-        height: 45px;
-      }
-      &__desc{
-        font-size: 12px;
-        text-align: center;
+      input{
+        background-color: red;
+        border: none;
+        color: white;
       }
     }
   }
