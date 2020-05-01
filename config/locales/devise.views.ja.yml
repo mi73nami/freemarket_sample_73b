@@ -23,7 +23,7 @@ ja:
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
         nickname: ニックネーム
-        birthdate: 誕生日
+        birthdate: 生年月日
         last_name: 苗字
         first_name: 名前
         ruby_last_name: 苗字（カナ）
