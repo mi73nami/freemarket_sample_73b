@@ -7,14 +7,12 @@
         .credit_cards-new__wrapper__form__cardnumber
           %label カード番号
           %span 必須
-
           = text_field_tag "number", "", class: "number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
           %br
         .credit_cards-new__wrapper__form__logos
           = image_tag "logo/visa.gif", height: '33', width: '46'
           = image_tag "logo/master.png"
           = image_tag "logo/jcb.gif"
-
         .credit_cards-new__wrapper__form__expiration-desc
           %label 有効期限
           %span 必須
@@ -55,4 +53,3 @@
           #card_token
         .credit_cards-new__wrapper__form__submit
           = submit_tag "追加する", id: "token_submit"
-

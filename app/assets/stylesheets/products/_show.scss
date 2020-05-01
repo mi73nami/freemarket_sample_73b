@@ -106,6 +106,19 @@
               text-decoration: none;
             }
           }
+          .products-show-itemBox__btn-grey{
+            line-height: 60px;
+            display: block;
+            margin: 16px 0 16px 0;
+            background: #AAAAAA;
+            color: #fff;
+            line-height: 56px;
+            text-align: center;
+            text-decoration: none;
+            a{
+              text-decoration: none;
+            }
+          }
 
 
           .l-single-container{
@@ -199,7 +212,8 @@
           margin: 10px 0 0;
           display: flex;
           justify-content: space-between;
-          ul{    
+          ul{
+            font-size: 14px;
             margin: 10px 0 0;
             display: flex;
             li:first-child{
