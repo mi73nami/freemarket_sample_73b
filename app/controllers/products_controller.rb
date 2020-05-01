@@ -26,7 +26,6 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.includes(:product_images).order('created_at DESC').find(params[:id])
-    @product_last_id = Product.last.id
     @categorys = Category.all
     @prefectures = Prefecture.all
   end
@@ -74,9 +73,9 @@ class ProductsController < ApplicationController
     @creditcard = CreditCard.where(user_id: current_user.id).first
     @address = ShipAddress.where(user_id: current_user.id).first
     @product = Product.find(params[:id])
-  #Payjpの秘密鍵を取得
+#Payjpの秘密鍵を取得
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-  #Payjpから顧客情報を取得し、表示
+#Payjpから顧客情報を取得し表示
     customer = Payjp::Customer.retrieve(@creditcard.customer_id)
     @creditcard_information = customer.cards.retrieve(@creditcard.card_id)
     @card_brand = @creditcard_information.brand 
@@ -100,9 +99,9 @@ class ProductsController < ApplicationController
 #クレジットカードと製品の変数を設定
     @creditcard = CreditCard.where(user_id: current_user.id).first
     @product = Product.find(params[:id])
-  #Payjpの秘密鍵を取得
+#Payjpの秘密鍵を取得
     Payjp.api_key= ENV["PAYJP_PRIVATE_KEY"]
-  #payjp経由で支払いを実行
+#payjp経由で支払いを実行
     charge = Payjp::Charge.create(
       amount: @product.price,
       customer: Payjp::Customer.retrieve(@creditcard.customer_id),
@@ -112,9 +111,6 @@ class ProductsController < ApplicationController
     @product_buyer= Product.find(params[:id])
     @product_buyer.update( buyer_id: current_user.id)
     redirect_to root_path, notice: '購入しました'
-  end
-
-  def purchased
   end
 
   def get_category_children

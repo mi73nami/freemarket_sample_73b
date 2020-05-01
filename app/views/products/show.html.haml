@@ -19,7 +19,6 @@
                     %li
                       = image_tag(i.image.url)
 
-
           .products-show-itemBox__price
             %span
               ¥
@@ -89,7 +88,6 @@
                   %td
                     = @product.shipping_days
 
-
           .products-show-fav_bad_btn
             %ul
               %li#likeBtn.optionalBtn.likeBtn
@@ -100,42 +98,33 @@
                 = link_to "/" do
                   %i.fa.fa-flag
                   不適切な商品の通報
-        .products-show-commentBox
-          %ul.commentContents
-          %form#new_comment.products-show-commentBox__new_comment{"accept-charset" => "UTF-8", :action => "#", :method => "post"}
-            %input{:name => "utf8", :type => "hidden", :value => "✓"}/
-            %input{:name => "authenticity_token", :type => "hidden", :value => "1NxpNJyDFYtsiCk9sjRs0RKxssQ/jbE95Yf1Rr6D9tO1kd7Cc6EsdZvTr9DslutaNcHzXHre4aMeKiUey8NWzA=="}/
-            %textarea#comment_body{:name => "comment[body]", :required => "required"}
-            %p.products-show-commentBox__new_comment__noticeMsg
-              相手のことを考え丁寧なコメントを心がけましょう。
-              %br/
-              不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            %br/
-            %button.products-show-commentBox__new_comment__commentBtn{:name => "button", :type => "submit"}
-              %i.fa.fa-comment
-              コメントする
+        -# コメント機能未実装
+        -# .products-show-commentBox
+        -#   %ul.commentContents
+        -#   %form#new_comment.products-show-commentBox__new_comment{"accept-charset" => "UTF-8", :action => "#", :method => "post"}
+        -#     %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+        -#     %input{:name => "authenticity_token", :type => "hidden", :value => ""}/
+        -#     %textarea#comment_body{:name => "comment[body]", :required => "required"}
+        -#     %p.products-show-commentBox__new_comment__noticeMsg
+        -#       相手のことを考え丁寧なコメントを心がけましょう。
+        -#       %br/
+        -#       不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        -#     %br/
+        -#     %button.products-show-commentBox__new_comment__commentBtn{:name => "button", :type => "submit"}
+        -#       %i.fa.fa-comment
+        -#       コメントする
 
       .products-show-link-block
         %ul.links
           %li
-            - p_back = @product.id -= 1
-            - if p_back == 0
-              %i.fa.fa-angle-left
-                前の商品
-            - else
-              = link_to product_path(p_back) do
-                %i.fa.fa-angle-left
-                前の商品
-
+            - if @product.previous.present?
+              = link_to product_path(@product.previous.id), class: 'link' do
+                = @product.previous.name
           %li
-            - next_id = @product.id += 1
-            - if @product_last_id > next_id
-              = link_to product_path(@product.id += 1) do
-                %i.fa.fa-angle-right
-                次の商品
-            - else
-              %i.fa.fa-angle-right
-              次の商品
+            - if @product.next.present?
+              = link_to product_path(@product.next), class: 'ink' do
+                = @product.next.name
+
       .products-show-relatedItems
         = link_to "" "#{@categorys.find(@product.category_id).name}" + "をもっと見る"
         .products-show-relatedItems__productLists
