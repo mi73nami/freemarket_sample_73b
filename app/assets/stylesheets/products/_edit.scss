@@ -7,9 +7,10 @@
 }
 
 .products_edit-lower-box{
-  background-color: #fff;
-  min-height: 150px;
-  min-width: 100%;
+  height: 150px;
+  width: 100%;
+  background-color: #f8f8f8;
+  border: dashed 1px #d3d3d3;
 
 }
 
@@ -18,4 +19,11 @@
   height: 100%;
   width: 100%;
   cursor: pointer;
+}
+
+.products_edit-preview-box{
+  text-align: center;
+  padding: 10px;
+  margin: 0 10px;
+  border: dashed 1px #d3d3d3;
 }

@@ -3,7 +3,7 @@ $(function(){
   const buildImg = (index, url)=> {
     const html = `<div data-index="${index}", class="products_edit-preview-box">
                     <div class="products_edit-upper-box">
-                      <img class= "image${index} product_edit-input_images", data-index="${index}" src="${url}" width="120px" height="120px">
+                      <img class= "image${index} product_edit-input_images", data-index="${index}" src="${url}" width="100px" height="100px">
                       <div class="products_edit-js-remove">
                         削除
                       </div>
@@ -17,7 +17,7 @@ $(function(){
                     <input class="product_edit-js-file" type="file"
                     name="product[product_images_attributes][${num}][image]"
                     id="product_images_attributes_${num}_image"
-                    style="display:none">
+                    style="display:none;">
                   </div>`;
     return html;
   }
@@ -56,9 +56,9 @@ $(function(){
     const hiddenCheck = $(`input[data-index="${targetIndex}"].product_edit-hidden-destroy`);
     // もしチェックボックスが存在すればチェックを入れる
     if (hiddenCheck) hiddenCheck.prop('checked', true);
-    $(this).parent().remove();
+    $(this).parent().parent().remove();
     $(`div[data-index="${targetIndex}"]`).remove();
     // 画像入力欄が0個にならないようにしておく
-    if ($('.product_edit-js-file').length == 0) $('..products_edit-lower-box__label').prepend(buildFileField(fileIndex[0]));
+    if ($('.product_edit-js-file').length == 0) $('.products_edit-lower-box__label').prepend(buildFileField(fileIndex[0]));
   });
 });
