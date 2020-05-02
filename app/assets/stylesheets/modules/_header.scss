@@ -37,7 +37,7 @@
           }
         }
         .search-btn{
-          height: 24px;
+          height: 40px;
           width: 36px;
           margin-bottom: 5px;
           border: 0;
@@ -45,9 +45,9 @@
           background-color: #3CCACE;
           padding: 8px;
 
-          img{
+          i.fas.fa-search.fa-2x{
             width: 100%;
-            vertical-align: bottom;
+            color: white;
           }
         }
       }
