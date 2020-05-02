@@ -7,14 +7,13 @@
 ## productsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null:false|　（商品名）
-|detail|text|null:false|　（商品説明）
-|condition|string|null:false|　（商品の状態）
-|delivery_fee|integer|null:false|　（配送料）
-|shipping_area|string|null:false|　（発送元）
-|shipping_days|integer|null:false| 　（発送までの日数）
-|price|integer|null:false|　（価格）
-|existence|enum|null:false| (商品が購入済みかどうか）
+|name|string|null:false|
+|detail|text|null:false|
+|condition|string|null:false|
+|delivery_fee|integer|null:false|
+|shipping_area|string|null:false|
+|shipping_days|integer|null:false| 
+|price|integer|null:false|
 |user_id|references|null: false, foreign_key: true|
 |buyer_id|references|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
@@ -55,14 +54,14 @@
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null:false　(ニックネーム)
-|email|string|null: false, uniqueness: true| (メール)
-|password|string|null: false, uniqueness: true|　(パスワード)
-|last_name|string|null: false|　(苗字)
-|first_name|string|null: false|　(名前)
-|ruby_last_name|string|null:false|　(苗字ひらがな)
-|ruby_first_name|string|null:false|　(名前ひらがな)
-|birthdate|date|null:false|　(生年月日)
+|nickname|string|null:false|
+|email|string|null: false, uniqueness: true|
+|password|string|null: false, uniqueness: true|
+|last_name|string|null: false|
+|first_name|string|null: false|
+|ruby_last_name|string|null:false|
+|ruby_first_name|string|null:false|
+|birthdate|date|null:false|
 ### Association
 - has_many :products
 - has_one :credit_card
@@ -72,10 +71,10 @@
 ## ship_addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|last_name|string|null:false|　(苗字)
-|first_name|string|null:false| (氏名)
-|ruby_last_name|string|null:false|　(苗字ひらがな)
-|ruby_first_name|string|null:false|　(名前ひらがな)
+|last_name|string|null:false|
+|first_name|string|null:false|
+|ruby_last_name|string|null:false|
+|ruby_first_name|string|null:false|
 |postal_code|integer|null: false| 
 |prefectures|string|null: false|
 |city|string|null: false|
@@ -93,7 +92,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
-|token|integer|null: false|
+|customer_id|references|null: false, foreign_key: true|
+|card_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 
