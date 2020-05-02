@@ -20,7 +20,7 @@
                           削除
                 = form.fields_for :product_images do |image|
                   - if @product.persisted?
-                    = image.check_box :_destroy, class: "delete-check-box-#{image.index}"
+                    = image.check_box :_destroy, class: "delete-check-box-#{image.index}", style:"display:none;"
               .products_edit-lower-box
                 %label.products_edit-lower-box__label
                   .products_edit-js-file_group{"data-index" => "#{@product.product_images.count}"}
