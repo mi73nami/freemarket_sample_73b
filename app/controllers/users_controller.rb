@@ -3,10 +3,6 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def create
-    User.create(user_params)
-  end
-
   def show
     @user = User.find(params[:id])
     @contents = [
@@ -37,15 +33,9 @@ class UsersController < ApplicationController
     # {name:"本人情報",path: "#",verb: "GET"},
     # {name:"電話番号の確認",path: "#",verb: "GET"},
     {name:"ログアウト",path: "/users/sign_out",verb: "DELETE"}]
-
   end
 
   def edit
-  end
-
-  private
-  def user_params
-    params.require(:user).permit(:image, :text).merge(user_id: current_user.id)
   end
 
 end
