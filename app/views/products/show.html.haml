@@ -65,12 +65,13 @@
                     %br
                     =link_to @categorys.find(@product.category_id).name
 
-                %tr
-                  %th ブランド
-                  %td
-                %tr
-                  %th 商品のサイズ
-                  %td
+                -# 現在未実装のためコメントアウト
+                -# %tr
+                -#   %th ブランド
+                -#   %td
+                -# %tr
+                -#   %th 商品のサイズ
+                -#   %td
                 %tr
                   %th 商品の状態
                   %td
@@ -119,11 +120,13 @@
           %li
             - if @product.previous.present?
               = link_to product_path(@product.previous.id), class: 'link' do
-                = @product.previous.name
+                %i.fa.fa-angle-left
+                前の商品
           %li
             - if @product.next.present?
               = link_to product_path(@product.next), class: 'ink' do
-                = @product.next.name
+                後ろの商品
+                %i.fa.fa-angle-right
 
       .products-show-relatedItems
         = link_to "" "#{@categorys.find(@product.category_id).name}" + "をもっと見る"
