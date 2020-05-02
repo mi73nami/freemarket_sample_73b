@@ -6,11 +6,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @contents = [
-    {name:"マイページ",path: "/users/#{@user.id}",verb: "GET"},
+    # {name:"マイページ",path: "/users/#{@user.id}",verb: "GET"},
     # {name: "お知らせ", path:"#", verb: "GET"},
     # {name: "やることリスト", path:"#", verb: "GET"},
     # {name: "いいね！一覧", path:"#", verb: "GET"},
-    {name: "出品する", path:"#", verb: "GET"},
+    {name: "出品する", path:"/products/new", verb: "GET"},
     # {name: "下書き一覧", path:"#", verb: "GET"},
     {name: "出品した商品-出品中", path:"#", verb: "GET"},
     # {name: "出品した商品-取引中", path:"#", verb: "GET"},
