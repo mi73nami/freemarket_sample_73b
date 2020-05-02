@@ -123,7 +123,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :detail,:condition,:category_id,:delivery_fee,:shipping_area,:shipping_days,:price,product_images_attributes: [:src, :_destroy, :id, :product_id, :image]).merge(user_id: current_user.id)
+    params.require(:product).permit(:name, :detail,:condition,:category_id,:delivery_fee,:shipping_area,:shipping_days,:price,product_images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def move_to_index

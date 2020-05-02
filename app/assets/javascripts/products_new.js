@@ -12,8 +12,8 @@ $(function(){
     return html;
   }
   const buildFileField = (num)=> {
-    const html = `<div data-index="${num}" class="product_new-js-file_group">
-                    <input class="product_new-js-file" type="file"
+    const html = `<div data-index="${num}" class="products_new-js-file_group">
+                    <input class="products_new-js-file" type="file"
                     name="product[product_images_attributes][${num}][image]"
                     id="product_images_attributes_${num}_image"
                     style= "display:none;">
@@ -22,8 +22,10 @@ $(function(){
   }
   // file_fieldのnameに動的なindexをつける為の配列
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
+  lastIndex = $('.products_new-js-file_group:last').data('index');
+  fileIndex.splice(0, lastIndex);
 
-  $('.products_new-image-box').on('change', '.product_new-js-file', function(e) {
+  $('.products_new-image-box').on('change', '.products_new-js-file', function(e) {
     const targetIndex = $(this).parent().data('index');
     // ファイルのブラウザ上でのURLを取得する
     const file = e.target.files[0];
@@ -39,6 +41,6 @@ $(function(){
 
   $('.products_new-image-box').on('click', '.products_new-js-remove', function() {
     $(this).parent().parent().remove();
-    if ($('.product_new-js-file').length == 0) $('.products_new-image-box').append(buildFileField(fileIndex[0]));
+    if ($('.products_new-js-file').length == 0) $('.products_new-image-box').append(buildFileField(fileIndex[0]));
   });
 });

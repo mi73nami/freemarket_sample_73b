@@ -15,16 +15,16 @@
                   - @product.product_images.each_with_index do |image, i|
                     .products_edit-preview-box{"data-index" => "#{i}"}
                       .products_edit-upper-box
-                        = image_tag image.image.url, width: "100", height: "100", alt: "preview", class: "product_edit-input_images"
+                        = image_tag image.image.url, width: "100", height: "100", alt: "preview", class: "products_edit-input_images"
                         .products_edit-js-remove
                           削除
                 = form.fields_for :product_images do |image|
                   - if @product.persisted?
-                    = image.check_box :_destroy, include_hidden: false, data:{ index: image.index },class: 'product_edit-hidden-destroy'
+                    = image.check_box :_destroy, include_hidden: false, data:{ index: image.index },class: 'products_edit-hidden-destroy'
               .products_edit-lower-box
                 %label.products_edit-lower-box__label
-                  .product_edit-js-file_group{"data-index" => "#{@product.product_images.count}"}
-                    = form.file_field :image, name: "product[product_images_attributes][#{@product.product_images.count}][image]", id: "product_images_attributes_#{@product.product_images.count}_image", class: 'product_edit-js-file', style: "display:none"
+                  .products_edit-js-file_group{"data-index" => "#{@product.product_images.count}"}
+                    = form.file_field :image, name: "product[product_images_attributes][#{@product.product_images.count}][image]", id: "products_images_attributes_#{@product.product_images.count}_image", class: 'products_edit-js-file', style: "display:none"
         .products_new-title
           .products_new-product__headline
             .products_new-product__headline--title 商品名
