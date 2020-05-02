@@ -7,7 +7,7 @@
           .products_new-product__headline
             .products_new-product__headline--title 出品画像
             .products_new-product__headline--required 必須
-          %p.products_new-product__explanation 最大10枚までアップロードできます
+          %p.products_new-product__explanation 最大5枚までアップロードできます
           .products_edit-image
             .products_edit-image-box
               .products_edit-content
@@ -20,7 +20,7 @@
                           削除
                 = form.fields_for :product_images do |image|
                   - if @product.persisted?
-                    = image.check_box :_destroy, include_hidden: false, data:{ index: image.index },class: 'products_edit-hidden-destroy'
+                    = image.check_box :_destroy, class: "delete-check-box-#{image.index}"
               .products_edit-lower-box
                 %label.products_edit-lower-box__label
                   .products_edit-js-file_group{"data-index" => "#{@product.product_images.count}"}

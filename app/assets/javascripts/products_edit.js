@@ -51,11 +51,10 @@ $(function(){
 
   // 削除ボタンの設定
   $('.products_edit-image-box').on('click', '.products_edit-js-remove', function() {
-    const targetIndex = $(this).prev().data('index');
-    // 該当indexを振られているチェックボックスを取得する
-    const hiddenCheck = $(`input[data-index="${targetIndex}"].products_edit-hidden-destroy`);
+    const targetIndex = $(this).parent().parent().data('index');
     // もしチェックボックスが存在すればチェックを入れる
-    if (hiddenCheck) hiddenCheck.prop('checked', true);
+    $(`.delete-check-box-${targetIndex}`).prop('checked', true);
+    // if (hiddenCheck) hiddenCheck.prop('checked', true);
     $(this).parent().parent().remove();
     $(`div[data-index="${targetIndex}"]`).remove();
     // 画像入力欄が0個にならないようにしておく

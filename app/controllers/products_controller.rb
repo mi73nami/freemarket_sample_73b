@@ -15,11 +15,23 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to root_path
     else
-      @product.product_images.new
-      @category_parent_array = ["選択してください"]
-      Category.where(ancestry: nil).each do |parent|
-        @category_parent_array << parent.name
-      end
+      grandchild_category = @product.category
+    child_category = grandchild_category.parent
+
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+
+    @category_children_array = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array << children
+    end
+
+    @category_grandchildren_array = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array << grandchildren
+    end
       render :new
     end
   end
