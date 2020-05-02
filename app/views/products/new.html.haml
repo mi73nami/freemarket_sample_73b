@@ -1,6 +1,7 @@
 .products_new-header
 .products_new-main
   .products_new-main__form
+    = render 'layouts/notifications'
     .products_new-main__form--product_new
       = form_with model: @product, local: true, id:"new_product" do |form|
         .products_new-newimage
@@ -13,9 +14,9 @@
               .products_new-content
               .products_new-uploader-box
                 %label.products_new-uploader__label
-                  = form.fields_for :product_images do |i|
-                    .product_newt-js-file_group{"data-index" => "#{@product.product_images.index}"}
-                      = form.file_field :image, class: 'product_new-js-file', style: "display:none"
+                  = form.fields_for :product_images do |image|
+                    .products_newt-js-file_group{"data-index" => "#{@product.product_images.index}"}
+                      = image.file_field :image, class: 'products_new-js-file', style: "display:none"
         .products_new-title
           .products_new-product__headline
             .products_new-product__headline--title 商品名

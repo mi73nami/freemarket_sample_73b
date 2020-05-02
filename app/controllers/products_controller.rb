@@ -15,12 +15,8 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to root_path
     else
-      @product.product_images.new
-      @category_parent_array = ["選択してください"]
-      Category.where(ancestry: nil).each do |parent|
-        @category_parent_array << parent.name
-      end
-      render :new
+      flash[:alert] = '投稿に失敗しました'
+      redirect_to action: 'new'
     end
   end
 
@@ -54,8 +50,16 @@ class ProductsController < ApplicationController
 
   def update
     product = Product.find(params[:id])
-    product.update(product_params)
-    redirect_to product_path(product.id)
+    if product.user_id == current_user.id
+      if product.update(product_params)
+        redirect_to product_path(product.id)
+      else
+        flash[:alert] = '投稿に失敗しました'
+        redirect_to action: 'edit'
+      end
+    else
+      render product_path(@product.id)
+    end
   end
 
   def destroy
@@ -123,7 +127,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :detail,:condition,:category_id,:delivery_fee,:shipping_area,:shipping_days,:price,product_images_attributes: [:src, :_destroy, :id, :product_id, :image]).merge(user_id: current_user.id)
+    params.require(:product).permit(:name, :detail,:condition,:category_id,:delivery_fee,:shipping_area,:shipping_days,:price,product_images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def move_to_index

@@ -3,7 +3,7 @@ $(function(){
   const buildImg = (index, url)=> {
     const html = `<div data-index="${index}", class="products_edit-preview-box">
                     <div class="products_edit-upper-box">
-                      <img class= "image${index} product_edit-input_images", data-index="${index}" src="${url}" width="100px" height="100px">
+                      <img class= "image${index} products_edit-input_images", data-index="${index}" src="${url}" width="100px" height="100px">
                       <div class="products_edit-js-remove">
                         削除
                       </div>
@@ -13,10 +13,10 @@ $(function(){
   }
   // 画像用のinputを生成する関数
   const buildFileField = (num)=> {
-    const html = `<div data-index="${num}" class="product_edit-js-file_group">
-                    <input class="product_edit-js-file" type="file"
+    const html = `<div data-index="${num}" class="products_edit-js-file_group">
+                    <input class="products_edit-js-file" type="file"
                     name="product[product_images_attributes][${num}][image]"
-                    id="product_images_attributes_${num}_image"
+                    id="products_images_attributes_${num}_image"
                     style="display:none;">
                   </div>`;
     return html;
@@ -24,12 +24,12 @@ $(function(){
   // file_fieldのnameに動的なindexをつける為の配列
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
   // 既に使われているindexを除外
-  lastIndex = $('.product_edit-js-file_group:last').data('index');
+  lastIndex = $('.products_edit-js-file_group:last').data('index');
   fileIndex.splice(0, lastIndex);
 
-  $('.product_edit-hidden-destroy').hide();
+  $('.products_edit-hidden-destroy').hide();
   
-  $('.products_edit-image-box').on('change', '.product_edit-js-file', function(e) {
+  $('.products_edit-image-box').on('change', '.products_edit-js-file', function(e) {
     const targetIndex = $(this).parent().data('index');
     // ファイルのブラウザ上でのURLを取得する
     const file = e.target.files[0];
@@ -51,14 +51,13 @@ $(function(){
 
   // 削除ボタンの設定
   $('.products_edit-image-box').on('click', '.products_edit-js-remove', function() {
-    const targetIndex = $(this).prev().data('index');
-    // 該当indexを振られているチェックボックスを取得する
-    const hiddenCheck = $(`input[data-index="${targetIndex}"].product_edit-hidden-destroy`);
+    const targetIndex = $(this).parent().parent().data('index');
     // もしチェックボックスが存在すればチェックを入れる
-    if (hiddenCheck) hiddenCheck.prop('checked', true);
+    $(`.delete-check-box-${targetIndex}`).prop('checked', true);
+    // if (hiddenCheck) hiddenCheck.prop('checked', true);
     $(this).parent().parent().remove();
     $(`div[data-index="${targetIndex}"]`).remove();
     // 画像入力欄が0個にならないようにしておく
-    if ($('.product_edit-js-file').length == 0) $('.products_edit-lower-box__label').prepend(buildFileField(fileIndex[0]));
+    if ($('.products_edit-js-file').length == 0) $('.products_edit-lower-box__label').prepend(buildFileField(fileIndex[0]));
   });
 });
