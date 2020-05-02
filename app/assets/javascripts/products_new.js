@@ -24,6 +24,7 @@ $(function(){
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
   lastIndex = $('.products_new-js-file_group:last').data('index');
   fileIndex.splice(0, lastIndex);
+  $('.products_new-hidden-destroy').hide();
 
   $('.products_new-image-box').on('change', '.products_new-js-file', function(e) {
     const targetIndex = $(this).parent().data('index');
@@ -40,7 +41,13 @@ $(function(){
   });
 
   $('.products_new-image-box').on('click', '.products_new-js-remove', function() {
+    const targetIndex = $(this).prev().data('index');
+    // 該当indexを振られているチェックボックスを取得する
+    const hiddenCheck = $(`input[data-index="${targetIndex}"].products_new-hidden-destroy`);
+    // もしチェックボックスが存在すればチェックを入れる
+    if (hiddenCheck) hiddenCheck.prop('checked', true);
     $(this).parent().parent().remove();
+    $(`div[data-index="${targetIndex}"]`).remove();
     if ($('.products_new-js-file').length == 0) $('.products_new-image-box').append(buildFileField(fileIndex[0]));
   });
 });
