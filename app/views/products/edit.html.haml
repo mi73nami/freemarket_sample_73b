@@ -8,14 +8,23 @@
             .products_new-product__headline--title 出品画像
             .products_new-product__headline--required 必須
           %p.products_new-product__explanation 最大10枚までアップロードできます
-          .products_new-image
-            .products_new-image-box
-              .products_new-content
-              .products_new-uploader-box
-                %label.products_new-uploader__label
-                  = form.fields_for :product_images do |i|
-                    .product_newt-js-file_group{"data-index" => "#{@product.product_images.index}"}
-                      = form.file_field :image, class: 'product_new-js-file', style: "display:none"
+          .products_edit-image
+            .products_edit-image-box
+              .products_edit-content
+                - if @product.persisted?
+                  - @product.product_images.each_with_index do |image, i|
+                    .products_edit-preview-box{"data-index" => "#{i}"}
+                      .products_edit-upper-box
+                        = image_tag image.image.url, width: "100", height: "100", alt: "preview", class: "product_edit-input_images"
+                        .products_edit-js-remove
+                          削除
+                = form.fields_for :product_images do |image|
+                  - if @product.persisted?
+                    = image.check_box :_destroy, include_hidden: false, data:{ index: image.index },class: 'product_edit-hidden-destroy'
+              .products_edit-lower-box
+                %label.products_edit-lower-box__label
+                  .product_edit-js-file_group{"data-index" => "#{@product.product_images.count}"}
+                    = form.file_field :image, name: "product[product_images_attributes][#{@product.product_images.count}][image]", id: "product_images_attributes_#{@product.product_images.count}_image", class: 'product_edit-js-file', style: "display:none"
         .products_new-title
           .products_new-product__headline
             .products_new-product__headline--title 商品名
@@ -33,7 +42,9 @@
               .products_new-product__headline--title カテゴリー
               .products_new-product__headline--required 必須
             .products_new-product_explanation__category--box
-              = form.select :category, @category_parent_array, {}, {class: "products_new-product_explanation__category--parent",id: 'parent_category'}
+              = form.select :parent_name, @category_parent_array, {selected: @product.category.parent.parent.name}, {class: "products_new-product_explanation__category--parent",id: 'parent_category'}
+              = form.select :child_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "選択してください", selected: @product.category.parent.id}),{},  {class: "products_new-product_explanation__category--children",id: 'children_category'}
+              = form.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "選択してください", selected: @product.category.id}),{}, {class: "products_new-product_explanation__category--grandchildren",id: 'grandchildren_category'}
           .products_new-product_explanation__brand
             .products_new-product__headline
               .products_new-product__headline--title ブランド
@@ -71,5 +82,5 @@
                 %p.products_new-product_price--yen ¥
                 = form.number_field :price, class: "products_new-product_price--box", placeholder:"0"
         .products_new-product__submit
-          = form.submit '出品する', class: "products_new-product__submit--btn"
+          = form.submit '変更する', class: "products_new-product__submit--btn"
 .products_new-footer

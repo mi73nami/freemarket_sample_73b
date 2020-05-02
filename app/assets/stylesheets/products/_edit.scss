@@ -1,0 +1,29 @@
+.products_edit-image-box{
+  display: flex;
+}
+
+.products_edit-content{
+  display: flex;
+}
+
+.products_edit-lower-box{
+  height: 150px;
+  width: 100%;
+  background-color: #f8f8f8;
+  border: dashed 1px #d3d3d3;
+
+}
+
+.products_edit-lower-box__label{
+  display:block;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+
+.products_edit-preview-box{
+  text-align: center;
+  padding: 10px;
+  margin: 0 10px;
+  border: dashed 1px #d3d3d3;
+}

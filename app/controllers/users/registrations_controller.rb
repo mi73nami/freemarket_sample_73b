@@ -42,7 +42,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_ship_address(@address.attributes)
     @user.save
     sign_in(:user, @user)
-    redirect_to root_path
+    redirect_to complete_users_path
   end
 
   protected

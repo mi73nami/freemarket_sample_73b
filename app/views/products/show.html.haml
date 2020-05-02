@@ -1,19 +1,10 @@
-=link_to "仮設置products_index", products_path
-
-
--# - @products.each do |product|
--#   .pickup_category__containerCategory__product--lists__list
--#     = link_to product_path(product.id), class: "pickup_category__containerCategory__product--lists__list" do
--#       = product.name
-
-
 .products-show-main
   .products-show-wrapper
     .products-show-contents
       .products-show-contents__topContent
         
         .products-show-itemBox
-          - if @product.seller_id.present? && @product.buyer_id.present?
+          - if @product.user_id.present? && @product.buyer_id.present?
             .products-show-itemBox__status
               = "Sold Out"
           %h2.products-show-itemBox__name
@@ -22,16 +13,11 @@
           .products-show-itemBox__pic
             %ul
               %li
-                -# - if
-                -# - else
-                  
                 = image_tag(@product.product_images.first.image.url)
                 %ul
                   - @product.product_images.each do |i|
                     %li
-                      -# =link_to product_path(i.id) do
                       = image_tag(i.image.url)
-
 
           .products-show-itemBox__price
             %span
@@ -50,8 +36,14 @@
                 %p.text-center or
                 -# = link_to "出品を一旦停止する", "#", class: "products-show-itemBox__btn-grey"
                 = link_to "この商品を削除する", product_path, method: :delete, data: { confirm: '【確認】削除すると二度と復活できません。本当に削除しますか？' }, class: "products-show-itemBox__btn-grey"
-          - else
-            = link_to "購入画面に進む", purchase_path, class: "products-show-itemBox__buy-btn"
+          - elsif @product.buyer_id.present? 
+            .products-show-itemBox__btn-grey 売り切れました
+          - elsif current_user.blank?
+            = link_to "購入画面に進む", new_user_session_path, data: { confirm: '【確認】購入はログインが必要です。移動しますか？' }, class: "products-show-itemBox__btn-grey"
+          - elsif current_user.credit_card.present?
+            = link_to "購入画面に進む", buy_product_path, class: "products-show-itemBox__buy-btn"
+          - else current_user.credit_card.blank?
+            = link_to "購入画面に進む", new_credit_card_path, data: { confirm: '【確認】クレジットカード登録が必要です。登録画面に移動しますか？' }, class: "products-show-itemBox__btn-grey"
 
 
           .products-show-detail
@@ -96,7 +88,6 @@
                   %td
                     = @product.shipping_days
 
-
           .products-show-fav_bad_btn
             %ul
               %li#likeBtn.optionalBtn.likeBtn
@@ -107,34 +98,33 @@
                 = link_to "/" do
                   %i.fa.fa-flag
                   不適切な商品の通報
-
-
-        .products-show-commentBox
-          %ul.commentContents
-          %form#new_comment.products-show-commentBox__new_comment{"accept-charset" => "UTF-8", :action => "#", :method => "post"}
-            %input{:name => "utf8", :type => "hidden", :value => "✓"}/
-            %input{:name => "authenticity_token", :type => "hidden", :value => "1NxpNJyDFYtsiCk9sjRs0RKxssQ/jbE95Yf1Rr6D9tO1kd7Cc6EsdZvTr9DslutaNcHzXHre4aMeKiUey8NWzA=="}/
-            %textarea#comment_body{:name => "comment[body]", :required => "required"}
-            %p.products-show-commentBox__new_comment__noticeMsg
-              相手のことを考え丁寧なコメントを心がけましょう。
-              %br/
-              不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            %br/
-            %button.products-show-commentBox__new_comment__commentBtn{:name => "button", :type => "submit"}
-              %i.fa.fa-comment
-              コメントする
+        -# コメント機能未実装
+        -# .products-show-commentBox
+        -#   %ul.commentContents
+        -#   %form#new_comment.products-show-commentBox__new_comment{"accept-charset" => "UTF-8", :action => "#", :method => "post"}
+        -#     %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+        -#     %input{:name => "authenticity_token", :type => "hidden", :value => ""}/
+        -#     %textarea#comment_body{:name => "comment[body]", :required => "required"}
+        -#     %p.products-show-commentBox__new_comment__noticeMsg
+        -#       相手のことを考え丁寧なコメントを心がけましょう。
+        -#       %br/
+        -#       不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        -#     %br/
+        -#     %button.products-show-commentBox__new_comment__commentBtn{:name => "button", :type => "submit"}
+        -#       %i.fa.fa-comment
+        -#       コメントする
 
       .products-show-link-block
         %ul.links
           %li
-            = link_to "#" do
-              %i.fa.fa-angle-left
-              前の商品
+            - if @product.previous.present?
+              = link_to product_path(@product.previous.id), class: 'link' do
+                = @product.previous.name
           %li
-            = link_to "#" do
-              %i.fa.fa-angle-right
-              後ろの商品
+            - if @product.next.present?
+              = link_to product_path(@product.next), class: 'ink' do
+                = @product.next.name
 
       .products-show-relatedItems
-        = link_to "" "ベビー・キッズをもっと見る"
+        = link_to "" "#{@categorys.find(@product.category_id).name}" + "をもっと見る"
         .products-show-relatedItems__productLists

@@ -1,0 +1,77 @@
+
+%main.products-purchase-wrapper
+  %section.products-purchase-wrapper__buy-item-container
+    %h2.products-purchase-wrapper__buy-item-container__buy-head 購入内容の確認
+
+    .products-purchase-buy-content
+      .products-purchase-buy-content__inner
+        .products-purchase-buy-content__inner__item-box
+          %h3.products-purchase-buy-content__inner__item-box__image
+            %img.products-purchase-buy-content__inner__item-box__image--img-loaded{:src => @product.product_images.first.image.url}/
+          .products-purchase-buy-content__inner__item-box__detail
+            %p.products-purchase-buy-content__inner__item-box__detail__name 
+              = @product.name
+            %p.products-purchase-buy-content__inner__item-box__detail__price-ja
+              %span
+                ¥
+                = @product.price.to_s(:delimited)
+              %span.products-purchase-buy-content__inner__item-box__detail__price-ja__shipping-fee （税込）送料込み
+
+    %section.products-purchase-buy-content
+      .products-purchase-buy-content__inner
+        = form_tag(action: :purchase, method: :post) do
+          %ul.products-purchase-buy-price-table
+            %li.products-purchase-buy-price-row
+              .products-purchase-buy-price-cell.buy-price-cell-label 支払い金額
+              .products-purchase-buy-price-cell
+                %span
+                ¥
+                = @product.price.to_s(:delimited)
+
+          %section.buy-user-info
+            .products-purchase-buy-content__inner
+              .clearfix
+                %h3.products-purchase-l-left 支払い方法
+                -# = link_to "変更する", "", {class: "products-purchase-l-right.buy-user-info-fix"} do
+              %p.products-purchase-buy-user-info-text
+                %br/
+                クレジットカード
+                %br/
+                = "**** **** **** " + @creditcard_information.last4
+                %br/
+                - mm = @creditcard_information.exp_month.to_s
+                - yy = @creditcard_information.exp_year.to_s.slice(2,3)
+                = mm + " / " + yy
+              %figure.products-purchase-buy-card-logo
+                %img{:alt => @card_brand, :height => "15", :src => "//pcweb-assets.mercdn.net/assets/img/card/visa.svg?2246739708", :width => "49"}/
+                -# = image_tag "#{@card_src}",alt: @card_brand, id: "card_image"
+              %p
+
+          %section.buy-user-info
+            .products-purchase-buy-content__inner
+              .clearfix
+                %h3.products-purchase-l-left 配送先
+                -# = link_to "変更する", "", {class: "products-purchase-l-right.buy-user-info-fix"} do
+              %address.products-purchase-buy-user-info-text
+                %p
+                  %br
+                  =@address.postal_code
+                  %br
+                  =@address.prefectures
+                  %br
+                  =@address.city
+                  =@address.address_detail
+                  =@address.apartment_name
+                  =@address.room_number
+                  %br
+                  =@address.phone_number
+                  %br
+                  =@user.last_name
+                  =@user.first_name
+          %section.buy-user-info
+            %p.products-purchase-has-info-text
+              郵便局/コンビニ受取をご希望の方は、購入後に
+              %span.products-purchase-bold> 取引画面
+              から受取場所を変更をすることが可能です。出品者が発送作業を開始した後は受取場所の変更ができませんので、早めに変更を行ってください。
+          %label.products-purchase-btn-default.btn-red.bold
+            = submit_tag("購入する", class:"purchase")

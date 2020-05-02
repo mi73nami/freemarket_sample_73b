@@ -1,0 +1,25 @@
+.credit_cards-show
+
+  .credit_cards-show__wrapper
+
+    .credit_cards-show__wrapper__content-title
+      支払い方法
+    .credit_cards-show__wrapper__cards-index
+
+      .credit_cards-show__wrapper__cards-index__title
+        登録クレジットカード情報
+
+      .credit_cards-show__wrapper__cards-index__detail
+
+        .credit_cards-show__wrapper__cards-index__detail__left
+          .credit_cards-show__wrapper__cards-index__detail__left__card-number
+            = "**** **** **** " + @default_card_information.last4
+          .credit_cards-show__wrapper__cards-index__detail__left__expiration-date
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
+        .credit_cards-show__wrapper__cards-index__detail__right
+          .credit_cards-show__wrapper__cards-index__detail__right__delete-button
+            = form_tag(delete_credit_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
+              %input{ type: "hidden", name: "card_id", value: "" }
+              %button 削除する
