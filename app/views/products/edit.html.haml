@@ -1,6 +1,7 @@
 .products_new-header
 .products_new-main
   .products_new-main__form
+    = render 'layouts/notifications'
     .products_new-main__form--product_new
       = form_with model: @product, local: true, id:"new_product" do |form|
         .products_new-newimage

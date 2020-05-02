@@ -15,24 +15,8 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to root_path
     else
-      grandchild_category = @product.category
-    child_category = grandchild_category.parent
-
-    @category_parent_array = []
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
-
-    @category_children_array = []
-    Category.where(ancestry: child_category.ancestry).each do |children|
-      @category_children_array << children
-    end
-
-    @category_grandchildren_array = []
-    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
-      @category_grandchildren_array << grandchildren
-    end
-      render :new
+      flash[:alert] = '投稿に失敗しました'
+      redirect_to action: 'new'
     end
   end
 
@@ -66,8 +50,16 @@ class ProductsController < ApplicationController
 
   def update
     product = Product.find(params[:id])
-    product.update(product_params)
-    redirect_to product_path(product.id)
+    if product.user_id == current_user.id
+      if product.update(product_params)
+        redirect_to product_path(product.id)
+      else
+        flash[:alert] = '投稿に失敗しました'
+        redirect_to action: 'edit'
+      end
+    else
+      render product_path(@product.id)
+    end
   end
 
   def destroy
