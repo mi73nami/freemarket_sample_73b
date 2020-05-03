@@ -7,17 +7,43 @@
         = link_to "#", class: "pickup_brand__products--head" do
           %h3.pickup_brand__head Christian Dior
       .pickup_brand__containerBrand__product--lists
-        - @products.each do |product|
-          .pickup_brand__containerBrand__product--lists__list
-            %figure.pickup_brand__product__images
-              = image_tag "https://static.mercdn.net/item/detail/orig/photos/m69199789239_1.jpg?1585451120", alt: "image_url", class:"pickup_brand__product__images--image"
-            
-            .pickup_brand__containerBrand__product--lists__list__body
-              %h3.pickup_brand__product--name
-                = product.name
-              .pickup_brand__containerBrand__product--lists__list__body__details
-                %ul.pickup_brand__details__menu
-                  %li
-                    = "#{product.price}円"
-                  %li ★
-              %p.pickup_brand__taxIncluded （税込）
+        
+        .pickup_brand__containerBrand__product--lists__list
+          %figure.pickup_brand__product__images
+            = image_tag "https://static.mercdn.net/item/detail/orig/photos/m69199789239_1.jpg?1585451120", alt: "image_url", class:"pickup_brand__product__images--image"
+          
+          .pickup_brand__containerBrand__product--lists__list__body
+            %h3.pickup_brand__product--name
+              ショルダーバッグ レザー ピンク レディース
+            .pickup_brand__containerBrand__product--lists__list__body__details
+              %ul.pickup_brand__details__menu
+                %li
+                  = "8600円"
+                %li ★
+            %p.pickup_brand__taxIncluded （税込）
+        .pickup_brand__containerBrand__product--lists__list
+          %figure.pickup_brand__product__images
+            = image_tag "https://wwws.dior.com/couture/ecommerce/media/catalog/product/cache/1/cover_image_1/870x580/17f82f742ffe127f42dca9de82fb58b1/C/A/1544518182_CAL44550_N0_E01_ZHC.jpg", alt: "image_url", class:"pickup_brand__product__images--image"
+          
+          .pickup_brand__containerBrand__product--lists__list__body
+            %h3.pickup_brand__product--name
+              ラムスキン "Lady Dior" バッグ
+            .pickup_brand__containerBrand__product--lists__list__body__details
+              %ul.pickup_brand__details__menu
+                %li
+                  = "528000円"
+                %li ★
+            %p.pickup_brand__taxIncluded （税込）
+        .pickup_brand__containerBrand__product--lists__list
+          %figure.pickup_brand__product__images
+            = image_tag "https://www.dior.com/beauty/version-5.1563986503612/resize-image/ep/3000/2000/90/0/MISSDIOR_2019%252F01_Covers%252FY0782210_F078222009_E01_ZHC.jpg", alt: "image_url", class:"pickup_brand__product__images--image"
+          
+          .pickup_brand__containerBrand__product--lists__list__body
+            %h3.pickup_brand__product--name
+              ミス ディオール アブソリュートリー ブルーミング
+            .pickup_brand__containerBrand__product--lists__list__body__details
+              %ul.pickup_brand__details__menu
+                %li
+                  = "8800円"
+                %li ★
+            %p.pickup_brand__taxIncluded （税込）
