@@ -78,7 +78,7 @@ class ProductsController < ApplicationController
     @address = ShipAddress.where(user_id: current_user.id).first
     @product = Product.find(params[:id])
 #Payjpの秘密鍵を取得
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
 #Payjpから顧客情報を取得し表示
     customer = Payjp::Customer.retrieve(@creditcard.customer_id)
     @creditcard_information = customer.cards.retrieve(@creditcard.card_id)
@@ -104,7 +104,7 @@ class ProductsController < ApplicationController
     @creditcard = CreditCard.where(user_id: current_user.id).first
     @product = Product.find(params[:id])
 #Payjpの秘密鍵を取得
-    Payjp.api_key= ENV["PAYJP_PRIVATE_KEY"]
+    Payjp.api_key= Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
 #payjp経由で支払いを実行
     charge = Payjp::Charge.create(
       amount: @product.price,
