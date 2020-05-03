@@ -46,6 +46,7 @@ $(function(){
     const hiddenCheck = $(`input[data-index="${targetIndex}"].products_new-hidden-destroy`);
     // もしチェックボックスが存在すればチェックを入れる
     if (hiddenCheck) hiddenCheck.prop('checked', true);
+    // 削除ボタンを取得
     $(this).parent().parent().remove();
     $(`div[data-index="${targetIndex}"]`).remove();
     if ($('.products_new-js-file').length == 0) $('.products_new-image-box').append(buildFileField(fileIndex[0]));
