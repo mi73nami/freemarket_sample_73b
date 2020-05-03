@@ -1,8 +1,10 @@
 # README
 
+## Diagram
+![](https://i.gyazo.com/4af357ba9936aa0d2f9a3f6d5fc79c69.png)
 
-### DB設計
 
+## DB設計
 
 ## productsテーブル
 |Column|Type|Options|
