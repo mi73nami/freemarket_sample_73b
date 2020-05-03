@@ -2,7 +2,6 @@
 
 ## ■ Summary
 - This is a clone website of Japanese EC site.
-- There are 4 people in our team.
 - We did agile software development with a team of 4
 
 ## ■ Function
@@ -37,7 +36,7 @@
 
 ## ■ Database Design
 
-### products table
+### ● products table
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null:false|
@@ -57,7 +56,7 @@
 - belongs_to :category
 - belongs_to :user
 
-### product_images table
+### ● product_images table
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null:false|
@@ -65,7 +64,7 @@
 #### Association
 - belongs_to :product
 
-### categories table
+### ● categories table
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null:false|
@@ -73,14 +72,14 @@
 #### Association
 - has_many :products
 
-### brands table
+### ● brands table
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 #### Association
 - has_many :products
 
-### users table
+### ● users table
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null:false|
@@ -96,7 +95,7 @@
 - has_one :credit_card
 - has_one :ship_address
 
-### ship_addresses table
+### ● ship_addresses table
 |Column|Type|Options|
 |------|----|-------|
 |last_name|string|null:false|
@@ -114,7 +113,7 @@
 #### Association
 - belongs_to :user
 
-### credit-cards table
+### ● credit-cards table
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
