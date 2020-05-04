@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   before_action :move_to_index_buy, only: [:buy, :purchase]
   before_action :move_to_index_purchased, only: [:buy, :purchase]
   before_action :move_to_index_destroy, only: [:destroy]
+  before_action :move_to_index_edit, only: [:edit]
 
   def new
     @product = Product.new
@@ -151,6 +152,11 @@ class ProductsController < ApplicationController
   def move_to_index_destroy
     @product = Product.find(params[:id])
     redirect_to root_path unless current_user.id == @product.user_id
+  end
+
+  def move_to_index_edit
+    @product = Product.find(params[:id])
+    redirect_to product_path(@product.id) unless current_user.id == @product.user_id
   end
 
 end
