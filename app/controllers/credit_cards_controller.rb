@@ -1,7 +1,7 @@
 class CreditCardsController < ApplicationController
-
   require "payjp"
-
+  before_action :move_to_index
+  
   def new
     card = CreditCard.where(user_id: current_user.id)
     redirect_to action: "show" if card.exists?
@@ -64,4 +64,10 @@ class CreditCardsController < ApplicationController
       end
     end
   end
+
+  private
+  def move_to_index
+    redirect_to root_path unless user_signed_in?
+  end
+
 end
