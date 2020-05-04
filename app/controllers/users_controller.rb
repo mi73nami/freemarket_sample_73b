@@ -35,9 +35,6 @@ class UsersController < ApplicationController
   ]
   end
 
-  def edit
-  end
-
   private
   def move_to_index
     redirect_to root_path unless user_signed_in?
