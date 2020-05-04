@@ -32,10 +32,8 @@ class UsersController < ApplicationController
     # {name:"メール/パスワード",path: "#",verb: "GET"},
     # {name:"本人情報",path: "#",verb: "GET"},
     # {name:"電話番号の確認",path: "#",verb: "GET"},
-    {name:"ログアウト",path: "/users/sign_out",verb: "DELETE"},
-    {name:"アカウント削除",path: "/users",verb: "DELETE"}
+    {name:"ログアウト",path: "/users/sign_out",verb: "DELETE"}
   ]
-
   end
 
   def edit
