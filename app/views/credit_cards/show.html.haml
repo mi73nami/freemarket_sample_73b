@@ -12,6 +12,11 @@
       .credit_cards-show__wrapper__cards-index__detail
 
         .credit_cards-show__wrapper__cards-index__detail__left
+          - if @card_brand == "American Express"
+            = image_tag "logo/#{@card_src}", height: '46', width: '46', alt: @card_brand, id: "card_image"
+          - else
+            = image_tag "logo/#{@card_src}", height: '33', width: '46', alt: @card_brand, id: "card_image"
+
           .credit_cards-show__wrapper__cards-index__detail__left__card-number
             = "**** **** **** " + @default_card_information.last4
           .credit_cards-show__wrapper__cards-index__detail__left__expiration-date

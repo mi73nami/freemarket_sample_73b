@@ -47,6 +47,21 @@ class CreditCardsController < ApplicationController
       Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
+      @card_brand = @default_card_information.brand
+      case @card_brand
+      when "Visa"
+        @card_src = "visa.gif"
+      when "JCB"
+        @card_src = "jcb.gif"
+      when "MasterCard"
+        @card_src = "master.png"
+      when "American Express"
+        @card_src = "amex.gif"
+      when "Diners Club"
+        @card_src = "diners.gif"
+      when "Discover"
+        @card_src = "discover.gif"
+      end
     end
   end
 end
