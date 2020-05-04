@@ -134,7 +134,7 @@ class ProductsController < ApplicationController
   end
 
   def move_to_index
-    redirect_to root_path unless user_signed_in?
+    redirect_to new_user_session_path unless user_signed_in?
   end
 
   def move_to_index_buy
