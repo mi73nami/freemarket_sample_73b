@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :users , only: [:show] do
+  resources :users, only: [:show] do
     collection do
       get :complete
     end
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   resources :categories, onlu: :index
 
-  resources :credit_cards do
+  resources :credit_cards, only: [:new, :show]do
     collection do
       post 'show', to: 'credit_cards#show'
       post 'pay', to: 'credit_cards#pay'
