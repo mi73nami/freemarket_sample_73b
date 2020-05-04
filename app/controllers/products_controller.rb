@@ -85,17 +85,17 @@ class ProductsController < ApplicationController
     @card_brand = @creditcard_information.brand 
     case @card_brand
     when "Visa"
-      @card_src = "visa.svg"
+      @card_src = "visa.gif"
     when "JCB"
-      @card_src = "jcb.svg"
+      @card_src = "jcb.gif"
     when "MasterCard"
-      @card_src = "master-card.svg"
+      @card_src = "master.png"
     when "American Express"
-      @card_src = "american_express.svg"
+      @card_src = "amex.gif"
     when "Diners Club"
-      @card_src = "dinersclub.svg"
+      @card_src = "diners.gif"
     when "Discover"
-      @card_src = "discover.svg"
+      @card_src = "discover.gif"
     end
   end
 

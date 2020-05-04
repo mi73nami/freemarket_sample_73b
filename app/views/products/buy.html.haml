@@ -43,9 +43,7 @@
                 - yy = @creditcard_information.exp_year.to_s.slice(2,3)
                 = mm + " / " + yy
               %figure.products-purchase-buy-card-logo
-                %img{:alt => @card_brand, :height => "15", :src => "//pcweb-assets.mercdn.net/assets/img/card/visa.svg?2246739708", :width => "49"}/
-                -# = image_tag "#{@card_src}",alt: @card_brand, id: "card_image"
-              %p
+                = image_tag "logo/#{@card_src}", height: '33', width: '46', alt: @card_brand, id: "card_image"
 
           %section.buy-user-info
             .products-purchase-buy-content__inner

@@ -1,5 +1,5 @@
 $(function(){
-  // プレビュー用のimgタグを生成する関数
+  // プレビュー用のボックスを生成するための関数
   const buildImg = (index, url)=> {
     const html = `<div data-index="${index}", class="products_new-preview-box">
                     <div class="products_new-upper-box">
@@ -11,6 +11,7 @@ $(function(){
                 </div>`;
     return html;
   }
+  // プレビュー用imgタグを生成するための関数
   const buildFileField = (num)=> {
     const html = `<div data-index="${num}" class="products_new-js-file_group">
                     <input class="products_new-js-file" type="file"
@@ -46,6 +47,7 @@ $(function(){
     const hiddenCheck = $(`input[data-index="${targetIndex}"].products_new-hidden-destroy`);
     // もしチェックボックスが存在すればチェックを入れる
     if (hiddenCheck) hiddenCheck.prop('checked', true);
+    // 削除ボタンを取得
     $(this).parent().parent().remove();
     $(`div[data-index="${targetIndex}"]`).remove();
     if ($('.products_new-js-file').length == 0) $('.products_new-image-box').append(buildFileField(fileIndex[0]));

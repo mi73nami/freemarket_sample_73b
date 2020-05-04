@@ -12,6 +12,11 @@
       .credit_cards-show__wrapper__cards-index__detail
 
         .credit_cards-show__wrapper__cards-index__detail__left
+          - if @card_brand == "American Express"
+            = image_tag "logo/#{@card_src}", height: '46', width: '46', alt: @card_brand, id: "card_image"
+          - else
+            = image_tag "logo/#{@card_src}", height: '33', width: '46', alt: @card_brand, id: "card_image"
+
           .credit_cards-show__wrapper__cards-index__detail__left__card-number
             = "**** **** **** " + @default_card_information.last4
           .credit_cards-show__wrapper__cards-index__detail__left__expiration-date
@@ -20,6 +25,6 @@
             = exp_month + " / " + exp_year
         .credit_cards-show__wrapper__cards-index__detail__right
           .credit_cards-show__wrapper__cards-index__detail__right__delete-button
-            = form_tag(delete_credit_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
+            = form_tag(delete_credit_cards_path, method: :post, data: { confirm: "【確認】クレジットカード情報を削除してよろしいですか？\n（削除後も再登録可能です）" }, id: 'charge-form',  name: "inputForm") do
               %input{ type: "hidden", name: "card_id", value: "" }
               %button 削除する
