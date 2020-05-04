@@ -16,32 +16,31 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    @user = User.new(sign_up_params)
-    unless @user.valid?
+    @user = User.new(sign_up_params) #登録1ページ目から送られてきたパラメータを@userに代入
+    unless @user.valid? #validメソッドを使ってバリデーションチェック
       flash.now[:alert] = @user.errors.full_messages
-      render :new and return
+      render :new and return #and returnを使って条件分岐を明示的に終了させている。
     end
    
-    session["devise.regist_data"] = {user: @user.attributes}
-    session["devise.regist_data"][:user]["password"] = params[:user][:password]
-    @address = @user.build_ship_address
-    render :new_address
+    session["devise.regist_data"] = {user: @user.attributes} 
+    #sessionにハッシュオブジェクトで情報保持させるため、attributesメソッドでデータ整形。
+    session["devise.regist_data"][:user]["password"] = params[:user][:password] #上記で含まれなかった情報を代入
+    @address = @user.build_ship_address 
+    #build_ship_addressメソッドはhas_one :ship_addressのアソシエーションを設定すると使用可。関連づけのあるnewメソッドのようなもの。
+    render :new_address #登録2ページ目に遷移
   end
-   
-  # def new_address
-  #   @ship_address = Ship_address.new
-  # end
 
   def create_address
-    @user = User.new(session["devise.regist_data"]["user"])
+    @user = User.new(session["devise.regist_data"]["user"]) #1ページ目のsessionデータと
     @address = ShipAddress.new(address_params)
     unless @address.valid?
       flash.now[:alert] = @address.errors.full_messages
       render :new_address and return
     end
-    @user.build_ship_address(@address.attributes)
+    @user.build_ship_address(@address.attributes) #送られてきたparamsをbuild_ship_addressを用いて@userに代入
     @user.save
-    sign_in(:user, @user)
+    session["devise.regist_data"]["user"].clear #sessionを明示的に削除
+    sign_in(:user, @user) #登録後ログイン状態になるようにしている
     redirect_to complete_users_path
   end
 
