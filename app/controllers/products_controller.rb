@@ -61,7 +61,8 @@ class ProductsController < ApplicationController
         redirect_to action: 'edit'
       end
     else
-      render product_path(@product.id)
+      flash[:alert] = '投稿に失敗しました'
+      redirect_to action: 'edit'
     end
   end
 
