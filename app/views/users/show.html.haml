@@ -25,8 +25,8 @@
             = link_to s[:path],method: s[:verb] do
               = s[:name]
               
-      .users.show__left-wrapper__settings__destroy
-        = link_to "アカウント削除", user_registration_path, method: :delete, data: { confirm: "【確認】アカウントを削除してもよろしいですか？" }
+      -# .users.show__left-wrapper__settings__destroy
+      -#   = link_to "アカウント削除", user_registration_path, method: :delete, data: { confirm: "【確認】アカウントを削除してもよろしいですか？" }
  
   .users.show__right-wrapper
     .users.show__right-wrapper__head
