@@ -3,7 +3,7 @@ class CreditCardsController < ApplicationController
   before_action :move_to_index
   
   def new
-    card = CreditCard.where(user_id: current_user.id)
+    card = CreditCard.where(user_id: current_user.id) #クレジットカードテーブルにcurrent_userのカードが存在するか確認
     redirect_to action: "show" if card.exists?
   end
 
@@ -14,10 +14,12 @@ class CreditCardsController < ApplicationController
       redirect_to action: "new"
     else
       customer = Payjp::Customer.create(
-      description: '登録テスト', #なくてもOK
-      card: params['payjp-token'],
-      metadata: {user_id: current_user.id}
-      ) #念の為metadataにuser_idを入れましたがなくてもOK
+      description: '登録テスト', #無くてもOK。PAY.JPの顧客詳細の備考に反映される。
+      card: params['payjp-token'], #直前のnewアクションで発火したJSにより発行され、送られてくるトークンをここで顧客に紐付けて保存。
+      metadata: {user_id: current_user.id} #無くてもOK。
+      )
+
+      # さらにMySqlに保存するための記述
       @card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
         redirect_to action: "show"
@@ -27,7 +29,7 @@ class CreditCardsController < ApplicationController
     end
   end
 
-  def delete #PayjpとCardデータベースを削除します
+  def delete #PayjpとCardデータベースを削除します #なぜdeleteなのか。payアクションにしている理由も気になる。
     card = CreditCard.where(user_id: current_user.id).first
     if card.blank?
     else
