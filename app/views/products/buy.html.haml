@@ -19,7 +19,8 @@
 
     %section.products-purchase-buy-content
       .products-purchase-buy-content__inner
-        = form_tag(action: :purchase, method: :post) do
+        -# = form_tag(action: :purchase, method: :post) do
+        = form_with(url: purchase_product_path, local: true, method: :post) do |form|
           %ul.products-purchase-buy-price-table
             %li.products-purchase-buy-price-row
               .products-purchase-buy-price-cell.buy-price-cell-label 支払い金額
@@ -72,4 +73,4 @@
               %span.products-purchase-bold> 取引画面
               から受取場所を変更をすることが可能です。出品者が発送作業を開始した後は受取場所の変更ができませんので、早めに変更を行ってください。
           %label.products-purchase-btn-default.btn-red.bold
-            = submit_tag("購入する", class:"purchase")
+            = form.submit('購入する')
