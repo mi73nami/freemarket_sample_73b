@@ -24,14 +24,30 @@ class Users::RegistrationsController < Devise::RegistrationsController
    
     session["devise.regist_data"] = {user: @user.attributes} 
     #sessionにハッシュオブジェクトで情報保持させるため、attributesメソッドでデータ整形。
-    session["devise.regist_data"][:user]["password"] = params[:user][:password] #上記で含まれなかった情報を代入
+
+    session["devise.regist_data"][:user][:password] = params[:user][:password] 
+    #前述で含まれなかった情報を代入。
+    #[:user]["password"]となっていたのを[:user][:password]に書き換えました。
+    #ネットでは、sessionに関して、ネスト構造になっている場合は、2階層目以降を文字列表記にする必要があるとの噂がありましたが、両方ともシンボル型でOKとのこと。
+    #要は、前述のコードがシンボル型ならこの箇所もシンボル型に、文字列ならこの箇所も文字列に、合わせる必要がある。
+
+    #params[:user][:password]において、paramsの中身（userモデルのpasswordカラム）から値を取り出している。ネスト構造な書き方。
+    # （params[:password]ではなく、params[:user][:password]という書き方で、モデル・カラムという順番で指定している）
+    #その値をsession["devise.regist_data”]の中の[:user]というハッシュの[“password”]というキーのバリューに代入している。
+
     @address = @user.build_ship_address 
     #build_ship_addressメソッドはhas_one :ship_addressのアソシエーションを設定すると使用可。関連づけのあるnewメソッドのようなもの。
     render :new_address #登録2ページ目に遷移
   end
 
   def create_address
-    @user = User.new(session["devise.regist_data"]["user"]) #1ページ目のsessionデータと
+    @user = User.new(session["devise.regist_data"]["user"])
+    #session["devise.regist_data”]の中の["user”]というハッシュの情報を@userに代入している。
+
+    #user、という同じハッシュがアクションをまたぐ（create~create_address）と、create_addressアクションにおいては自動的に文字列になってしまう。
+    #binding.pryで検証すると確認できるとのこと。
+    #そのため文字列表記で指定しないといけない。
+
     @address = ShipAddress.new(address_params)
     unless @address.valid?
       flash.now[:alert] = @address.errors.full_messages
@@ -39,17 +55,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
     @user.build_ship_address(@address.attributes) #送られてきたparamsをbuild_ship_addressを用いて@userに代入
     @user.save
-    session["devise.regist_data"]["user"].clear #sessionを明示的に削除
+    session["devise.regist_data"]["user"].clear #sessionを明示的に削除 セキュリティ上必要
     sign_in(:user, @user) #登録後ログイン状態になるようにしている
     redirect_to complete_users_path
   end
 
   protected
    
-  def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :email, :password, :last_name, :first_name, :ruby_last_name, :ruby_first_name, :birthdate ])
-  end
-
   def address_params
     params.require(:ship_address).permit(:last_name, :first_name, :ruby_last_name, :ruby_first_name, :postal_code, :prefectures, :city, :address_detail, :apartment_name, :room_number, :phone_number)
   end
