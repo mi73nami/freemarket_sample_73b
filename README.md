@@ -1,5 +1,24 @@
 # README
 
+## ■ Production environment
+- URL  http://18.181.117.206/
+- ID: 　　 73b
+- Pass: 　73b
+
+### test account
+#### buyer account
+- email: guest_user@gmail.com
+- password: guest0000
+##### buyer credit card
+- number: 4242424242424242
+- deadline: 06/2020
+- security code: 000
+
+#### seller account
+- email: seller_user@gmail.com
+- password: seller0000
+
+
 ## ■ Summary
 - This is a clone website of Japanese EC site.
 - We did agile software development with a team of 4
